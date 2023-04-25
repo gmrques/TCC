@@ -1,3 +1,11 @@
+<?php
+
+include __DIR__.'/INCLUDES/header.php';
+include __DIR__.'/INCLUDES/listagem.php';
+include __DIR__.'/INCLUDES/footer.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,30 +21,6 @@
     <title>Nome do site</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
-            <!-- Colocar ícone do perfil com dropdown -->
-            <ul class="navlist">
-                <a href="#"><i class='home bx bx-home'></i></a>
-                <a href="#"><i class='support bx bx-support'></i></a>
-                <a href="#"><i class='bx bx-chat'></i></a>
-                <div class="container1">
-                    <div class="icon">
-                        <i class='search bx bx-search-alt'></i>
-                    </div>
-                    <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
-                        <i class='close bx bx-x'></i>
-                    </div>
-                </div>
-                <div class="user-drop">
-                    <img class="user" src="CSS/IMG/user/icon.png"></img>
-                    <!-- Colocar ícone de perfil do usuário -->
-                </div>
-            </ul>
-        </nav>
-    </div>
     <main>
         <div class="wrapper">
             <i id="left" class="bx bxs-chevron-left"></i>
@@ -56,15 +40,5 @@
             <i id="right" class="bx bxs-chevron-right" ></i>
         </div>
     </main>
-    <footer>
-        <div id="social-media">
-            <a href="#"><i class='bx bxl-spotify'></i></a>
-            <a href="#"><i class='bx bxl-facebook'></i></a>
-            <a href="#"><i class='bx bxl-pinterest-alt'></i></a>
-            <a href="#"><i class='bx bxl-instagram'></i></a>
-            <a href="#"><i class='bx bxl-youtube'></i></a>
-            <a href="#"><i class='bx bxl-twitter'></i></a>
-        </div>
-    </footer>
 </body>
 </html>

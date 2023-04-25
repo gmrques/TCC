@@ -17,6 +17,7 @@
         <nav>
             <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
         </nav>
+    </header>
     </div>
     <main>
         <div id="box">
