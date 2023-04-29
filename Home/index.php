@@ -1,10 +1,24 @@
 <?php
-
-include __DIR__.'/INCLUDES/header.php';
-include __DIR__.'/INCLUDES/listagem.php';
-include __DIR__.'/INCLUDES/footer.php';
-
+    //  switch(@$_REQUEST["page"]) {
+    //  case "":
+    //     include("");
+    //     break;
+    //  case "":
+    //     include("");
+    //     break;
+    //  case "":
+    //     include("");
+    //     break;
+    //  case "":
+    //     include("");
+    //     break;
+    //  default:
+    //     echo"<h2>Mensagem de teste<h2>";
+    //  }
+    // feito para levar até as outras páginas, porém elas ainda não existem;
+    // colocar dentro do href dos itens da navbar "href= ?page=nomeDaPágina.php".
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

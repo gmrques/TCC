@@ -23,7 +23,7 @@
         <div id="box">
             <div id="inner-box">
                 <div id="form-wrap">
-                    <form action="index.html" autocomplete="off" class="sing-in-form">
+                    <form action="?page=Home/index.php" method="POST" autocomplete="off" class="sing-in-form">
                         <div class="parrot">
                             <img src="CSS/IMG/brand-icon/parrot.png" alt="parrot icon">
                             <h4>Nome da empresa</h4>
