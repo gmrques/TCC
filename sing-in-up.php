@@ -1,3 +1,9 @@
+<?php
+
+include("Validation/sing-in.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +24,6 @@
             <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
         </nav>
     </header>
-    </div>
     <main>
         <div id="box">
             <div id="inner-box">
@@ -38,7 +43,7 @@
                         <div class="actual-form">
                             <div class="input-wrap">
                                 <input type="text" minlength="4" class="input-field" autocomplete="off" required />
-                                <label>Usuário</label>
+                                <label>Nome de usuário</label>
                             </div>
                             <div class="input-wrap">
                                 <input type="text" minlength="4" class="input-field" autocomplete="off" required />
