@@ -40,7 +40,7 @@ nav h4:hover {
 }
 
 .navlist a{
-    font-size: 28px;
+    font-size: 35px;
     color: #1F1F1F;
     transition: 0.5s;
     margin-left: 30px;
@@ -190,7 +190,7 @@ main {
 .wrapper {
     max-width: 1200px;
     position: relative;
-    top: -15%;
+    top: -22%;
 }
 
 .wrapper p {
@@ -276,7 +276,7 @@ main {
 
 /* Sublime Material Theme */
 /* Parei nos 20:29 */
-/* https://www.youtube.com/watch?v=7HPsdVQhpRw */
+/* https://www.youtube.com/watch?v=7HPsdVQhpRw */   
 
 footer {
     background-color: #3b8a62;

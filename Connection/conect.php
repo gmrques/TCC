@@ -1,11 +1,18 @@
 <?php
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "db";
+class Connection{
+    private $usuario = "root";
+    private $senha = "";
+    private $banco = "tcc" ;
+    private $host = "localhost";
+    private $conn;
 
-$mysqli = new mysqli($host, $username, $password, $database); 
-if ($mysqli-> connect_errno) {
-    echo"Ocorreu o erro: (". $mysqli-> connect_errno . "ao tentar conectar com o banco de dados";
+    public function __construct(){
+        $this->$conn = mysqli_connect($this->$usuario, $this->senha, $this->host) or die("Erro ao conectar o banco de dados").mysqli_error($this->$conn);
+
+        mysqli_select_db($this->$conn, $this-> $banco) or die("Erro ao achar o banco de dados").mysqli_error($this->$conn);
+    }
+    public function getConn(){
+        return $this->$conn;
+    }
 }

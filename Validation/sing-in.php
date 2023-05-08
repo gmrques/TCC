@@ -1,5 +1,5 @@
 <?php
-include ("Connection/conect.php");
+include_once ("Connection/conect.php");
 if (isset($_POST["USERNAME"]) || ($_POST["PASSWORD"])) {
     if(strlen ($_POST["USERNAME"]) == 0) {
         echo "<alert>Preencha com seu Usuário!!</alert>";

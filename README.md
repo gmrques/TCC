@@ -4,9 +4,10 @@
 > ## Status: Incompleto.
 > Front-end: 30%;<br>Back-end: 0%.
 
-> ## Alterações futuras:
-> + Terminar tela de feed;
-> + Fazer a tela de perfil (incluindo personalização);
-> + Fazer a tela de resultados da pesquisa e filtros;
-> + Fazer os cards da publicação;
-> + Fazer telas de outros perfis.
+> ## Próximas alterações:
+> + 09/04- 1° Organizar a parte de cadastro novamente, que infelizmente foi perdida;
+> + 09/04- 2° Fazer as validações de cadastro;
+> + 09/04- 3° Testar o cadastro e login;
+> + 09/04- 4° Encaixar o Front-end do perfil do usuário;
+> + 09/04- 5° Corrigir bug no Classes/User.php.
+
