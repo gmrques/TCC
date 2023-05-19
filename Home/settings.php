@@ -62,19 +62,19 @@
                                 <label for="PHONE_NUMBER">Telefone</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="fullname" class="input-field" name="FULL_NAME" autocomplete="off" value="<?php echo $FULL_NAME ?>"/>
+                                <input type="text" class="input-field" name="FULL_NAME" autocomplete="off" value="<?php echo $FULL_NAME ?>"/>
                                 <label for="FULL_NAME">Nome completo</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="username" class="input-field" name="USERNAME" autocomplete="off" value="<?php echo $USERNAME ?>"/>
+                                <input type="text" class="input-field" name="USERNAME" autocomplete="off" value="<?php echo $USERNAME ?>"/>
                                 <label for="USERNAME">Nome de usuário</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="pass" class="input-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
+                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
                                 <label for="PASSWORD">Senha</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="confpass" class="input-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
+                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
                                 <label for="PASSWORD">Confirmar senha</label>
                             </div>
                             <input type="submit" value="Atualizar" class="sign-button">

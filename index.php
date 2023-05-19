@@ -47,7 +47,7 @@ include_once("Validation/sing-up.php");
                                 <label for="USERNAME">Nome de usuário</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="text" minlength="4" class="input-field" name="PASSWORD" autocomplete="off" required />
+                                <input type="password" minlength="4" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
                             <input type="submit" value="Entrar" class="sign-button">
@@ -76,19 +76,19 @@ include_once("Validation/sing-up.php");
                                 <label for="PHONE_NUMBER">Telefone</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="fullname" class="input-field" name="FULL_NAME" autocomplete="off" required />
+                                <input type="text" class="input-field" name="FULL_NAME" autocomplete="off" required />
                                 <label for="FULL_NAME">Nome completo</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="username" class="input-field" name="USERNAME" autocomplete="off" required />
+                                <input type="text" class="input-field" name="USERNAME" autocomplete="off" required />
                                 <label for="USERNAME">Nome de usuário</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="pass" class="input-field" name="PASSWORD" autocomplete="off" required />
+                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
                             <div class="input-wrap">
-                                <input type="confpass" class="input-field" name="PASSWORD" autocomplete="off" required />
+                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Confirmar senha</label>
                             </div>
                             <input type="submit" value="Cadastrar" class="sign-button">
