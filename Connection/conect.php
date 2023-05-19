@@ -1,11 +1,24 @@
 <?php
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "db";
+include('Connection/conect.php');
+$db = new Database();
 
-$mysqli = new mysqli($host, $username, $password, $database); 
-if ($mysqli-> connect_errno) {
-    echo"Ocorreu o erro: (". $mysqli-> connect_errno . "ao tentar conectar com o banco de dados";
+class Connection{
+    private $usuario = "root";
+    private $senha = "";
+    private $banco = "tcc" ;
+    private $host = "localhost";
+    private $conn;
+
+    public function getConnection(){
+        $this->conn = null;
+        try{
+            $this->conn = new PDO("mysql:host=". $this->host.";dbname=". $this->db_name, $this->username, $this->password);
+            $this->conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch(PDOException $e){
+                echo "Erro na conexão: ". $e->getMessage();
+        }
+
+        return $this->conn;
+    }
 }

@@ -4,9 +4,7 @@
 > ## Status: Incompleto.
 > Front-end: 30%;<br>Back-end: 0%.
 
-> ## Alterações futuras:
-> + Terminar tela de feed;
-> + Fazer a tela de perfil (incluindo personalização);
-> + Fazer a tela de resultados da pesquisa e filtros;
-> + Fazer os cards da publicação;
-> + Fazer telas de outros perfis.
+> ## Próximas alterações:
+> + 19/05- Arrumar bug no JS;
+> + 19/05- Criar código de animação no JS para o settings.php;
+> + 19/05- Finalizar de pelo menos 3 páginas dentro da pasta home.
