@@ -17,7 +17,7 @@ include_once("Validation/sing-up.php");
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="JS/index.js"></script>
+    <script defer src="JS/search-register.js"></script>
     <title>Nome do site</title>
 </head>
 <body>

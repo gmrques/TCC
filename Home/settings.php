@@ -9,7 +9,8 @@
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="JS/feed.js"></script>
+    <script defer src="JS/script-search.js"></script>
+    <script defer src="JS/script-settings.js"></script>
     <title>Nome do site</title>
 </head>
 <body>
@@ -42,19 +43,19 @@
     <main>
         <div class="box">
             <div class="left-box-prs">
-                <a class="tab">
+                <a onclick="showU('.update-user-form')">
                     <i class='bx bxs-user' aria-hidden="true"></i>
                 </a>
-                <a class="tab">
+                <a onclick="showP('#palette-form')">
                     <i class='bx bxs-palette' aria-hidden="true"></i>
                 </a>
-                <a class="tab">
+                <a onclick="('')">
                     <i class='bx bx-log-out' aria-hidden="true"></i>
                 </a>
             </div>
             <div class="right-box-prs">
                 <div class="profile tabShow">
-                    <form method="POST" action="?action=update" autocomplete="off" class="sing-up-form">
+                    <form method="POST" action="?action=update" autocomplete="off" class="update-user-form">
                         <h1>Atualize suas informações :)</h1>
                         <div class="actual-form">
                             <div class="input-wrap">
@@ -80,11 +81,11 @@
                             <input type="submit" value="Atualizar" class="sign-button">
                         </div>
                     </form>
-                    <!-- <form method="POST" action="?action=X" autocomplete="off" class="sing-up-form">
+                    <form method="POST" action="?action=X" autocomplete="off" class="palette-form">
 
-                         ADICIONAR INFORMAÇÕES NA TABELA USUÁRIO 
+                         <!-- ADICIONAR INFORMAÇÕES NA TABELA USUÁRIO 
                          Foto de perfil, cargo, biografia, data de nascimento, status
-                         Criar um método dentro do arquivo operations, para dar um create nessas informações
+                         Criar um método dentro do arquivo operations, para dar um create nessas informações -->
 
                         <h1>Dê a sua cara ao perfil!</h1>
                         <div class="actual-form">
@@ -109,7 +110,7 @@
                             </div>
                             <input type="submit" value="Salvar" class="sign-button">
                         </div>
-                    </form> -->
+                    </form>
             </div>
         </div>
     </main>

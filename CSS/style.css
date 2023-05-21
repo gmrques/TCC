@@ -818,7 +818,7 @@ main.sing-up-mode #carousel {
     border-radius: 30px;
     padding: 15px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: background 0.5s;
     font-size: 30px;
     font-weight: bold;
     font-family:  'Nunito', sans-serif;;
@@ -834,14 +834,18 @@ main.sing-up-mode #carousel {
     transition: 0.5s;
 }
 
-.dropdown i{
-    font-size: 25px;
-    margin-left: 20px;
-    color: #464646;
+.caret{
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 13px solid #464646;
+    transition: 0.5s;
+    margin-left: 10%;
 }
 
-.dropdown i-rotate{
-    transform: rotate(1800deg);
+.caret-rotate{
+    transform: rotate(180deg);
 }
 
 .menu {
@@ -850,8 +854,12 @@ main.sing-up-mode #carousel {
     font-size: 27px;
     font-family: 'Nunito', 'sans-serif';;
     background-color: #b3b3b3;
+    padding: 15px;
     border-radius: 30px;
+    border: 2px solid #1F1F1F;
     position: absolute;
+    left: 50%;
+    width: 100%;
     transform: translateX(-50%);
     opacity: 0;
     display: none;
@@ -862,14 +870,17 @@ main.sing-up-mode #carousel {
 
 .menu li {
     cursor: pointer;
+    padding: 5px;
 }
 
 .menu li:hover {
-    background: #464646;
+    background: #999999;
+    border-radius: 10px;
 }
 
-.active {
-    background: #464646;
+.menu.active {
+    background: #797979;
+    border-radius: 10px;
 }
 
 .menu-open {
@@ -881,11 +892,24 @@ main.sing-up-mode #carousel {
 /* ////////////////////////////////////// */
 /* FORMULÁRIO DE ATUALIZAÇÃO DE PERFIL */
 
+form.update-user-form, form.palette-form {
+    opacity: 0;
+    margin-left: 35%;
+    transition: 0.8s;
+}
+
+form.update-user-form.active, form.palette-form.active {
+    opacity: 1;
+    display: block;
+    transition: 0.8s;
+}
+
 .right-box-prs {
     max-width: calc(100% - 30%);
     height: calc(100% - 10%);
     position: relative;
     top: -95%;
+    overflow: hidden;
 }
 
 .left-box-prs {
@@ -895,19 +919,28 @@ main.sing-up-mode #carousel {
     left: 5%;
     top: -2.5%;
     background: #fbdb44;
-    border-radius: 50px;
+    border-radius: 35px;
+    box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.15);
+    transition: 0.8s;
+}
+
+.left-box-prs:hover {
     box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.3);
     -webkit-box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.3);
+    transition: 0.8s;
 }
 
 .left-box-prs a {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 25px;
+    padding: 30%;
     font-size: 50px;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .left-box-prs a:hover {
@@ -915,11 +948,6 @@ main.sing-up-mode #carousel {
     letter-spacing: 1px;
     transition: 0.5s;
     cursor: pointer;
-}
- 
-form h1 {
-    margin-bottom: 10%;
-    margin-top: 10%;
 }
 
 /* ////////////////////////////////////// */
