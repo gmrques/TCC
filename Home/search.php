@@ -42,19 +42,24 @@
     </header>
     <main>
         <div class="box">
-            <div class="dropdown">
-                <div class="select">
-                    <span class="selected">Pessoas</span>
-                    <div class="caret"></div>
+            <div class="top-box">
+                <h2>Encontramos os seguintes <br>resultados para a pesquisa " ":</h2>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected">Pessoas</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li class="active">Pessoas</li>
+                        <li>Teste</li>
+                        <li>Teste</li>
+                        <li>Teste</li>
+                    </ul>
                 </div>
-                <ul class="menu">
-                    <li class="active">Pessoas</li>
-                    <li>Teste</li>
-                    <li>Teste</li>
-                    <li>Teste</li>
-                </ul>
             </div>
-            
+            <div class="bottom-box">
+                <!-- AVERIGUAR A FORMA QUE O RESULTADO SERÁ EXIBIDO -->
+            </div>
         </div>
     </main>
     <footer>
