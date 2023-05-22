@@ -17,7 +17,7 @@ include_once("Validation/sing-up.php");
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="JS/search-register.js"></script>
+    <script defer src="JS/script-register.js"></script>
     <title>Nome do site</title>
 </head>
 <body>
@@ -102,7 +102,7 @@ include_once("Validation/sing-up.php");
                 </div>
                 <div id="carousel">
                     <div class="images-wrapper">
-                        <img src="CSS/IMG/carousel/1.jpg" class="image img-1" alt="">
+                        <img src="CSS/IMG/carousel/1.jpg" class="image img-1 show" alt="">
                         <img src="CSS/IMG/carousel/2.jpg" class="image img-2" alt="">
                         <img src="CSS/IMG/carousel/3.jpg" class="image img-3" alt="">
                         <img src="CSS/IMG/carousel/8.jpg" class="image img-4" alt="">

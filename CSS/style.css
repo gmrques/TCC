@@ -296,6 +296,7 @@ form.sing-up-form {
     text-decoration: none;
     font-weight: bold;
     transition: 0.8s;
+    cursor: pointer;
 }
 
 #heading1 a:hover, #heading2 a:hover {
@@ -498,6 +499,7 @@ main.sing-up-mode #carousel {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .bullets span {
@@ -819,89 +821,39 @@ main.sing-up-mode #carousel {
     font-weight: bold;
     background: #dbdbdb;
     border-radius: 0% 0% 8% 8%;
+    border-top: 2px solid black;
 }
 
-.dropdown {
-    max-width: 175px;
-    position: relative;
-    margin: 20px;
-}
-
-.dropdown * {
-    box-sizing: border-box;
-}
-
-.select {
+.top-box select {
     background: #b3b3b3;
     color: #1F1F1F;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 3px;
     padding: 10px;
     cursor: pointer;
-    transition: background 0.5s;
     font-size: 25px;
+    font-weight: bold;
     font-family:  'Nunito', sans-serif;;
     margin-bottom: 15px;
-}
-
-.select:hover {
-    background: #cfcfcf;
-    transition: 0.5s;
-}
-
-.caret{
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 13px solid #464646;
-    transition: 0.5s;
-    margin-left: 10%;
-}
-
-.caret-rotate{
-    transform: rotate(180deg);
-}
-
-.menu {
-    list-style: none;
-    padding: 0px 25px 0px 25px;
-    font-size: 25px;
-    font-family: 'Nunito', 'sans-serif';;
-    background-color: #b3b3b3;
-    padding: 10px;
-    border-radius: 15px;
     position: absolute;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    opacity: 0;
-    display: block;
-    transition: 0.3s;
-    z-index: 1;
-    cursor: pointer;
+    left: 80%;
+    top: 5%;
 }
 
-.menu li {
-    cursor: pointer;
-    padding: 5px;
+.top-box option {
+    background: #b3b3b3;
+    color: #1F1F1F;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family:  'Nunito', sans-serif;
 }
 
-.menu li:hover {
-    background: #999999;
-    border-radius: 10px;
-}
-
-.menu.active {
-    background: #797979;
-    border-radius: 10px;
-}
-
-.menu-open {
-    display: block;
-    opacity: 1;
+.top-box option:hover {
+    background: #b3b3b3;
+    color: #1F1F1F;
 }
 
 /* ////////////////////////////////////// */

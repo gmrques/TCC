@@ -44,21 +44,31 @@
         <div class="box">
             <div class="top-box">
                 <h2>Encontramos os seguintes <br>resultados para a pesquisa " ":</h2>
-                <div class="dropdown">
-                    <div class="select">
-                        <span class="selected">Pessoas</span>
-                        <div class="caret"></div>
-                    </div>
-                    <ul class="menu">
-                        <li class="active">Pessoas</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                    </ul>
-                </div>
+                <select class="menu">
+                    <option value="1">Pessoas</option>
+                    <option value="2">Teste</option>
+                    <option value="3">Teste</option>
+                    <option value="4">Teste</option>
+                </select>
             </div>
             <div class="bottom-box">
-                <!-- AVERIGUAR A FORMA QUE O RESULTADO SERÁ EXIBIDO -->
+                <section>
+                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
+                    cada section específica para um filtro -->
+                </section>
+                <section>
+                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
+                    cada section específica para um filtro -->
+                </section>
+                <section>
+                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
+                    cada section específica para um filtro -->
+                </section>
+                <section>
+                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
+                    cada section específica para um filtro -->
+                </section>
+
             </div>
         </div>
     </main>
