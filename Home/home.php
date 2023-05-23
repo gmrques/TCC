@@ -42,12 +42,10 @@
         <nav>
             <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
             <ul class="navlist">
-                <a href="?page=index.php"><i class='home bx bx-home'></i></a>
-                <a href="#"><i class='support bx bx-support'></i></a>
+                <a href="#"><i style="font-size: 45px"class='support bx bx-support'></i></a>
+                <a href="#"><i class='bx bx-plus'></i></a>
                 <a href="#"><i class='bx bx-chat'></i></a>
-                <div class="publish">
-                    <a href="#"><i class='bx bx-plus'></i></a>
-                </div>
+                <a href="#"><i class='bx bxs-user-circle'></i></a>
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
@@ -56,10 +54,6 @@
                         <input type="text" placeholder="Pesquisar" id="search">
                         <i class='close bx bx-x'></i>
                     </div>
-                </div>
-                <div class="user-drop">
-                    <img class="user" src="CSS/IMG/user/icon.png"></img>
-                    <!-- Colocar ícone de perfil do usuário -->
                 </div>
             </ul>
         </nav>
@@ -82,6 +76,8 @@
             </div>
             <i id="right" class="bx bxs-chevron-right" ></i>
         </div>
+        <!-- As publicações serão feitas em formato de card, com duas sections abaixo da nav para que o
+        usuário selecione o que quer ver -->
     </main>
     <footer>
         <div id="social-media">
