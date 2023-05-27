@@ -1,6 +1,5 @@
-<?php
+ <!-- <?php
     require_once("Connection/conect.php");
-    
     //  switch(@$_REQUEST["page"]) {
     //  case "":
     //     include("");
@@ -18,9 +17,8 @@
     //     echo"<h2>Mensagem de teste<h2>";
     //  }
     // feito para levar até as outras páginas, porém elas ainda não existem;
-    // colocar dentro do href dos itens da navbar "href= ?page=nomeDaPágina.php".
-?>
-
+    // colocar dentro do href dos itens da navbar "href= ?page=nomeDaPágina.php". 
+?> -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,7 +26,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style-home.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">

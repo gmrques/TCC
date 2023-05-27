@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style-support.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
@@ -17,7 +17,7 @@
         <nav>
             <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
             <ul class="navlist">
-                <a href="#"><i style="font-size: 45px"class='support bx bx-support'></i></a>
+                <a href="#"><i class='bx bx-support'></i></a>
                 <a href="#"><i class='bx bx-plus'></i></a>
                 <a href="#"><i class='bx bx-chat'></i></a>
                 <a href="#"><i class='bx bxs-user-circle'></i></a>
@@ -26,7 +26,7 @@
                         <i class='search bx bx-search-alt'></i>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
+                        <input type="text" placeholder="Pesquisar">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
@@ -35,9 +35,19 @@
     </header>
     <main>
         <div class="box">
-            <table>
-                
-            </table>
+            <form method="POST" action="?action=update" autocomplete="off" enctype="multipart/form-data" class="support-form">
+                <h1>Fale conosco!</h1>
+                <div class="support-inner-box">
+                    <div class="support-input">
+                        <input type="text" minlength=50 class="input-field" name="SUPPORT_MENSAGE" autocomplete="off"/>
+                        <label for="SUPPORT_MENSAGE">Envie sua mensagem</label>
+                    </div>
+                    <div class="support-input">
+                        <input type="file" class="input-field" name="PRINT"/>
+                    </div>
+                    <input type="submit" value="Enviar" class="support-button">
+                </div>
+            </form>
         </div>
     </main>
     <footer>

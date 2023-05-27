@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style-settings.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
@@ -18,7 +18,7 @@
         <nav>
             <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
             <ul class="navlist">
-                <a href="#"><i style="font-size: 45px"class='support bx bx-support'></i></a>
+                <a href="#"><i class='bx bx-support'></i></a>
                 <a href="#"><i class='bx bx-plus'></i></a>
                 <a href="#"><i class='bx bx-chat'></i></a>
                 <a href="#"><i class='bx bxs-user-circle'></i></a>

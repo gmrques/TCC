@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style-search.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
@@ -38,25 +38,22 @@
         <div class="box">
             <div class="top-box">
                 <h2>Encontramos os seguintes <br>resultados para a pesquisa " ":</h2>
-                <select class="menu">
-                    <option value="1">Pessoas</option>
-                    <option value="2">Teste</option>
-                    <option value="3">Teste</option>
-                    <option value="4">Teste</option>
+                <select id="menu">
+                    <option value="1">Todos</option>
+                    <option value="2">Pessoas</option>
+                    <option value="3">Lugares</option>
+                    <option value="4">Postagens</option>
                 </select>
             </div>
             <div class="bottom-box">
                 <section>
-                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
-                    cada section específica para um filtro -->
+                    <h3>Pessoas</h3>
                 </section>
                 <section>
-                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
-                    cada section específica para um filtro -->
+                    <h3>Lugares</h3>
                 </section>
                 <section>
-                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
-                    cada section específica para um filtro -->
+                    <h3>Artigos</h3>
                 </section>
                 <section>
                     <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo

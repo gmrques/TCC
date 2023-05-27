@@ -12,7 +12,7 @@ include_once("Validation/sing-up.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style-index.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
@@ -43,6 +43,10 @@ include_once("Validation/sing-up.php");
                         </div>
                         <div class="actual-form">
                             <div class="input-wrap">
+                                <input type="email" minlength="4" class="input-field" name="EMAIL" autocomplete="off" required />
+                                <label for="EMAIL">Email</label>
+                            </div>
+                            <div class="input-wrap">
                                 <input type="text" minlength="4" class="input-field" name="USERNAME" autocomplete="off" required />
                                 <label for="USERNAME">Nome de usuário</label>
                             </div>
@@ -72,8 +76,8 @@ include_once("Validation/sing-up.php");
 
                         <div class="actual-form">
                             <div class="input-wrap">
-                                <input type="tel" class="input-field" name="PHONE_NUMBER" autocomplete="off" required />
-                                <label for="PHONE_NUMBER">Telefone</label>
+                                <input type="email" class="input-field" name="EMAIL" autocomplete="off" required />
+                                <label for="EMAIL">Email</label>
                             </div>
                             <div class="input-wrap">
                                 <input type="text" class="input-field" name="FULL_NAME" autocomplete="off" required />

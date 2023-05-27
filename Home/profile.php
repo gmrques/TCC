@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style-profile.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
@@ -26,7 +26,7 @@
                         <i class='search bx bx-search-alt'></i>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
+                        <input type="text" placeholder="Pesquisar">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
