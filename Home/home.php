@@ -60,11 +60,11 @@
     <main>
         <div class="box">
             <div class="top-home-box">
-                <p value="1">Mais recentes</p>
-                <p value="2">Melhores avaliados</p>
+                <p>Mais recentes</p>
             </div>
             <div class="bottom-home-box">
                 <!-- html/css dos artigos (cards horizontais) -->
+                <!-- Fazer operação no backend que compare uma variavel de data de postagem dos cards -->
             </div>
         </div>
     </main>

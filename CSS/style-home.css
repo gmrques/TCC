@@ -185,6 +185,30 @@ main {
 /* ////////////////////////////////////// */
 /* home */
 
+.top-home-box {
+    height: 10%;
+    width: 100%;
+}
+
+.top-home-box p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.4em;
+    font-size: 2em;
+    font-weight: 550;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.top-home-box p:hover {
+    color: #21b469;
+    transition: 0.5s;
+    letter-spacing: 0.01em;   
+}
+
 
 /* ////////////////////////////////////// */
 /* FOOTER DE BASE */

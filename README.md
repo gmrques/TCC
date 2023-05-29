@@ -3,9 +3,13 @@
 
 > ## Status: Incompleto.
 
-> ## Próximas alterações:
-
-> ## Próximas alterações/Listagem de erros:
-> Conforme o desenvolvimento do projeto serão listados os erros recorrentes.
-> + Terminar/Arrumar todo o Css/Html/Js até 01/06;
-> + Incrementar informações a respeito das publicações no banco de dados.
+> ## FRONTEND =>
+> + <s>index.php = Completo;</s>
+> + home.php = falta o design dos cards (horizontal);
+> + destination.php = falta o Javascript;
+> + gastronomy.php = falta o Javascript e design dos cards (horizontal);
+> + profile.php = falta o Javascript e design da biografia;
+> + publish.php = falta o Javascript e design do form para publicar;
+> + roadmap.php = falta o Javascript e design dos cards (1:1);
+> + search.php = falta terminar o Javascript e design dos cards (os cards anteriores);
+> + settings.php = arrumar javascript, css e design dos forms (os cards anteriores).

@@ -180,12 +180,96 @@ main {
     -moz-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 /* /////////////////////////////// */
 /* destination */
 
+.top-destination-box {
+    height: 10%;
+    width: 100%;
+}
+ 
+.top-destination-box .location {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.4em;
+    position: relative;
+    left: 2em;
+    right: 2em;
+    font-size: 2em;
+    font-weight: 550;
+    transition: 0.5s;
+    cursor: pointer;
+}
 
+.top-destination-box .location:hover {
+    color: #21b469;
+    transition: 0.5s;
+    letter-spacing: 0.01em;
+}
+
+.bottom-destination-box {
+    height: 90%;
+    width: 100%;
+}
+ 
+.container_card {
+    display: inline-flex;
+}
+
+.card_sul img, .card_sudeste img, .card_centro_oeste img, .card_norte img, .card_nordeste img {
+    height: 15em;
+    width: 15em;
+    border-radius: 2em;
+    transition: 0.5s;
+}
+ 
+.card_sul img:hover, .card_sudeste img:hover, .card_centro_oeste img:hover, .card_norte img:hover, .card_nordeste img:hover {
+    height: 16em;
+    width: 16em;
+    transition: 0.5s;
+    cursor: pointer;
+}
+ 
+.card_sul, .card_sudeste, .card_centro_oeste, .card_norte, .card_nordeste {
+    height: 15em;
+    width: 15em;
+    margin-left: 3em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    align-items: center;
+    box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.6);
+    border-radius: 2em;
+    overflow: hidden;
+}
+ 
+.card_sul h2, .card_sudeste h2, .card_centro_oeste h2, .card_norte h2, .card_nordeste h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container_card .intro {
+    font-size: 1em;
+    box-sizing: border-box;
+    position: relative;
+    bottom: 6em;
+    padding-left: 0.8em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    
+}
+ 
 /* ////////////////////////////////////// */
 /* FOOTER DE BASE */
 
