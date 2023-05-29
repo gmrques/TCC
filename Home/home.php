@@ -31,19 +31,19 @@
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="JS/script-search.js"></script>
-    <script defer src="JS/script-carrousel.js"></script>
+    <script defer src="JS/script-home.js"></script>
     <title>Nome do site</title>
 </head>
-<body>
     <header>
         <nav>
-            <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
+            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
             <ul class="navlist">
-                <a href="#"><i style="font-size: 45px"class='support bx bx-support'></i></a>
-                <a href="#"><i class='bx bx-plus'></i></a>
-                <a href="#"><i class='bx bx-chat'></i></a>
-                <a href="#"><i class='bx bxs-user-circle'></i></a>
+                <a href="#">Destinos</a>
+                <a href="#">Dicas</a>
+                <a href="#">Roteiros</a>
+                <a href="#">Gastronomia</a>
+                <a href=""><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
+                <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
@@ -56,27 +56,19 @@
             </ul>
         </nav>
     </header>
+    <body>
     <main>
-        <div class="wrapper">
-            <i id="left" class="bx bxs-chevron-left"></i>
-            <p class="title">Bem vindo de volta</p>
-            <div class="carousel">
-                <img src="CSS/IMG/other-profiles/header1.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header2.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header3.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header4.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header5.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header1.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header2.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header3.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header4.jpg" alt="" draggable="false">
-                <img src="CSS/IMG/other-profiles/header5.jpg" alt="" draggable="false">
+        <div class="box">
+            <div class="top-home-box">
+                <p value="1">Mais recentes</p>
+                <p value="2">Melhores avaliados</p>
             </div>
-            <i id="right" class="bx bxs-chevron-right" ></i>
+            <div class="bottom-home-box">
+                <!-- html/css dos artigos (cards horizontais) -->
+            </div>
         </div>
-        <!-- As publicações serão feitas em formato de card, com duas sections abaixo da nav para que o
-        usuário selecione o que quer ver -->
     </main>
+    </body>
     <footer>
         <div id="social-media">
             <a href="#"><i class='bx bxl-spotify'></i></a>
@@ -87,5 +79,4 @@
             <a href="#"><i class='bx bxl-twitter'></i></a>
         </div>
     </footer>
-</body>
 </html>

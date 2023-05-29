@@ -8,6 +8,8 @@ close.onclick = function() {
     document.querySelector(".container1").classList.toggle("active");
 }
 
+// Filtrar os resultados de busca =>
+
 var select_search = document.getElementById('menu');
 select_search.addEventListener('change', function(){
     switch (menu) {

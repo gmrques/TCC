@@ -1,3 +1,5 @@
+// Slider e formulário que troca indo de um lado para o outro =>
+
 const inputs = document.querySelectorAll(".input-field");
 const toggle_btn = document.querySelectorAll(".toggle");
 const main = document.querySelector("main");

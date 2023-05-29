@@ -14,21 +14,23 @@ li {
 }
 
 #logo {
-    height: 3em;
-    width: 3em;
+    height: 3.2em;
+    width: 3.2em;
+    margin-top: 0.7em;
 }
 
-nav h4 {    
+nav a {    
     font-size: 2em;
     color: #1F1F1F;
     transition: 0.5s;
     text-align: center;
+    text-decoration: none;
     align-items: center;
     display: flex;
-    margin-top: 1em;
+    font-weight: 550;
 }
-
-h4:hover {
+ 
+a:hover {
     transition: 0.5s;
     color: #21b469;
 }
@@ -36,42 +38,37 @@ h4:hover {
 nav {
     display:flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     font-family: 'Montserrat', sans-serif;
     background: #F0F0F0;
     height: 10vh;
-    box-shadow: 0px 15px 0px 0px #fbdb44;
-    -webkit-box-shadow: 0px 15px 0px 0px #fbdb44;
-    -moz-box-shadow: 0px 15px 0px 0px #fbdb44;
+    border-bottom: 0.5em solid #fbdb44;
 }
 
 .navlist {
     display: flex;
-    text-decoration: none;
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 3em;
-    left: -50em;
-    background: #fbdb44;
+    top: center;
+    left: center;
     border-radius: 5em;
     padding: 0.2em 1em 0.2em 1em;
-    box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.3);
-    -webkit-box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 1px 5px 20px 0px rgba(0,0,0,0.3);
 }
-
+ 
 .navlist a{
-    font-size: 3em;
+    font-size: 1.7em;
     color: #1F1F1F;
     transition: 0.5s;
     list-style: none;
     text-decoration: none;
-    padding: 0.2em;
+    padding-right: 0.5em;
+    font-weight: 550;
 }
 
 .navlist a:hover {
     transition: 0.5s;
+    letter-spacing: 0.05em;
     color: #21b469;
 }
 
@@ -83,6 +80,7 @@ nav {
     position: relative;
     transition: 0.8s;
     overflow: hidden;
+    border: 2px transparent #1F1F1F;
 }
 
 .container1.active {
@@ -98,31 +96,6 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-.home {
-    font-size: 1.5em;
-    left: 1.5em;
-    top: 5em;
-    margin-right: 1em;
-    transition: 0.5s;
-}
-
-.home:hover {
-    color: #21b469;
-    transition: 0.8s;
-}
-
-.support {
-    font-size: 35px;
-    left: 1.5em;
-    top: 5em;
-    margin-right: 0.5em;
-}
-
-.support:hover {
-    color: #21b469;
-    transition: 0.8s;
-}
-
 .input {
     position: relative;
     width: 37em;
@@ -136,18 +109,18 @@ nav {
     width: 100%;
     border: none;
     outline: none;
-    font-size: 1.2em;
+    font-size: 1.5em;
     text-indent: 0.5em;
 }
 
 .container1 .input .close {
     position: absolute;
-    top: 0.8em;
-    right: 8.5em;
+    top: 0.6em;
+    right: 7em;
     transform: translate(-50%, -50%);
-    font-size: 2em;
+    font-size: 2.5em;
     cursor: pointer;
-    color: #f55f65;
+    color: #fa3c43;
     opacity: 0.7;
 }
 
@@ -158,7 +131,6 @@ nav {
 }
 
 main {
-    margin-top: 0.9em;
     font-family: 'Nunito', sans-serif;
     background: url("IMG/carousel/3.jpg");
     background-size: cover;
@@ -188,7 +160,7 @@ main {
 }
  
 ::-webkit-scrollbar-thumb {
-    background: #f55f65;
+    background: #f54c52;
     border-radius: 5em;
 }
 
@@ -201,7 +173,7 @@ main {
     position: relative;
     width: 100%;
     max-width: calc(100% - 30%);
-    height: calc(100% - 15%);
+    height: calc(100% - 8%);
     border-radius: 5em;
     box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
     -webkit-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
@@ -216,25 +188,24 @@ main {
 .top-box {
     width: 100%;
     height: 15%;
-    padding: 2%;
+    padding: 1.5em;
     /* background: red; */
     display: flex;
     justify-content: space-between;
-    font-size: 22px;
+    font-size: 1.4em;
     font-weight: bold;
 }
 
 .bottom-box {
     width: 100%;
-    height: 82%;
-    margin-top: 3%;
+    height: 80.5%;
+    margin-top: 1.5em;
     display: flex;
     justify-content: space-between;
-    font-size: 22px;
+    font-size: 1.4em;
     font-weight: bold;
     background: #dbdbdb;
-    border-radius: 0% 0% 8% 8%;
-    border-top: 2px solid black;
+    border-radius: 0 0 4em 4em;
 }
 
 .top-box select {
@@ -243,23 +214,23 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 3px;
-    padding: 10px;
+    border-radius: 0.3em;
+    padding: 0.4em;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 1.2em;
     font-weight: bold;
     font-family:  'Nunito', sans-serif;;
-    margin-bottom: 15px;
+    margin-bottom: 1em;
     position: absolute;
-    left: 80%;
-    top: 5%;
+    right: 3em;
+    top: 1em;
 }
 
 .top-box option {
     background: #b3b3b3;
     color: #1F1F1F;
-    padding: 10px;
-    font-size: 25px;
+    padding: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     font-family:  'Nunito', sans-serif;
 }

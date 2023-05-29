@@ -15,18 +15,20 @@
 <body>
     <header>
         <nav>
-            <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
+            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
             <ul class="navlist">
-                <a href="#"><i style="font-size: 45px"class='support bx bx-support'></i></a>
-                <a href="#"><i class='bx bx-plus'></i></a>
-                <a href="#"><i class='bx bx-chat'></i></a>
-                <a href="#"><i class='bx bxs-user-circle'></i></a>
+                <a href="#">Destinos</a>
+                <a href="#">Dicas</a>
+                <a href="#">Roteiros</a>
+                <a href="#">Gastronomia</a>
+                <a href="#"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
+                <a href="#"><i style="font-size: 1.5em;" class='user bx bxs-user'></i></a>
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar">
+                        <input type="text" placeholder="Pesquisar" id="search">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
@@ -41,32 +43,22 @@
             </div>
             <!-- Até aqui tudo certo -->
             <div class="about">
-                <h2>Ana Campos</h2>
-                <h4><i>Turismóloga</i></h4>
-                <button class="dm"><i class='bx bx-chat'></i>Enviar mensagem</button>
-                <button class="follow"><i class='bx bx-plus'></i>Seguir</button>
+                <h2>Sinforinho Junior</h2>
+                <h4><i>Teste</i></h4>
                 <ul class="content">
-                    <li><span>500</span> Seguidores</li> <br>
-                    <li><span>30</span> Seguindo</li> <br>
-                    <li><span>10</span> Álbuns</li>
+                    <li><i class='bx bxs-envelope'></i></li>
+                    <li><i class='bx bxl-instagram-alt'></i></li>
+                    <li><i class='bx bxl-twitter' ></i></li>
                 </ul>
             </div>
         </div>
         <div class="right-box-pf">
             <ul>
-                <li>Fotos</li>
-                <li>Álbuns</li>
-                <li>Sobre</li>
+                <li value="1">Artigos</li>
+                <!-- Artigos em forma de card 1:1 -->
+                <li value="2">Sobre</li>
+                <!-- Mini biografia -->
             </ul>
-            <div class="division"></div>
-            <!-- <div class="pubs">
-                <img src="CSS/IMG/1.jpg" alt="Foto" />
-                <img src="CSS/IMG/2.jpg" alt="Foto" />
-                <img src="CSS/IMG/3.jpg" alt="Foto" />
-                <img src="CSS/IMG/4.jpg" alt="Foto" />
-                <img src="CSS/IMG/5.jpg" alt="Foto" />
-                <img src="CSS/IMG/6.jpg" alt="Foto" />
-            </div> -->
         </div>
     </div>
     </main> 

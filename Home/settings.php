@@ -16,12 +16,14 @@
 <body>
     <header>
         <nav>
-            <h4><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</h4>
+            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
             <ul class="navlist">
-                <a href="#"><i class='bx bx-support'></i></a>
-                <a href="#"><i class='bx bx-plus'></i></a>
-                <a href="#"><i class='bx bx-chat'></i></a>
-                <a href="#"><i class='bx bxs-user-circle'></i></a>
+                <a href="#">Destinos</a>
+                <a href="#">Dicas</a>
+                <a href="#">Roteiros</a>
+                <a href="#">Gastronomia</a>
+                <a href=""><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
+                <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
@@ -93,14 +95,6 @@
                             <div class="input-wrap">
                                 <input type="text" class="input-field" name="BIO" autocomplete="off" value="<?php echo $BIO ?>"/>
                                 <label for="BIO"> Biografia </label>
-                            </div>
-                            <div class="input-wrap">
-                                <input type="date" class="input-field" name="DATE_BIRTH" autocomplete="off"/ value="<?php echo $DATE_BIRTH ?>">
-                                <label for="DATE_BIRTH"> Data de nascimento </label>
-                            </div>
-                            <div class="input-wrap">
-                                <input type="text" class="input-field" name="STATUS" autocomplete="off" value="<?php echo $STATUS ?>"/>
-                                <label for="STATUS"> Status </label>
                             </div>
                             <input type="submit" value="Salvar" class="sign-button">
                         </div>

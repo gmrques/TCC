@@ -1,5 +1,5 @@
 > ## TCC
-> O projeto consiste na criação de uma rede social <br> completamente voltada para turismo no Brasil.
+> O projeto consiste na criação de um blog <br> completamente voltada para turismo no Brasil.
 
 > ## Status: Incompleto.
 
@@ -7,4 +7,5 @@
 
 > ## Próximas alterações/Listagem de erros:
 > Conforme o desenvolvimento do projeto serão listados os erros recorrentes.
-> + Terminar/Arrumar todo o CSS/html (27/05) e (28/05)
+> + Terminar/Arrumar todo o Css/Html/Js até 01/06;
+> + Incrementar informações a respeito das publicações no banco de dados.

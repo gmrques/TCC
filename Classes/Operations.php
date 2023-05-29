@@ -15,13 +15,10 @@ class OperationsUser{
 
     public function create($postValues){
 
-        $nome_da_variavel = $postValues['nome_da_variavel'];
-        $nome_da_variavel = $postValues['nome_da_variavel'];
-        $nome_da_variavel = $postValues['nome_da_variavel'];
-        $nome_da_variavel = $postValues['nome_da_variavel'];
-        $nome_da_variavel = $postValues['nome_da_variavel'];
-        $nome_da_variavel = $postValues['nome_da_variavel'];
-
+        $EMAIL = $postValues['EMAIL$EMAIL'];
+        $FULL_NAME = $postValues['FULL_NAME'];
+        $USERNAME = $postValues['USERNAME'];
+        $PASSWORD = $postValues['PASSWORD'];
 
         $query = "INSERT INTO ".$this->table_name. " (EMAIL, FULL_NAME, USERNAME, PASSWORD) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($query);
@@ -88,39 +85,6 @@ class OperationsUser{
             }
         }
     }
-
-    public function Print_Support() {
-
-    $SERVICE_MENSAGE = $_POST['SERVICE_MENSAGE'];
-    $PRINT = $_FILES["PRINT"];
-    
-    if (!empty($PRINT["name"])) {
-        
-        $MAX_WIDTH = 2560;
-        $MAX_HEIGHT = 1440;
-        $MAX_SIZE = 2700;
-
-        if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $PRINT["type"])) {
-            $DIMENSIONS = getimagesize($PRINT["tmp_name"]);
-            if($DIMENSIONS[0] < $MAX_WIDTH && $DIMENSIONS[1] < $MAX_HEIGHT && $PRINT["size"] < $MAX_SIZE) {
-                preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $PRINT["name"], $ext);
-                $IMG_NAME = md5(uniqid(time())) . "." . $ext[1]; // precisa melhorar a criptografia
-                $DIRECTORY = "CSS/IMG/FAQ-img" . $IMG_NAME;
-                move_uploaded_file($PRINT["tmp_name"], $DIRECTORY);
-    
-                $sql = "INSERT INTO support ('IMG_NAME') VALUES ('".$IMG_NAME."')";
-            
-                if ($sql){
-                    echo"<alert></alert>";
-                } // testar se funciona
-            } else {
-                "<alert>A imagem que você escolheu ultrapassa o tamanho permitido, sendo:".$MAX_WIDTH."pixels de largura e ".$MAX_SIZE."pixels de altura</alert>";
-            }
-        } else {
-            echo"<alert>Não há suporte para o tipo de imagem selecionado :( </alert>";
-        }
-    }
-}
  
     public function read(){
         $query = "SELECT * FROM ". $this->table_name;
@@ -134,7 +98,7 @@ class OperationsUser{
         $FULL_NAME = $postValues['$FULL_NAME'];
         $USERNAME = $postValues['$USERNAME'];
         $PASSWORD = $postValues['$PASSWORD'];
-        $PROFILE_PIC = $_FILES["PROFILE_PIC"];
+        $PROFILE_PIC = $_FILES['PROFILE_PIC'];
     
         if (!empty($PROFILE_PIC["name"])) {
             
