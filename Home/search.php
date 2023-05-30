@@ -19,7 +19,6 @@
         <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
         <ul class="navlist">
             <a href="#">Destinos</a>
-            <a href="#">Dicas</a>
             <a href="#">Roteiros</a>
             <a href="#">Gastronomia</a>
             <a href=""><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
@@ -42,23 +41,88 @@
                 <h2>Encontramos os seguintes <br>resultados para a pesquisa " ":</h2>
                 <select id="menu">
                     <option value="1">Artigos</option>
-                    <option value="2">Dicas</option>
+                    <option value="2">Roteiros</option>
                     <option value="3">Gastronomia</option>
                 </select>
             </div>
-            <div class="bottom-box">
+            <div class="main-box">
                 <section class="search-article">
-                    
+                    <!-- <div class="main-home-box">
+                        <div class="card-article">
+                        <img src="CSS/IMG/article-img/article 1.jpg" alt="">
+                        <div class="info-article">
+                            <h4>data da publicação</h4>
+                            <h2>Teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <button class="read_more">Continue lendo</button>
+                        </div>
+                        </div>
+                        <div class="card-article">
+                        <img src="CSS/IMG/article-img/article 2.jpg" alt="">
+                        <div class="info-article">
+                            <h4>data da publicação</h4>
+                            <h2>Teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <button class="read_more">Continue lendo</button>
+                        </div>
+                        </div>
+                        <div class="card-article">
+                        <img src="CSS/IMG/article-img/article 3.jpg" alt="">
+                        <div class="info-article">
+                            <h4>data da publicação</h4>
+                            <h2>Teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <button class="read_more">Continue lendo</button>
+                        </div>
+                    </div>
+                    <div class="bottom-home-box">
+                        <div class="bullets-home">
+                            <span class="active" value="1"></span>
+                            <span value="1"></span>
+                            <span value="3"></span>
+                            <span value="4"></span>
+                            <span value="5"></span>
+                        </div>
+                    </div> -->
                 </section>
-                <section class="search-clue">
-                    
+                <section class="search-roadmap">
+                    <!-- <div class="main-roadmap-box">
+                        <div class="card-roadmap">
+                        <div>
+                            <img src="CSS/IMG/article-img/article 6.jpg" alt="">
+                            <h2>teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <i class='bx bx-bookmark-plus'></i>
+                        </div>
+                        </div>
+                        <div class="card-roadmap">
+                        
+                        <div>
+                            <img src="CSS/IMG/article-img/article 4.jpg" alt="">
+                            <h2>teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <i class='bx bx-bookmark-plus'></i>
+                        </div>
+                        </div>
+                        <div class="card-roadmap">
+                        
+                        <div>
+                            <img src="CSS/IMG/article-img/article 5.jpg" alt="">
+                            <h2>teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <i class='bx bx-bookmark-plus'></i>
+                        </div>
+                    </div>
+                    <div class="bottom-roadmap-box">
+                        <div class="bullets-roadmap">
+                            <span class="active" value="1"></span>
+                            <span value="1"></span>
+                            <span value="3"></span>
+                        </div>
+                    </div> -->
                 </section>
                 <section class="search-gastronomy">
                     
-                </section>
-                <section>
-                    <!-- Colocar dentro do section a exibição de conteúdo com um design próprio, sendo
-                    cada section específica para um filtro -->
                 </section>
             </div>
         </div>

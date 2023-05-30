@@ -3,14 +3,16 @@
 
 > ## Status: Incompleto.
 
-> ## FRONTEND =>
-> + <s>index.php = Completo;</s>
-> + <s>home.php = falta o design dos cards (horizontal);</s>
-> + home.php = falta o Javascript;
-> + destination.php = falta o Javascript;
-> + gastronomy.php = falta o Javascript;
-> + profile.php = falta o Javascript e design da biografia;
-> + publish.php = falta o Javascript e design do form para publicar;
-> + roadmap.php = falta o Javascript;
-> + search.php = falta terminar o Javascript (falta implementar os cards <s>1:1 e Horizontal</s>);
-> + settings.php = arrumar javascript, css e design dos forms.
+> ## (HTML/CSS) ==>
+> + 1° gastronomy.php (arrumar design dos cards);
+> + 2° publish.php (design do form para publicar);
+> + 3° settings.php (arrumar css e design dos forms).
+
+> ## (JS) ==>
+> + home.php;
+> + destination.php;
+> + gastronomy.php;
+> + search.php;
+> + roadmap.php;
+> + profile.php;
+> + settings.php.

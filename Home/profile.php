@@ -18,7 +18,6 @@
             <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
             <ul class="navlist">
                 <a href="#">Destinos</a>
-                <a href="#">Dicas</a>
                 <a href="#">Roteiros</a>
                 <a href="#">Gastronomia</a>
                 <a href="#"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
@@ -50,14 +49,49 @@
                     <li><i class='bx bxl-instagram-alt'></i></li>
                     <li><i class='bx bxl-twitter' ></i></li>
                 </ul>
+            <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, deleniti cumque minus sint fugit exercitationem, consequatur molestiae temporibus reprehenderit dicta velit. Distinctio, porro. Dignissimos dolorum sequi repellat, corporis eius vero.</p>
             </div>
         </div>
         <div class="right-box-pf">
             <ul>
-                <li value="1">Artigos</li>
-                <!-- Artigos em forma de card 1:1 -->
-                <li value="2">Sobre</li>
-                <!-- Mini biografia -->
+                <li>Artigos</li>
+                    <div class="main-home-box">
+                        <div class="card-article">
+                        <img src="CSS/IMG/article-img/article 1.jpg" alt="">
+                        <div class="info-article">
+                            <h4>data da publicação</h4>
+                            <h2>Teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <button class="read_more">Continue lendo</button>
+                        </div>
+                        </div>
+                        <div class="card-article">
+                        <img src="CSS/IMG/article-img/article 2.jpg" alt="">
+                        <div class="info-article">
+                            <h4>data da publicação</h4>
+                            <h2>Teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <button class="read_more">Continue lendo</button>
+                        </div>
+                        </div>
+                        <div class="card-article">
+                        <img src="CSS/IMG/article-img/article 3.jpg" alt="">
+                        <div class="info-article">
+                            <h4>data da publicação</h4>
+                            <h2>Teste</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <button class="read_more">Continue lendo</button>
+                        </div>
+                    </div>
+                <div class="bottom-home-box">
+                    <div class="bullets-home">
+                        <span class="active" value="1"></span>
+                        <span value="1"></span>
+                        <span value="3"></span>
+                        <span value="4"></span>
+                        <span value="5"></span>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>
