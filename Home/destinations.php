@@ -60,13 +60,13 @@
     <main>
         <div class="box">
             <div class="top-destination-box">
-                    <p id="location" value="1">Sul</p>
-                    <p id="location" value="2">Sudeste</p>
-                    <p id="location" value="3">Centro-oeste</p>
-                    <p id="location" value="4">Norte</p>
-                    <p id="location" value="5">Nordeste</p>
+                    <p class="location" value="1">Sul</p>
+                    <p class="location" value="2">Sudeste</p>
+                    <p class="location" value="3">Centro-oeste</p>
+                    <p class="location" value="4">Norte</p>
+                    <p class="location" value="5">Nordeste</p>
                     <!-- Aplicar o JS nos cards (30/05) -->
-                    <!-- <div class="container_card">
+                    <div class="container_card">
                             <div class="card_sul">
                             <a href="#" value="1"><img src="CSS/IMG/Destinations/Porto_Alegre.jpg" alt=""></a>
                             <div class="intro">
@@ -88,7 +88,7 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente delectus molestiae est, minima harum, quae optio exercitationem error voluptate quis aperiam a iusto culpa, accusamus veritatis. Rerum quia in possimus.</p>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
 
                 <!-- <div class="container_card">
@@ -208,7 +208,7 @@
                         </div>
                     </div> 
                 </div> -->
-            <!--<div class="container_card">
+            <!-- <div class="container_card">
                     <div class="card_nordeste">
                          <a href="#" value="19"><img src="CSS/IMG/Destinations/Paraíba.jpg" alt=""></a>
                          <div class="intro">

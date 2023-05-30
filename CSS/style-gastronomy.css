@@ -185,17 +185,17 @@ main {
 /* ////////////////////////////////////// */
 /* home */
 
-.top-home-box {
+.top_home_box {
     height: 10%;
     width: 100%;
 }
 
-.main-home-box {
+.main-gastronomy-box-sul, .main-gastronomy-box-sudeste, .main-gastronomy-box-centro-oeste, .main-gastronomy-box-norte, .main-gastronomy-box-nordeste {
     height: 70%;
     width: 100%;
 }
 
-.top-home-box p {
+.top_gastronomy_box p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -209,13 +209,13 @@ main {
     font-size: 2em;
 }
 
-.top-home-box p:hover {
+.top_gastronomy_box p:hover {
     color: #21b469;
     transition: 0.5s;
     letter-spacing: 0.01em;   
 }
 
-.card-article img {
+.card-gastronomy img {
     width: 12em;
     height: 12em;
     border-radius: 2em 0 0 2em;
@@ -223,7 +223,7 @@ main {
     transition: 0.1s;
 }
 
-.card-article {
+.card-gastronomy {
     width: 72em;
     height: 12em;
     border-radius: 2em;
@@ -239,7 +239,7 @@ main {
     margin-bottom: 1.5em;
 }
 
-.card-article img:hover {
+.card-gastronomy img:hover {
     width: 31em;
     height: 12em;
     transition: 0.1s;
@@ -268,29 +268,6 @@ main {
     margin-top: 1em;
     font-weight: 550;
     transition: 0.8s;
-}
-
-.bullets-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.bullets-home span {
-    display: block;
-    width: 1em;
-    height: 1em;
-    background-color: #1F1F1F;
-    margin: 0 0.4em;
-    border-radius: 5em; 
-    transition: 0.4s;
-}
-
-.bullets-home span.active {
-    width: 2em;
-    background-color: #21b469;
-    border-radius: 1em;
 }
 
 /* ////////////////////////////////////// */

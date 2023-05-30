@@ -62,9 +62,67 @@
             <div class="top-home-box">
                 <p>Mais recentes</p>
             </div>
+                <div class="main-home-box">
+                    <div class="card-article">
+                    <img src="CSS/IMG/article-img/article 1.jpg" alt="">
+                    <div class="info-article">
+                        <h4>data da publicação</h4>
+                        <h2>Teste</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                        <button class="read_more">Continue lendo</button>
+                    </div>
+                    </div>
+                    <div class="card-article">
+                    <img src="CSS/IMG/article-img/article 2.jpg" alt="">
+                    <div class="info-article">
+                        <h4>data da publicação</h4>
+                        <h2>Teste</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                        <button class="read_more">Continue lendo</button>
+                    </div>
+                    </div>
+                    <div class="card-article">
+                    <img src="CSS/IMG/article-img/article 3.jpg" alt="">
+                    <div class="info-article">
+                        <h4>data da publicação</h4>
+                        <h2>Teste</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                        <button class="read_more">Continue lendo</button>
+                    </div>
+                    <!-- <div class="card-article">
+                    <img src="CSS/IMG/article-img/article 4.jpg" alt="">
+                    <div class="info-article">
+                        <h4>data da publicação</h4>
+                        <h2>Teste</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                        <button class="read_more">Continue lendo</button>
+                    </div>
+                    <div class="card-article">
+                    <img src="CSS/IMG/article-img/article 5.jpg" alt="">
+                    <div class="info-article">
+                        <h4>data da publicação</h4>
+                        <h2>Teste</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                        <button class="read_more">Continue lendo</button>
+                    </div>
+                    <div class="card-article">
+                    <img src="CSS/IMG/article-img/article 6.jpg" alt="">
+                    <div class="info-article">
+                        <h4>data da publicação</h4>
+                        <h2>Teste</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                        <button class="read_more">Continue lendo</button>
+                    </div> -->
+                </div>
             <div class="bottom-home-box">
-                <!-- html/css dos artigos (cards horizontais) -->
-                <!-- Fazer operação no backend que compare uma variavel de data de postagem dos cards -->
+                <div class="bullets-home">
+                    <span class="active" value="1"></span>
+                    <span value="1"></span>
+                    <span value="3"></span>
+                    <span value="4"></span>
+                    <span value="5"></span>
+                </div>
+            </div>
             </div>
         </div>
     </main>
