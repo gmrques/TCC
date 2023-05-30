@@ -11,6 +11,6 @@
 > + gastronomy.php = falta o Javascript;
 > + profile.php = falta o Javascript e design da biografia;
 > + publish.php = falta o Javascript e design do form para publicar;
-> + roadmap.php = falta o Javascript e design dos cards (1:1);
-> + search.php = falta terminar o Javascript e design dos cards (1:1 e <s>Horizontal</s>);
+> + roadmap.php = falta o Javascript;
+> + search.php = falta terminar o Javascript (falta implementar os cards <s>1:1 e Horizontal</s>);
 > + settings.php = arrumar javascript, css e design dos forms.
