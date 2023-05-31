@@ -10,28 +10,25 @@ close.onclick = function() {
     document.querySelector(".container1").classList.toggle("active");
 }
 
-// Selecionar a culinária da região
+// Slider =>
 
-var gastronomy_select = document.getElementsByClassName('.top_gastronomy_box');
-gastronomy_select.addEventListener('change', function(){
-    switch (top_gastronomy_box) {
-        case '1':
+// let list = document.querySelector('.slider-gastronomy .list-img');
+// let items = document.querySelectorAll('.slider-gastronomy .list-img .item');
+// let dots = document.querySelectorAll('.slider-gastronomy .ul-dots li');
+// let active = 0;
 
-        break
-        case '2':
+// let refreshSlide = setInterval(()=> {next.click()}, 3000)
+// function reloadSlider(){
+//     let checkleft = items[active].offsetLeft;
+//     list.style.left = -checkleft + 'em';
 
-        break
-        case '3':
+//     let lastActiveDot = document.querySelector('.slider-gastronomy .ul-dots li.active');
+//     lastActiveDot.classList.remove('active');
+//     dots[active].classList.add('active');
+// }
 
-        break
-        case '4':
-
-        break
-        case '5':
-
-        break
-
-        default:
-
-    };
-});
+// dots.forEach((li, key) => {
+//     li.addEventListener('click', function(){
+//         active = key;
+//     })
+// });

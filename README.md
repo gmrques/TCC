@@ -4,9 +4,8 @@
 > ## Status: Incompleto.
 
 > ## (HTML/CSS) ==>
-> + 1° gastronomy.php (arrumar design dos cards);
-> + 2° publish.php (design do form para publicar);
-> + 3° settings.php (arrumar css e design dos forms).
+> + 1° publish.php (design do form para publicar);
+> + 2° settings.php (arrumar css e design dos forms).
 
 > ## (JS) ==>
 > + home.php;
