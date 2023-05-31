@@ -160,12 +160,12 @@ main {
 }
  
 ::-webkit-scrollbar-thumb {
-    background: #f54c52;
+    background: #f7a130;
     border-radius: 5em;
 }
 
 ::-webkit-scrollbar-track {
-    background: #cfcfcf;
+    background: #c2c2c2;
 }
 
 .box {
@@ -180,7 +180,6 @@ main {
     -moz-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 /* /////////////////////////////// */

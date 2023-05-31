@@ -10,11 +10,11 @@
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script defer src="JS/script-home.js"></script>
-    <title>Nome do site</title>
+    <title>Brasil em Viagem</title>
 </head>
     <header>
-        <nav>
-            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
+    <nav>
+            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
                 <a href="#">Destinos</a>
                 <a href="#">Roteiros</a>

@@ -1,24 +1,24 @@
- <!-- <?php
+  <?php
     require_once("Connection/conect.php");
-    //  switch(@$_REQUEST["page"]) {
-    //  case "":
-    //     include("");
-    //     break;
-    //  case "":
-    //     include("");
-    //     break;
-    //  case "":
-    //     include("");
-    //     break;
-    //  case "":
-    //     include("");
-    //     break;
-    //  default:
-    //     echo"<h2>Mensagem de teste<h2>";
-    //  }
-    // feito para levar até as outras páginas, porém elas ainda não existem;
-    // colocar dentro do href dos itens da navbar "href= ?page=nomeDaPágina.php". 
-?> -->
+    // //  switch(@$_REQUEST["page"]) {
+    // //  case "":
+    // //     include("");
+    // //     break;
+    // //  case "":
+    // //     include("");
+    // //     break;
+    // //  case "":
+    // //     include("");
+    // //     break;
+    // //  case "":
+    // //     include("");
+    // //     break;
+    // //  default:
+    // //     echo"<h2>Mensagem de teste<h2>";
+    // //  }
+    // // feito para levar até as outras páginas, porém elas ainda não existem;
+    // // colocar dentro do href dos itens da navbar "href= ?page=nomeDaPágina.php". 
+?> 
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,14 +32,13 @@
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script defer src="JS/script-search.js"></script>
-    <title>Nome do site</title>
+    <title>Brasil em Viagem</title>
 </head>
     <header>
         <nav>
-            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
+            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
                 <a href="#">Destinos</a>
-                <a href="#">Dicas</a>
                 <a href="#">Roteiros</a>
                 <a href="#">Gastronomia</a>
                 <a href=""><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>

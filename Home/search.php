@@ -11,29 +11,29 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script defer src="JS/script-search.js"></script>
     <script defer src="JS/script-dropdown.js"></script>
-    <title>Nome do site</title>
+    <title>Brasil em Viagem</title>
 </head>
 <body>
 <header>
-    <nav>
-        <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Nome da empresa</a>
-        <ul class="navlist">
-            <a href="#">Destinos</a>
-            <a href="#">Roteiros</a>
-            <a href="#">Gastronomia</a>
-            <a href=""><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
-            <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
-            <div class="container1">
-                <div class="icon">
-                    <i class='search bx bx-search-alt'></i>
+<nav>
+            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
+            <ul class="navlist">
+                <a href="#">Destinos</a>
+                <a href="#">Roteiros</a>
+                <a href="#">Gastronomia</a>
+                <a href=""><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></a>
+                <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
+                <div class="container1">
+                    <div class="icon">
+                        <i class='search bx bx-search-alt'></i>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="Pesquisar" id="search">
+                        <i class='close bx bx-x'></i>
+                    </div>
                 </div>
-                <div class="input">
-                    <input type="text" placeholder="Pesquisar" id="search">
-                    <i class='close bx bx-x'></i>
-                </div>
-            </div>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
     </header>
     <main>
         <div class="box">

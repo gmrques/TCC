@@ -160,12 +160,12 @@ main {
 }
  
 ::-webkit-scrollbar-thumb {
-    background: #f54c52;
+    background: #f7a130;
     border-radius: 5em;
 }
 
 ::-webkit-scrollbar-track {
-    background: #cfcfcf;
+    background: #c2c2c2;
 }
 
 .box {
