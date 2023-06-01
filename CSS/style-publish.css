@@ -50,8 +50,6 @@ nav {
     align-items: center;
     justify-content: center;
     position: relative;
-    top: center;
-    left: center;
     border-radius: 5em;
     padding: 0.2em 1em 0.2em 1em;
 }
@@ -216,12 +214,41 @@ main {
     flex-direction: column;
 }
 
-.article-title {
+#btn {
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    right: -1.5em;
+}
+
+.options {
+    list-style-type: none;
+    opacity: 0;
+    flex-direction: column;
+    position: relative;
+    top: 2em;
+    right: 2em;
+
+}
+
+.options.active {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: 6em;
+    right: 0.5em;
+}
+
+/* .article-title {
     /* border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 0.1em solid #1F1F1F;
-    background: none; */
+    background: none; 
 }
 
 .content {
@@ -230,7 +257,9 @@ main {
 
 .publish {
 
-}
+} */
+
+
 
 /* ////////////////////////////////////// */
 /* FOOTER DE BASE */

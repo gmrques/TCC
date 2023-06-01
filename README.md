@@ -4,7 +4,7 @@
 > ## Status: Incompleto.
 
 > ## (HTML/CSS) ==>
-> + 1° publish.php (design só o css dos forms); 
+> + 1° publish.php (só o css dos forms e do dropdown do plus); 
 > + 2° settings.php (arrumar css e design dos forms).
 
 > ## (JS) ==>
