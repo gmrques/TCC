@@ -4,9 +4,8 @@
 > ## Status: Incompleto.
 
 > ## (HTML/CSS) ==>
-> + 1° publish.php (design do form para publicar); (31/05)
-> + 2° settings.php (arrumar css e design dos forms); (31/05)
-> + 3° index.php (arrumar css). (31/05)
+> + 1° publish.php (design só o css dos forms); 
+> + 2° settings.php (arrumar css e design dos forms).
 
 > ## (JS) ==>
 > + home.php;
