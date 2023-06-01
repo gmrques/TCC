@@ -42,11 +42,6 @@
                 <a href="#">Roteiros</a>
                 <a href="#">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
-                <ul id="publish-options" class="options">
-                    <li>Artigo</li>
-                    <li>Roteiro</li>
-                    <li>Receita</li>
-                </ul>
                 <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
                     <div class="icon">
@@ -62,44 +57,25 @@
     </header>
     <body>
     <main>
+        <ul id="publish-options" class="options">
+            <li><a href="#">Artigo</a></li>
+            <li><a href="#">Roteiro</a></li>
+            <li><a href="#">Receita</a></li>
+        </ul>
         <div class="box">
             <div class="top-publish-box">
                 <h1>Publique um artigo!</h1>
             </div>
             <div class="main-publish-box">
-                <!-- <form class="article-form"action="#" method="post">
+                <form class="article-form"action="#" method="post">
                     <label for="title">Título:</label>
-                    <input class="article-title" type="text" id="titulo" name="titulo" required>
+                    <input class="input-content" type="text" id="titulo" name="titulo" required>
         
                     <label for="article-content">Conteúdo:</label>
-                    <textarea class="content" name="conteudo" rows="30" cols="80" required></textarea>
+                    <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required></textarea>
         
                     <input class="publish" type="submit" value="Publicar">
-                </form> -->
-                <!-- <form action="#" method="post">
-                    <label for="receita">Nome da Receita:</label>
-                    <input type="text" id="receita" name="receita" required>
-                    
-                    <label for="ingredientes">Ingredientes:</label>
-                    <textarea class="ingredientes" name="ingredientes" rows="8" required></textarea>
-                    
-                    <label for="modo_preparo">Modo de Preparo:</label>
-                    <textarea class="modo_preparo" name="modo_preparo" rows="8" required></textarea>
-                    
-                    <input type="submit" value="Publicar">
-                </form> -->
-                <!-- <form action="#" method="post">
-                    <label for="destino">Destino:</label>
-                    <input type="text" id="destino" name="destino" required>
-                    
-                    <label for="duracao">Duração:</label>
-                    <input type="text" id="duracao" name="duracao" required>
-                    
-                    <label for="roteiro">Roteiro:</label>
-                    <textarea id="roteiro" name="roteiro" rows="8" required></textarea>
-                    
-                    <input type="submit" value="Publicar">
-                </form> -->
+                </form>
             </div>
         </div>
     </main>

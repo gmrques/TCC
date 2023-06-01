@@ -18,3 +18,5 @@ const list = document.getElementById('publish-options');
 button.addEventListener("click", () => {
     list.classList.toggle('active');
 })
+
+// Animação com a label =>

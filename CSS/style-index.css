@@ -143,6 +143,55 @@ main {
     animation: main 40s ease infinite;
 }
 
+#btn {
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    left: -0.3em;
+}
+
+.options {
+    list-style-type: none;
+    opacity: 0;
+    flex-direction: column;
+    position: relative;
+    top: -21em;
+    left: 87em;
+    transition: 0.5s;
+}
+
+.options.active {
+    background: #F0F0F0;
+    border-radius: 2em;
+    padding: 1.5em;
+    opacity: 1;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: -21em;
+    left: 87em;
+    transition: 0.5s;
+}
+
+.options a {
+    font-size: 1.2em;
+    transition: 0.5s;
+    text-decoration: none;
+    color: #1F1F1F;
+    font-weight: 650;
+    padding-bottom: 1em;
+}
+
+.options a:hover {
+    font-size: 1.2em;
+    color: #21b469;
+    letter-spacing: 0.05em;
+    font-weight: 650;
+    transition: 0.5s;
+}
+
 @keyframes main {
     0% {
         background-position: 0% 50%;

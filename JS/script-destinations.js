@@ -10,6 +10,15 @@ close.onclick = function() {
     document.querySelector(".container1").classList.toggle("active");
 }
 
+// dropdown no Publish =>
+
+const button = document.getElementById('btn');
+const list = document.getElementById('publish-options');
+
+button.addEventListener("click", () => {
+    list.classList.toggle('active');
+})
+
 // Selecionar a região =>
 
 var location_select = document.getElementsByClassName('.location');
