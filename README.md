@@ -4,7 +4,7 @@
 > ## Status: Incompleto.
 
 > ## (HTML/CSS) ==>
-> + settings.php (arrumar css e design dos forms).
+> + settings.php (arrumar css dos botões e forms).
 
 > ## (JS) ==>
 > + home.php;
@@ -13,6 +13,6 @@
 > + search.php;
 > + roadmap.php;
 > + profile.php;
-> + settings.php;
-> + index.php;
+> + <s>settings.php;</s>
+> + <s>index.php;</s>
 > + <s>publish.php</s>

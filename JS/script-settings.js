@@ -1,14 +1,14 @@
 // Barra de pesquisa =>
 
 let search = document.querySelector(".search");
-search.onclick = function() {
+search.addEventListener("click", () => {
     document.querySelector(".container1").classList.toggle("active");
-}
+}) 
 
 let close = document.querySelector(".close");
-close.onclick = function() {
+close.addEventListener("click", () => {
     document.querySelector(".container1").classList.toggle("active");
-}
+})
 
 // dropdown no Publish =>
 
@@ -21,12 +21,19 @@ button.addEventListener("click", () => {
 
 // Ocultar e mostrar formulário para editar informações =>
 
-function showU() {
-    let user = document.querySelector('.update-user-form');
-    user.classList.toggle('active');
-}
-function showP() {
-    let palette = document.querySelector('.palette-form');
-    palette.classList.toggle('active');
-}
+
+
+const userBtn = document.getElementById('update-user-btn');
+const userForm = document.getElementById('update-user');
+
+userBtn.addEventListener("click", () => {
+    userForm.classList.toggle('active');
+})
+ 
+const paletteBtn = document.getElementById('udpate-palette-btn');
+const paletteForm = document.getElementById('update-palette');
+
+paletteBtn.addEventListener("click", () => {
+    paletteForm.classList.toggle('active');
+})
  

@@ -9,7 +9,6 @@
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="JS/script-search.js"></script>
     <script defer src="JS/script-settings.js"></script>
     <title>Brasil em Viagem</title>
 </head>
@@ -43,19 +42,13 @@
         </ul>
         <div class="box">
             <div class="left-box-prs">
-                <a onclick="showU('.update-user-form')">
-                    <i class='bx bxs-user' aria-hidden="true"></i>
-                </a>
-                <a onclick="showP('#palette-form')">
-                    <i class='bx bxs-palette' aria-hidden="true"></i>
-                </a>
-                <a onclick="('')">
-                    <i class='bx bx-log-out' aria-hidden="true"></i>
-                </a>
+                <button id="update-user-btn"><i class='bx bxs-user' aria-hidden="true"></i></button>
+                <button id="udpate-palette-btn"><i class='bx bxs-palette' aria-hidden="true"></i></button>
+                <button id="logout-btn"><i class='bx bx-log-out' aria-hidden="true"></i></button>
             </div>
             <div class="right-box-prs">
                 <div class="profile tabShow">
-                    <form method="POST" action="?action=update" autocomplete="off" class="update-user-form">
+                    <form method="POST" action="?action=update" autocomplete="off" id="update-user" class="state">
                         <h1>Atualize suas informações :)</h1>
                         <div class="actual-form">
                             <div class="input-wrap">
@@ -81,7 +74,7 @@
                             <input type="submit" value="Atualizar" class="sign-button">
                         </div>
                     </form>
-                    <form method="POST" action="?action=X" autocomplete="off" class="palette-form">
+                    <form method="POST" action="?action=X" autocomplete="off" id="update-palette" class="state">
 
                          <!-- ADICIONAR INFORMAÇÕES NA TABELA USUÁRIO 
                          Foto de perfil, cargo, biografia, data de nascimento, status

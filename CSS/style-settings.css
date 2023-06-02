@@ -234,13 +234,13 @@ main {
 /* ////////////////////////////////////// */
 /* FORMULÁRIO DE ATUALIZAÇÃO DE PERFIL */
 
-form.update-user-form, form.palette-form {
+form#update-user, form#update-palette {
     opacity: 0;
     margin-left: 35%;
     transition: 0.8s;
 }
 
-form.update-user-form.active, form.palette-form.active {
+form#update-user.active, form#update-palette.active {
     opacity: 1;
     display: block;
     transition: 0.8s;
