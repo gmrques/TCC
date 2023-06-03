@@ -23,7 +23,7 @@ include_once("Validation/sing-up.php");
 <body>
     <header>
         <nav>
-            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
+            <a href="#"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
         </nav>
     </header>
     <main>

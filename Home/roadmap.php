@@ -14,11 +14,11 @@
 </head>
     <header>
     <nav>
-            <a href=""><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
+            <a href="home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
-                <a href="#">Destinos</a>
-                <a href="#">Roteiros</a>
-                <a href="#">Receitas</a>
+                <a href="destinations.php">Destinos</a>
+                <a href="roadmap.php">Roteiros</a>
+                <a href="gastronomy.php">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
                 <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
@@ -36,9 +36,9 @@
     <body>
     <main>
     <ul id="publish-options" class="options">
-            <li><a href="#">Artigo</a></li>
-            <li><a href="#">Roteiro</a></li>
-            <li><a href="#">Receita</a></li>
+            <li><a href="publish-article.php">Artigo</a></li>
+            <li><a href="publish-roadmap.php">Roteiro</a></li>
+            <li><a href="publish-gastronomy.php">Receita</a></li>
         </ul>
         <div class="box">
             <div class="top-roadmap-box">
