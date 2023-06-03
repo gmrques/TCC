@@ -337,6 +337,7 @@ form#update-palette {
 }
 
 .update-textarea {
+    position: absolute;
     background: none;
     border-radius: 2em;
     padding: 1em;
@@ -344,6 +345,18 @@ form#update-palette {
     resize: none;
     margin-top: 1em;
     transition: 0.5s;
+    outline: none;
+}
+
+.update-textarea.active {
+    border-bottom-color: #1F1F1F;
+}
+
+.update-textarea.active + label {
+    font-weight: bolder;
+    transition: 0.5s;
+    opacity: 1;
+    color: #21b469;
 }
 
 label {
@@ -359,18 +372,7 @@ label {
     border-bottom-color: #1F1F1F;
 }
 
-.update-textarea.active {
-    border-bottom-color: #1F1F1F;
-}
-
 .update-field.active + label {
-    font-weight: bolder;
-    transition: 0.5s;
-    opacity: 1;
-    color: #21b469;
-}
-
-.update-textarea.active + label {
     font-weight: bolder;
     transition: 0.5s;
     opacity: 1;
