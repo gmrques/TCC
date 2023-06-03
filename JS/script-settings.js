@@ -41,7 +41,24 @@ paletteBtn.addEventListener("click", () => {
  
 // JS no form com label
 
-const inputs = document.querySelectorAll("update-wrap");
-inputs.addEventListener("click", () => {
-    inp.classList.add("active");
-})
+const label_settings = document.querySelectorAll(".update-field");
+label_settings.forEach((LS) => {
+    LS.addEventListener("focus", () => {
+        LS.classList.add("active");
+    });
+    LS.addEventListener("blur", () => {
+        if(LS.value != "") return;
+        LS.classList.remove("active");
+    });
+});
+
+const text_area = document.querySelectorAll(".update-textarea");
+text_area.forEach((TA) => {
+    TA.addEventListener("focus", () => {
+        TA.classList.add("active");
+    });
+    TA.addEventListener("blur", () => {
+        if(TA.value != "") return;
+        TA.classList.remove("active");
+    });
+});

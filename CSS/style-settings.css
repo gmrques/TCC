@@ -343,6 +343,7 @@ form#update-palette {
     font-size: 1em;
     resize: none;
     margin-top: 1em;
+    transition: 0.5s;
 }
 
 label {
@@ -354,16 +355,25 @@ label {
     margin-top: -0.4em;
 }
 
-.update-wrap.active {
+.update-field.active {
     border-bottom-color: #1F1F1F;
 }
 
-.update-wrap.active + label {
-    font-size: 1em;
+.update-textarea.active {
+    border-bottom-color: #1F1F1F;
+}
+
+.update-field.active + label {
     font-weight: bolder;
-    top: -0.3em;
     transition: 0.5s;
-    opacity: 0.75;
+    opacity: 1;
+    color: #21b469;
+}
+
+.update-textarea.active + label {
+    font-weight: bolder;
+    transition: 0.5s;
+    opacity: 1;
     color: #21b469;
 }
 
