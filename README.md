@@ -12,7 +12,7 @@
 > + gastronomy.php;
 > + search.php;
 > + roadmap.php;
-> + profile.php;
+> + <s>profile.php; 50% </s>
 > + <s>settings.php;</s>
 > + <s>index.php;</s>
 > + <s>publish.php</s>
