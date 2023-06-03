@@ -4,7 +4,7 @@
 > ## Status: Incompleto.
 
 > ## (HTML/CSS) ==>
-> + arrumar label's do settings, corrigir bugs de css/js
+> ### Concluído.
 
 > ## (JS) ==>
 > + home.php;
