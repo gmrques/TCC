@@ -3,7 +3,11 @@
 let search = document.querySelector(".search");
 search.onclick = function() {
     document.querySelector(".container1").classList.toggle("active");
+    if ($(".publish-options").hasClass("publish-options active")) {
+       //impedir de clicar no plus
+    }
 }
+
 
 let close = document.querySelector(".close");
 close.onclick = function() {

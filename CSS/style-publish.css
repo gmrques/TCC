@@ -156,8 +156,8 @@ main {
     opacity: 0;
     flex-direction: column;
     position: relative;
-    top: -21em;
-    left: 87em;
+    top: -45%;
+    left: 77%;
     transition: 0.5s;
 }
 
@@ -169,8 +169,8 @@ main {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: -21em;
-    left: 87em;
+    top: -45%;
+    left: 77%;
     transition: 0.5s;
 }
 
@@ -303,6 +303,7 @@ form {
     border-radius: 1.5em;
     padding: 1em;
     font-size: 1em;
+    resize: none;
 }
 
 .publish {

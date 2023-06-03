@@ -54,7 +54,7 @@
                     <li><i class='bx bxl-instagram-alt'></i></li>
                     <li><i class='bx bxl-twitter' ></i></li>
                 </ul>
-            <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, deleniti cumque minus sint fugit exercitationem, consequatur molestiae temporibus reprehenderit dicta velit. Distinctio, porro. Dignissimos dolorum sequi repellat, corporis eius vero.</p>
+                <textarea class="bio-textarea" name="BIO" rows="15" cols="45" required></textarea>
             </div>
         </div>
         <div class="right-box-pf">

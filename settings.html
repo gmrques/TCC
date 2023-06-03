@@ -47,31 +47,31 @@
                 <button id="logout-btn"><i class='bx bx-log-out' aria-hidden="true"></i></button>
             </div>
             <div class="right-box-prs">
-                <div class="profile tabShow">
+                <div class="profiletabShow">
                     <form method="POST" action="?action=update" autocomplete="off" id="update-user" class="state">
                         <h1>Atualize suas informações :)</h1>
-                        <div class="actual-form">
-                            <div class="input-wrap">
-                                <input type="tel" class="input-field" name="PHONE_NUMBER" autocomplete="off" value="<?php echo $PHONE_NUMBER ?>"/>
-                                <label for="PHONE_NUMBER">Telefone</label>
+                        <div class="update-form">
+                            <div class="update-wrap">
+                                <input type="email" class="update-field" name="EMAIL" autocomplete="off" value="<?php echo $EMAIL ?>"/>
+                                <label for="EMAIL">Email</label>
                             </div>
-                            <div class="input-wrap">
-                                <input type="text" class="input-field" name="FULL_NAME" autocomplete="off" value="<?php echo $FULL_NAME ?>"/>
+                            <div class="update-wrap">
+                                <input type="text" class="update-field" name="FULL_NAME" autocomplete="off" value="<?php echo $FULL_NAME ?>"/>
                                 <label for="FULL_NAME">Nome completo</label>
                             </div>
-                            <div class="input-wrap">
-                                <input type="text" class="input-field" name="USERNAME" autocomplete="off" value="<?php echo $USERNAME ?>"/>
+                            <div class="update-wrap">
+                                <input type="text" class="update-field" name="USERNAME" autocomplete="off" value="<?php echo $USERNAME ?>"/>
                                 <label for="USERNAME">Nome de usuário</label>
                             </div>
-                            <div class="input-wrap">
-                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
+                            <div class="update-wrap">
+                                <input type="password" class="update-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
                                 <label for="PASSWORD">Senha</label>
                             </div>
-                            <div class="input-wrap">
-                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
+                            <div class="update-wrap">
+                                <input type="password" class="update-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
                                 <label for="PASSWORD">Confirmar senha</label>
                             </div>
-                            <input type="submit" value="Atualizar" class="sign-button">
+                            <input type="submit" value="Atualizar" class="update">
                         </div>
                     </form>
                     <form method="POST" action="?action=X" autocomplete="off" id="update-palette" class="state">
@@ -81,19 +81,16 @@
                          Criar um método dentro do arquivo operations, para dar um create nessas informações -->
 
                         <h1>Dê a sua cara ao perfil!</h1>
-                        <div class="actual-form">
-                            <div class="input-wrap">
-                                <input type="image" class="input-field" name="PROFILE_PIC" autocomplete="off" value="<?php echo $PROFILE_PIC ?>"/>
-                            </div>
-                            <div class="input-wrap">
-                                <input type="text" class="input-field" name="ROLE" autocomplete="off" value="<?php echo $ROLE ?>"/>
+                        <div class="update-form">
+                            <div class="update-wrap">
+                                <input type="text" class="update-field" name="ROLE" autocomplete="off"/>
                                 <label for="ROLE"> Cargo </label>
                             </div>
-                            <div class="input-wrap">
-                                <input type="text" class="input-field" name="BIO" autocomplete="off" value="<?php echo $BIO ?>"/>
+                            <div class="update-wrap">
                                 <label for="BIO"> Biografia </label>
+                                <textarea class="update-textarea" name="BIO" rows="15" cols="60" required></textarea>
                             </div>
-                            <input type="submit" value="Salvar" class="sign-button">
+                            <input type="submit" value="Salvar" class="palette">
                         </div>
                     </form>
             </div>

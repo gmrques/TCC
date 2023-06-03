@@ -3,7 +3,9 @@
 let search = document.querySelector(".search");
 search.onclick = function() {
     document.querySelector(".container1").classList.toggle("active");
-    // colocar o display do botão de + como nones
+    if ($(".publish-options").hasClass("publish-options active")) {
+       //impedir de clicar no plus
+    }
 }
 
 let close = document.querySelector(".close");

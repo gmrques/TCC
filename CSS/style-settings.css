@@ -157,8 +157,8 @@ main {
     opacity: 0;
     flex-direction: column;
     position: relative;
-    top: -21em;
-    left: 87em;
+    top: -45%;
+    left: 77%;
     transition: 0.5s;
 }
 
@@ -170,8 +170,8 @@ main {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: -21em;
-    left: 87em;
+    top: -45%;
+    left: 77%;
     transition: 0.5s;
 }
 
@@ -236,7 +236,8 @@ main {
 
 form#update-user, form#update-palette {
     opacity: 0;
-    margin-left: 35%;
+    display: none;
+    margin-left: 30%;
     transition: 0.8s;
 }
 
@@ -246,18 +247,132 @@ form#update-user.active, form#update-palette.active {
     transition: 0.8s;
 }
 
+form#update-user {
+    position: relative;
+    top: 50%;
+    right: 20%;
+}
+ 
+form#update-palette {
+    position: relative;
+    top: 50%;
+    right: 20%;
+}
+ 
+.profiletabShow h1 {
+    margin-bottom: 1em;
+}
+ 
+.update-wrap input {
+    font-size: 1.2em;
+    padding-top: -2em;
+}
+ 
 .right-box-prs {
-    max-width: calc(100% - 30%);
+    max-width: calc(100% - 25%);
     height: calc(100% - 10%);
     position: relative;
-    top: -40em;
+    left: 15%; 
+    top: -100%;
     overflow: hidden;
+}
+
+.update {
+    display: inline-block;
+    width: 100%;
+    height: 2em;
+    font-size: 1.3em;
+    background-color: #1F1F1F;
+    color: #F0F0F0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5em;
+    transition: 0.5s;
+    position: relative;
+}
+
+.update:hover {
+    background-color: #21b469;
+    opacity: 1;
+    transition: 0.5s;
+}
+ 
+.palette {
+    display: inline-block;
+    width: 100%;
+    height: 2em;
+    font-size: 1.3em;
+    background-color: #1F1F1F;
+    color: #F0F0F0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5em;
+    transition: 0.5s;
+    position: relative;
+    top: 15em;
+}
+
+.palette:hover {
+    background-color: #21b469;
+    opacity: 1;
+    transition: 0.5s;
+}
+ 
+.update-wrap {
+    position: relative;
+    height: 35px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.update-field {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 0.5px solid black;
+    transition: 0.5s;
+}
+
+.update-textarea {
+    background: none;
+    border-radius: 2em;
+    padding: 1em;
+    font-size: 1em;
+    resize: none;
+    margin-top: 1em;
+}
+
+label {
+    position: absolute;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.5s;
+    font-size: 1.3em;
+    margin-top: -0.4em;
+}
+
+.update-wrap.active {
+    border-bottom-color: #1F1F1F;
+}
+
+.update-wrap.active + label {
+    font-size: 1em;
+    font-weight: bolder;
+    top: -0.3em;
+    transition: 0.5s;
+    opacity: 0.75;
+    color: #21b469;
 }
 
 .left-box-prs {
     max-width: calc(100% - 90%);
     height: 105%;
     position: relative;
+    display: flex;
+    flex-direction: column;
     left: 5%;
     top: -2.5%;
     background: #fbdb44;
@@ -275,17 +390,16 @@ form#update-user.active, form#update-palette.active {
     transition: 0.8s;
 }
 
-.left-box-prs a {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.left-box-prs button {
     padding: 15%;
     font-size: 3.5em;
     transition: 0.5s;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.left-box-prs a:hover {
+.left-box-prs button:hover {
     color: #21b469;
     letter-spacing: 0.1em;
     transition: 0.5s;

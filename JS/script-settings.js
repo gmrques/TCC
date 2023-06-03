@@ -1,9 +1,13 @@
 // Barra de pesquisa =>
 
 let search = document.querySelector(".search");
-search.addEventListener("click", () => {
+search.onclick = function() {
     document.querySelector(".container1").classList.toggle("active");
-}) 
+    if ($(".publish-options").hasClass("publish-options active")) {
+       //impedir de clicar no plus
+    }
+}
+
 
 let close = document.querySelector(".close");
 close.addEventListener("click", () => {
@@ -21,8 +25,6 @@ button.addEventListener("click", () => {
 
 // Ocultar e mostrar formulário para editar informações =>
 
-
-
 const userBtn = document.getElementById('update-user-btn');
 const userForm = document.getElementById('update-user');
 
@@ -37,3 +39,9 @@ paletteBtn.addEventListener("click", () => {
     paletteForm.classList.toggle('active');
 })
  
+// JS no form com label
+
+const inputs = document.querySelectorAll("update-wrap");
+inputs.addEventListener("click", () => {
+    inp.classList.add("active");
+})
