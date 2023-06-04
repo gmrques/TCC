@@ -365,7 +365,7 @@ main {
     display: none;
 }
 
-.main-home-box1, .main-home-box2 {
+.main-home-box1, .main-home-box2, .main-home-box3, .main-home-box4, .main-home-box5 {
     height: 70%;
     width: 100%;
     align-items: center;
