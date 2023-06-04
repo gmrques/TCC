@@ -12,7 +12,7 @@
 > + gastronomy.php;
 > + search.php;
 > + roadmap.php;
-> + <s>profile.php; 80%, quando completo, pegar esse JS e aplicar em <br>todas as páginas incompletas, o que corresponde a 50% do js delas </s>
+> + <s>profile.php;</s>
 > + <s>settings.php;</s>
 > + <s>index.php;</s>
 > + <s>publish.php</s>
