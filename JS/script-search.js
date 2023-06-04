@@ -25,8 +25,12 @@ button.addEventListener("click", () => {
 // Filtrar os resultados de busca =>
 
 var select_search = document.getElementById('menu');
-select_search.addEventListener('change', function(){
-    switch (menu) {
+select_search.addEventListener('change', function() {
+
+    const ActiveSpan = document.querySelector(".bullets-home span.active");
+    const value = ActiveSpan.getAttribute('value');
+
+    switch (value) {
         case '1':
 
         break

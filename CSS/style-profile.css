@@ -361,10 +361,13 @@ main {
 /* ////////////////////////////////////// */
 /* ARTICLES */
 
-.main-home-box {
+.hidden {
+    display: none;
+}
+
+.main-home-box1, .main-home-box2 {
     height: 70%;
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -392,7 +395,7 @@ main {
     letter-spacing: 0.01em;   
 }
 
-.card-article1 img {
+.card-article1 img, .card-article2 img, .card-article3 img, .card-article4 img, .card-article5 img {
     width: 10em;
     height: 10em;
     border-radius: 2em 0 0 2em;
@@ -400,7 +403,7 @@ main {
     margin-right: 1em;
 }
 
-.card-article1 {
+.card-article1, .card-article2, .card-article3, .card-article4, .card-article5 {
     width: 50em;
     height: 10em;
     border-radius: 2em;

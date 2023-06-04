@@ -25,33 +25,64 @@ button.addEventListener("click", () => {
 // Slider nos artigos do perfil
 
 const bullets = document.querySelectorAll(".stats");
-const page1 = document.querySelectorAll(".card-article1");
+ const page1 = document.querySelector(".main-home-box1");
+ const page2 = document.querySelector(".main-home-box2");
+ const page3 = document.querySelector(".main-home-box3");
+ const page4 = document.querySelector(".main-home-box4");
+ const page5 = document.querySelector(".main-home-box5");
 
 function moveslider() {
-
-    bullets.forEach((bull) => bull.classList.remove("active"));
-    this.classList.add("active").getAtribute('value');
-
-    switch (bullets.value) {
-        case '1':
-            // por algum motivo ou ele não puxa o valor ou a operação não ta correta.
-        break
-        case '2':
-            
-        break
-        case '3':
+    bullets.forEach(bull => bull.classList.remove("active"));
+    this.classList.add("active");
     
-        break
-        case '4':
-    
-        break
-        case '5':
-    
-        break
+    const activeBullet = document.querySelector(".stats.active");
+    const value = activeBullet.getAttribute('value');
 
-        default:
-
-    }
+     if (value === '1') {
+         page1.style.display = "block";
+         page2.style.display = "none";
+         page3.style.display = "none";
+         page4.style.display = "none";
+         page5.style.display = "none";
+         // Aqui ele puxa o "main-home-box4 e 5 juntos"
+     } else {
+         page1.style.display = "none"; }
+     if (value === '2') {
+         page1.style.display = "none";
+         page2.style.display = "block";
+         page3.style.display = "none";
+         page4.style.display = "none";
+         page5.style.display = "none";
+         // Aqui ele puxa o "main-home-box4 e 5 juntos"
+     } else {
+         page2.style.display = "none"; }
+     if (value === '3') {
+         page1.style.display = "none";
+         page2.style.display = "none";
+         page3.style.display = "block";
+         page4.style.display = "none";
+         page5.style.display = "none";
+         // Aqui ele puxa o "main-home-box4 e 5 juntos"
+     } else {
+         page3.style.display = "none"; }
+     if (value === '4') {
+         page1.style.display = "none";
+         page2.style.display = "none";
+         page3.style.display = "none";
+         page4.style.display = "block";
+         page5.style.display = "none";
+         // Aqui ele puxa apenas o "main-home-box4 e 5 juntos"
+     } else {
+         page4.style.display = "none"; }
+     if (value === '5') {
+         page1.style.display = "none";
+         page2.style.display = "none";
+         page3.style.display = "none";
+         page4.style.display = "none";
+         page5.style.display = "block";
+         // Aqui ele puxa apenas o "main-home-box4 e 5 juntos"
+     } else {
+         page5.style.display = "none"; }
 }
 
 bullets.forEach(bullet => {
