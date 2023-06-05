@@ -240,10 +240,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 
-.main-home-box {
+.main-home-box1, .main-home-box2, .main-home-box3, .main-home-box4, .main-home-box5 {
     height: 70%;
     width: 100%;
     display: flex;
@@ -327,6 +327,7 @@ main {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-top: 2em;
 }
 
 .bullets-home span {

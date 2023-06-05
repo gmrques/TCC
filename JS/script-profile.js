@@ -50,20 +50,20 @@ function moveslider() {
     page5.style.display = "none";
   
     if (value === "1") {
-      page1.style.display = "block";
+      page1.style.display = "flex";
     } else if (value === "2") {
-      page2.style.display = "block";
+      page2.style.display = "flex";
     } else if (value === "3") {
-      page3.style.display = "block";
+      page3.style.display = "flex";
     } else if (value === "4") {
-      page4.style.display = "block";
+      page4.style.display = "flex";
     } else if (value === "5") {
-      page5.style.display = "block";
+      page5.style.display = "flex";
     }
   }
   
   bullets[0].classList.add("active");
-  page1.style.display = "block";
+  page1.style.display = "flex";
 
 bullets.forEach(bullet => {
     bullet.addEventListener("click", moveslider);
