@@ -6,11 +6,12 @@
 > ## (HTML/CSS) ==>
 > ### Concluído.
 
-> ## (JS) (CORRER PRA TERMINAR 04/06 ATÉ 05/06) ==>
+> ## (JS) (CORRER PRA TERMINAR ATÉ 05/06) ==>
+> ## FALTA ADICIONAR NO JS QUE QUANDO CLICAR NO CARD, ELE VAI EXPANDIR NA TELA
 > + <s>home.php; 50%</s>
 > + destination.php;
 > + <s>gastronomy.php; 50%</s>
-> + search.php;
+> + <s>search.php; 50%</s>
 > + <s>roadmap.php; 50%</s>
 > + <s>profile.php;</s>
 > + <s>settings.php;</s>
