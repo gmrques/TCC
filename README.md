@@ -9,9 +9,9 @@
 > ## (JS) (CORRER PRA TERMINAR 04/06 ATÉ 05/06) ==>
 > + home.php;
 > + destination.php;
-> + gastronomy.php;
+> + <s>gastronomy.php; 50%</s>
 > + search.php;
-> + <s>roadmap.php;</s>
+> + <s>roadmap.php; 50%</s>
 > + <s>profile.php;</s>
 > + <s>settings.php;</s>
 > + <s>index.php;</s>

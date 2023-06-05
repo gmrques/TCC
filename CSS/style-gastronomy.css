@@ -330,6 +330,7 @@ main {
 
 .ul-dots li.active {
     list-style: none;
+    display: inline-flex;
     width: 14em;
     height: 1em;
     margin-left: 0.2em;

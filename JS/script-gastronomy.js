@@ -25,23 +25,39 @@ button.addEventListener("click", () => {
 
 // Slider =>
 
-// let list = document.querySelector('.slider-gastronomy .list-img');
-// let items = document.querySelectorAll('.slider-gastronomy .list-img .item');
-// let dots = document.querySelectorAll('.slider-gastronomy .ul-dots li');
-// let active = 0;
+let sliderList = document.querySelector('.slider-gastronomy .list-img');
+let items = document.querySelectorAll('.slider-gastronomy .list-img .item');
+let dots = document.querySelectorAll('.slider-gastronomy .ul-dots li');
+let active = 0;
 
-// let refreshSlide = setInterval(()=> {next.click()}, 3000)
-// function reloadSlider(){
-//     let checkleft = items[active].offsetLeft;
-//     list.style.left = -checkleft + 'em';
+function reloadSlider() {
+  items.forEach((item, index) => {
+    if (index === active) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
 
-//     let lastActiveDot = document.querySelector('.slider-gastronomy .ul-dots li.active');
-//     lastActiveDot.classList.remove('active');
-//     dots[active].classList.add('active');
-// }
+  dots.forEach((dot, index) => {
+    dot.classList.remove('active');
+    if (index === active) {
+      dot.classList.add('active');
+    }
+  });
+}
 
-// dots.forEach((li, key) => {
-//     li.addEventListener('click', function(){
-//         active = key;
-//     })
-// });
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', function () {
+    active = index;
+    reloadSlider();
+  });
+});
+
+reloadSlider();
+
+
+
+
+
+
