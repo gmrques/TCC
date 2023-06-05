@@ -25,25 +25,49 @@ button.addEventListener("click", () => {
 // Filtrar os resultados de busca =>
 
 var select_search = document.getElementById('menu');
+const page1 = document.querySelector(".search-article");
+const page2 = document.querySelector(".search-roadmap");
+const page3 = document.querySelector(".search-gastronomy");
+
+page1.style.display = "none";
+page2.style.display = "none";
+page3.style.display = "none";
+
+let previousOption = null; // Armazena a opção anteriormente selecionada
+
 select_search.addEventListener('change', function() {
+  const selectedOption = select_search.options[select_search.selectedIndex];
+  const value = selectedOption.getAttribute('value');
 
-    const ActiveSpan = document.querySelector(".bullets-home span.active");
-    const value = ActiveSpan.getAttribute('value');
+  // Remover classe "active" de todas as opções
+  const options = select_search.querySelectorAll('option');
+  options.forEach(option => option.classList.remove('active'));
 
-    switch (value) {
-        case '1':
+  // Adicionar classe "active" à opção selecionada
+  selectedOption.classList.add('active');
 
-        break
-        case '2':
+  // Ocultar a página da opção anteriormente selecionada
+  if (previousOption !== null) {
+    const previousValue = previousOption.getAttribute('value');
+    if (previousValue === "1") {
+      page1.style.display = "none";
+    } else if (previousValue === "2") {
+      page2.style.display = "none";
+    } else if (previousValue === "3") {
+      page3.style.display = "none";
+    }
+  }
 
-        break
-        case '3':
+  // Exibir a página correspondente com base no valor selecionado
+  if (value === "1") {
+    page1.style.display = "block";
+  } else if (value === "2") {
+    page2.style.display = "block";
+  } else if (value === "3") {
+    page3.style.display = "block";
+  }
 
-        break
-        case '4':
-
-        break
-
-        default:
-    };
+  previousOption = selectedOption; // Atualizar a opção anteriormente selecionada
 });
+
+

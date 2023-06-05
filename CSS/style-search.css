@@ -306,7 +306,7 @@ main {
 
 .card-article img {
     width: 10em;
-    height: 8em;
+    height: 7em;
     border-radius: 2em 0 0 2em;
     transition: 0.1s;
     margin-right: 1em;
@@ -314,7 +314,7 @@ main {
 
 .card-article {
     width: 50em;
-    height: 8em;
+    height: 7em;
     border-radius: 2em;
     background: #21b469;
     box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
@@ -348,29 +348,6 @@ main {
 .read_more:hover {
     font-size: 0.92em;
     transition: 0.2s;
-}
-
-.bullets-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.bullets-home span {
-    display: block;
-    width: 0.8em;
-    height: 0.8em;
-    background-color: #1F1F1F;
-    margin: 0 0.3em;
-    border-radius: 5em; 
-    transition: 0.4s;
-}
-
-.bullets-home span.active {
-    width: 2em;
-    background-color: #21b469;
-    border-radius: 1em;
 }
 
 /* ///////////////////////////////////// */
@@ -447,30 +424,30 @@ main {
     overflow: hidden;
 }
 
-.bullets-roadmap {
+/* GASTRONOMY */
+
+.gastronomy-card {
+    width: 40em;
+    height: 5.5em;
+    background-color: #fa3c43;
+    padding: 0.5em;
+    border-radius: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 15px 20px -1px rgba(0,0,0,0.4);
     cursor: pointer;
-    position: relative;
-    left: 2em;
+    margin-bottom: 1em;
+    transition: 0.5s;
+    overflow: hidden;
 }
 
-.bullets-roadmap span {
-    display: block;
-    width: 1em;
-    height: 1em;
-    background-color: #1F1F1F;
-    margin: 0.4em 0;
-    border-radius: 5em; 
-    transition: 0.4s;
-}
-
-.bullets-roadmap span.active {
-    height: 2em;
-    background-color: #f7a130;
-    border-radius: 1em;
+.gastronomy-card:hover {
+    width: 41em;
+    height: 6em;
 }
 
 /* ////////////////////////////////////// */
