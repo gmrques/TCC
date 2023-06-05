@@ -7,7 +7,7 @@
 > ### Concluído.
 
 > ## (JS) (CORRER PRA TERMINAR 04/06 ATÉ 05/06) ==>
-> + home.php;
+> + <s>home.php; 50%</s>
 > + destination.php;
 > + <s>gastronomy.php; 50%</s>
 > + search.php;
