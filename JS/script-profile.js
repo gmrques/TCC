@@ -68,3 +68,18 @@ function moveslider() {
 bullets.forEach(bullet => {
     bullet.addEventListener("click", moveslider);
 });
+
+// Popup
+const popup = document.querySelectorAll(".popup-card-article");
+const body = document.querySelector("body");
+
+document.querySelectorAll('.read_more').addEventListener("click", function () {
+  popup.classList.add("active");
+  body.classList.add("active-popup");
+});
+
+document.querySelectorAll('.remove').addEventListener("click", function () {
+  popup.classList.remove("active");
+  body.classList.remove("active-popup");
+});
+
