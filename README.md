@@ -6,8 +6,8 @@
 > ## (HTML/CSS) ==>
 > ### Concluído.
 
-> ## (JS) (CORRER PRA TERMINAR ATÉ 05/06) ==>
-> ## FALTA ADICIONAR NO JS QUE QUANDO CLICAR NO CARD, ELE VAI EXPANDIR NA TELA
+> ## (JS) ==>
+> ### Conluído.
 > + <s>home.php; só implementar, código completo</s>
 > + <s>destination.php;</s>
 > + <s>gastronomy.php; só implementar, código completo</s>
