@@ -162,8 +162,8 @@ document.querySelectorAll('.read_more').forEach(function(button) {
   });
 });
 
-document.querySelectorAll('.remove').forEach(function(button) {
-  button.addEventListener("click", function (event) {
+document.querySelectorAll('.remove').forEach(function(i) {
+  i.addEventListener("click", function (event) {
     const value = event.target.getAttribute('value');
 
     switch (value) {

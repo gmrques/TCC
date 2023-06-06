@@ -446,25 +446,23 @@ main {
     font-size: 1.5em;
 }
 
-.popup-card-article1 button, .popup-card-article2 button, .popup-card-article3 button,
-.popup-card-article4 button, .popup-card-article5 button, .popup-card-article6 button,
-.popup-card-article7 button, .popup-card-article8 button, .popup-card-article9 button,
-.popup-card-article10 button, .popup-card-article11 button, .popup-card-article12 button,
-.popup-card-article13 button, .popup-card-article14 button, .popup-card-article15 button {
+.popup-card-article1 i, .popup-card-article2 i, .popup-card-article3 i,
+.popup-card-article4 i, .popup-card-article5 i, .popup-card-article6 i,
+.popup-card-article7 i, .popup-card-article8 i, .popup-card-article9 i,
+.popup-card-article10 i, .popup-card-article11 i, .popup-card-article12 i,
+.popup-card-article13 i, .popup-card-article14 i, .popup-card-article15 i {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 3em;
     transition: 0.5s;
-    position: relative;
-    top: -45%;
 }
 
-.popup-card-article1 button:hover, .popup-card-article2 button:hover, .popup-card-article3 button:hover,
-.popup-card-article4 button:hover, .popup-card-article5 button:hover, .popup-card-article6 button:hover,
-.popup-card-article7 button:hover, .popup-card-article8 button:hover, .popup-card-article9 button:hover,
-.popup-card-article10 button:hover, .popup-card-article11 button:hover, .popup-card-article12 button:hover,
-.popup-card-article13 button:hover, .popup-card-article14 button:hover, .popup-card-article15 button:hover {
+.popup-card-article1 i:hover, .popup-card-article2 i:hover, .popup-card-article3 i:hover,
+.popup-card-article4 i:hover, .popup-card-article5 i:hover, .popup-card-article6 i:hover,
+.popup-card-article7 i:hover, .popup-card-article8 i:hover, .popup-card-article9 i:hover,
+.popup-card-article10 i:hover, .popup-card-article11 i:hover, .popup-card-article12 i:hover,
+.popup-card-article13 i:hover, .popup-card-article14 i:hover, .popup-card-article15 i:hover {
     color: #fa3c43;
     transition: 0.5s;
 }
