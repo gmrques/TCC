@@ -380,7 +380,11 @@ main {
     border: none;
 }
 
-.popup-card-article {
+.popup-card-article1, .popup-card-article2, .popup-card-article3,
+.popup-card-article4, .popup-card-article5, .popup-card-article6,
+.popup-card-article7, .popup-card-article8, .popup-card-article9,
+.popup-card-article10, .popup-card-article11, .popup-card-article12,
+.popup-card-article13, .popup-card-article14, .popup-card-article15 {
     position: absolute;
     left: 20%;
     top: 42%;
@@ -399,7 +403,11 @@ main {
     opacity 300ms ease-in-out;
 }
 
-.popup-card-article.active {
+.popup-card-article1.active, .popup-card-article2.active, .popup-card-article3.active,
+.popup-card-article4.active, .popup-card-article5.active, .popup-card-article6.active,
+.popup-card-article7.active, .popup-card-article8.active, .popup-card-article9.active,
+.popup-card-article10.active, .popup-card-article11.active, .popup-card-article12.active,
+.popup-card-article13.active, .popup-card-article14.active, .popup-card-article15.active {
     position: absolute;
     left: 20%;
     top: 42%;
@@ -419,22 +427,30 @@ main {
 }
 
 
-.popup-card-article > * {
-    margin: 0.3em 0;
-}
-
-.popup-card-article h2 {
+.popup-card-article1 h2, .popup-card-article2 h2, .popup-card-article3 h2,
+.popup-card-article4 h2, .popup-card-article5 h2, .popup-card-article6 h2,
+.popup-card-article7 h2, .popup-card-article8 h2, .popup-card-article9 h2,
+.popup-card-article10 h2, .popup-card-article11 h2, .popup-card-article12 h2,
+.popup-card-article13 h2, .popup-card-article14 h2, .popup-card-article15 h2 {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3em;
 }
 
-.popup-card-article p {
+.popup-card-article1 p, .popup-card-article2 p, .popup-card-article3 p,
+.popup-card-article4 p, .popup-card-article5 p, .popup-card-article6 p,
+.popup-card-article7 p, .popup-card-article8 p, .popup-card-article9 p,
+.popup-card-article10 p, .popup-card-article11 p, .popup-card-article12 p,
+.popup-card-article13 p, .popup-card-article14 p, .popup-card-article15 p {
     font-size: 1.5em;
 }
 
-.popup-card-article button {
+.popup-card-article1 button, .popup-card-article2 button, .popup-card-article3 button,
+.popup-card-article4 button, .popup-card-article5 button, .popup-card-article6 button,
+.popup-card-article7 button, .popup-card-article8 button, .popup-card-article9 button,
+.popup-card-article10 button, .popup-card-article11 button, .popup-card-article12 button,
+.popup-card-article13 button, .popup-card-article14 button, .popup-card-article15 button {
     background: none;
     border: none;
     cursor: pointer;
@@ -444,7 +460,11 @@ main {
     top: -45%;
 }
 
-.popup-card-article button:hover {
+.popup-card-article1 button:hover, .popup-card-article2 button:hover, .popup-card-article3 button:hover,
+.popup-card-article4 button:hover, .popup-card-article5 button:hover, .popup-card-article6 button:hover,
+.popup-card-article7 button:hover, .popup-card-article8 button:hover, .popup-card-article9 button:hover,
+.popup-card-article10 button:hover, .popup-card-article11 button:hover, .popup-card-article12 button:hover,
+.popup-card-article13 button:hover, .popup-card-article14 button:hover, .popup-card-article15 button:hover {
     color: #fa3c43;
     transition: 0.5s;
 }
@@ -455,7 +475,11 @@ body.active-popup footer {
     transition: filter 0ms ease-in-out 0ms;
 }
 
-body.active-popup .popup-card-article {
+body.active-popup .popup-card-article1, body.active-popup .popup-card-article2, body.active-popup .popup-card-article3,
+body.active-popup .popup-card-article4, body.active-popup .popup-card-article5, body.active-popup .popup-card-article6,
+body.active-popup .popup-card-article7, body.active-popup .popup-card-article8, body.active-popup .popup-card-article9,
+body.active-popup .popup-card-article10, body.active-popup .popup-card-article11, body.active-popup .popup-card-article12,
+body.active-popup .popup-card-article13, body.active-popup .popup-card-article14, body.active-popup .popup-card-article15 {
     /* top: 50%; */
     opacity: 1;
     transition: top 0ms ease-in-out 0ms,
