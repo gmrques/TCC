@@ -10,12 +10,11 @@ class OperationsUser{
 
     public function __construct($db){
         $this->conn = $db;
-
     }
 
     public function create($postValues){
 
-        $EMAIL = $postValues['EMAIL$EMAIL'];
+        $EMAIL = $postValues['EMAIL'];
         $FULL_NAME = $postValues['FULL_NAME'];
         $USERNAME = $postValues['USERNAME'];
         $PASSWORD = $postValues['PASSWORD'];
@@ -27,107 +26,55 @@ class OperationsUser{
         $stmt->bindParam(3,$USERNAME);
         $stmt->bindParam(4,$PASSWORD);
         
-        $rows = $this->read();
         if($stmt->execute()){
             return true;
         }else{
             return false;
         }
-
     }
 
     public function login() {
-        if (isset($_POST["EMAIL"]) || ($_POST["USERNAME"]) || ($_POST["PASSWORD"])) {
-            if(strlen ($_POST["EMAIL"]) == 0) {
-                echo "<alert>Preencha com seu Usuário!!</alert>";
-            } elseif (strlen ($_POST["USERNAME"]) == 0) {
-                echo "<alert>Preencha com sua Senha!! </alert>";        
-            } elseif (strlen ($_POST["PASSWORD"]) == 0) {
-                echo "<alert>Preencha com sua Senha!! </alert>";  
+        if (isset($_POST["EMAIL"]) && isset($_POST["USERNAME"]) && isset($_POST["PASSWORD"])) {
+            if(strlen($_POST["EMAIL"]) == 0) {
+                echo "<alert>Preencha com seu Email!!</alert>";
+            } elseif (strlen($_POST["USERNAME"]) == 0) {
+                echo "<alert>Preencha com seu Usuário!!</alert>";        
+            } elseif (strlen($_POST["PASSWORD"]) == 0) {
+                echo "<alert>Preencha com sua Senha!!</alert>";  
             } else {
+                $mysqli = new mysqli("localhost", "root", "", "tcc");
+                if ($mysqli->connect_errno) {
+                    echo "Falha ao conectar ao banco de dados: " . $mysqli->connect_error;
+                    return;
+                }
                 $USERNAME = $mysqli->real_escape_string($_POST["USERNAME"]);
                 $PASSWORD = $mysqli->real_escape_string($_POST["PASSWORD"]);
                 $EMAIL = $mysqli->real_escape_string($_POST["EMAIL"]);
-        
                 $sql_code = "SELECT * FROM usuario WHERE USERNAME = '$USERNAME' AND PASSWORD = '$PASSWORD' AND EMAIL = '$EMAIL'";
-                $query = $mysql->query($sql_code) or die("Erro na execução do código SQL: ". $mysqli->error);
-        
+                $query = $mysqli->query($sql_code) or die("Erro na execução do código SQL: " . $mysqli->error);
                 $quantidade = $query->num_rows;
-                
-                if($quantidade == 1) {           
+    
+                if ($quantidade == 1) {           
                     $usuario = $query->fetch_assoc();
-                    
-                    if(strpos($EMAIL, '@nomeDaEmpresa')) {
-                        
-                        //parte que define os métodos de um tipo de usuário
-                        
-                        if(isset($_SESSION)) {
-                            session_start();
-                        }
-                        $_SESSION['id'] = $usuario['id'];
-            
-                        } else {
-                            echo"<alert>Falha ao entrar! Email ou senha incorretos</alert>";
-                        }
-                    if(strpos($EMAIL, !'@nomeDaEmpresa')) {
-                        
-                        //parte que define os métodos de um tipo de usuário
-                        
-                        if(isset($_SESSION)) {
-                            session_start();
-                        }
-                        $_SESSION['id'] = $usuario['id'];
-            
-                        } else {
-                            echo"<alert>Falha ao entrar! Email ou senha incorretos</alert>";
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
                     }
+                    $_SESSION['id'] = $usuario['id'];
+                } else {
+                    echo "<alert>Falha ao entrar! Email ou senha incorretos</alert>"; 
                 }
+                $mysqli->close();
             }
         }
-    }
- 
-    public function read(){
-        $query = "SELECT * FROM ". $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt-> execute();
-        return $stmt;
-    }
+    }    
 
     public function update($postValues){
-        $EMAIL = $postValues['$EMAIL'];
-        $FULL_NAME = $postValues['$FULL_NAME'];
-        $USERNAME = $postValues['$USERNAME'];
-        $PASSWORD = $postValues['$PASSWORD'];
-        $PROFILE_PIC = $_FILES['PROFILE_PIC'];
-    
-        if (!empty($PROFILE_PIC["name"])) {
-            
-            $MAX_WIDTH = 180;
-            $MAX_HEIGHT = 180;
-            $MAX_SIZE = 200;
-    
-            if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $PROFILE_PIC["type"])) {
-                $DIMENSIONS = getimagesize($PROFILE_PIC["tmp_name"]);
-                if($DIMENSIONS[0] < $MAX_WIDTH && $DIMENSIONS[1] < $MAX_HEIGHT && $PROFILE_PIC["size"] < $MAX_SIZE) {
-                    preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $PROFILE_PIC["name"], $ext);
-                    $IMG_NAME = md5(uniqid(time())) . "." . $ext[1]; // precisa melhorar a criptografia
-                    $DIRECTORY = "CSS/IMG/FAQ-img" . $IMG_NAME;
-                    move_uploaded_file($PROFILE_PIC["tmp_name"], $DIRECTORY);
-        
-                    $sql = "INSERT INTO support ('IMG_NAME') VALUES ('".$IMG_NAME."')";
-                
-                    if ($sql){
-                        echo"<alert>Sua mensagem foi enviada com sucesso!</alert>";
-                    }
-                } else {
-                    "<alert>A imagem que você escolheu ultrapassa o tamanho permitido, sendo:".$MAX_WIDTH."pixels de largura e ".$MAX_SIZE."pixels de altura</alert>";
-                }
-            } else {
-                echo"<alert>Não há suporte para o tipo de imagem selecionado :( </alert>";
-            }
-        }
+        $EMAIL = $postValues['EMAIL'];
+        $FULL_NAME = $postValues['FULL_NAME'];
+        $USERNAME = $postValues['USERNAME'];
+        $PASSWORD = $postValues['PASSWORD'];
 
-        if(empty($ID) || empty($EMAIL) || empty($FULL_NAME) || empty($USERNAME) || empty($PASSWORD) ){
+        if( empty($EMAIL) || empty($FULL_NAME) || empty($USERNAME) || empty($PASSWORD) ){
             return false;
         }
 
@@ -144,26 +91,5 @@ class OperationsUser{
         }else{
             return false;
         }
-    }
-
-    public function readOne($ID){
-        $query = " SELECT * FROM " . $this->table_name . " WHERE id = ? ";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1,$ID);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC); 
-    }
-    
-
-    public function delete($ID){
-        $query = " DELETE FROM " . $this->table_name . " WHERE id = ? ";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1,$ID);
-        if($stmt->execute()){
-            return true;
-        }else{
-            return false;
-        }
-
     }
 }
