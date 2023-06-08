@@ -76,6 +76,8 @@ if (isset($_POST['register'])) {
         echo "<alert></alert>";
         exit();
     }
+
+    // Faltam as verificações de login
 }
 
 ?>

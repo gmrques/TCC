@@ -17,3 +17,19 @@
 > + <s>settings.php;</s>
 > + <s>index.php;</s>
 > + <s>publish.php</s>
+
+> ## (PHP) ==>
+> ###
+> + Operations.php (Cadastro, login e atualizar concluídos)
+
+> + index.php (verificação do cadastro concluída, falta de login);
+> + destinations.php;
+> + gastronomy.php;
+> + home.php;
+> + profile.php;
+> + publish-article.php
+> + publish-gastronomy.php
+> + publish-roadmap.php
+> + roadmap.php
+> + search.php
+> + settings.php
