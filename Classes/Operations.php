@@ -6,7 +6,7 @@ $db = new Database();
 
 class OperationsUser{
     private $conn;
-    private $table_name = "usuario";
+    private $table_name = "user";
 
     public function __construct($db){
         $this->conn = $db;
@@ -85,8 +85,8 @@ class OperationsUser{
         $stmt->bindParam(3,$USERNAME);
         $stmt->bindParam(4,$PASSWORD);
         if($stmt->execute()){
-            print "<script> alert('Cadastro realizado com sucesso!!! ')</script>";
-            print"<script>  location.href='?action=read';</script>";
+            echo "<alert>('Cadastro realizado com sucesso!!! ')</alert>";
+            header("location: home.php");
             return true;
         }else{
             return false;

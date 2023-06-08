@@ -1,8 +1,82 @@
 <?php
 
-include_once("Connection/conect.php");
-include_once("Validation/sing-in.php");
-include_once("Validation/sing-up.php");
+if (isset($_POST['register'])) {
+    include_once("Connection/Conect.php");
+    include_once("Classes/Operations.php");
+
+    $register = new OperationsUser();
+
+    $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
+    $query = "SELECT * FROM user WHERE FULL_NAME = :FULL_NAME";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':FULL_NAME', $FULL_NAME);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+
+    if (!preg_match("/^[a-z]{0,15}\s[a-z]{0,50}+$/i", $FULL_NAME)) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+    
+
+    $USERNAME = filter_var(trim($_POST['USERNAME']), FILTER_SANITIZE_STRING);
+    $query = "SELECT * FROM user WHERE USERNAME = :USERNAME";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':USERNAME', $USERNAME);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+
+    if ((!preg_match("/^_[a-z0-9][a-z0-9]+$", $USERNAME)) || 
+    (!preg_match("/^[a-z0-9][a-z]+$", $USERNAME))) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+
+    $PASSWORD = filter_var(trim($_POST['PASSWORD']), FILTER_SANITIZE_STRING);
+    $query = "SELECT * FROM user WHERE PASSWORD = :PASSWORD";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':PASSWORD', $PASSWORD);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+
+    if (strlen($PASSWORD) > 8) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+    
+    $EMAIL = filter_var(trim($_POST['EMAIL']), FILTER_SANITIZE_EMAIL);
+
+    $query = "SELECT * FROM user WHERE EMAIL = :EMAIL";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':EMAIL', $EMAIL);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+
+    if (!preg_match("/^[a-z0-9]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i", $EMAIL)) {
+        header("location: index.php");
+        echo "<alert></alert>";
+        exit();
+    }
+}
 
 ?>
 
@@ -54,7 +128,7 @@ include_once("Validation/sing-up.php");
                                 <input type="password" minlength="4" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
-                            <input type="submit" value="Entrar" class="sign-button">
+                            <input type="submit" name="submit" value="Entrar" class="sign-button">
                             <p>
                                 Esqueceu sua senha? Redefina sua senha
                                 <a href="#">aqui</a>
@@ -95,7 +169,7 @@ include_once("Validation/sing-up.php");
                                 <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Confirmar senha</label>
                             </div>
-                            <input type="submit" value="Cadastrar" class="sign-button">
+                            <input type="register" name="register" value="Cadastrar" class="sign-button">
                             <p>
                                 Se cadastrando, eu concordo com os
                                 <a href="#">Termos de uso</a> e
