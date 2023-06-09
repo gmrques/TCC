@@ -1,86 +1,141 @@
 <?php
+function hashPassword($password)
+{
+    return password_hash($password, PASSWORD_DEFAULT);
+}
 
-if (isset($_POST['register'])) {
+function verifyPassword($password, $hash)
+{
+    return password_verify($password, $hash);
+}
+
+if (isset($_POST['register']) && $_POST['register'] == 'register') {
     include_once("Connection/Conect.php");
     include_once("Classes/Operations.php");
 
     $register = new OperationsUser();
 
     $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
-    $query = "SELECT * FROM user WHERE FULL_NAME = :FULL_NAME";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':FULL_NAME', $FULL_NAME);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0) {
-        header("location: index.php");
-        echo "<alert></alert>";
-        exit();
-    }
 
     if (!preg_match("/^[a-z]{0,15}\s[a-z]{0,50}+$/i", $FULL_NAME)) {
         header("location: index.php");
-        echo "<alert></alert>";
+        echo "<div class='alert'>Digite um nome válido!</div>";
         exit();
     }
-    
 
     $USERNAME = filter_var(trim($_POST['USERNAME']), FILTER_SANITIZE_STRING);
-    $query = "SELECT * FROM user WHERE USERNAME = :USERNAME";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':USERNAME', $USERNAME);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0) {
-        header("location: index.php");
-        echo "<alert></alert>";
-        exit();
-    }
 
-    if ((!preg_match("/^_[a-z0-9][a-z0-9]+$", $USERNAME)) || 
-    (!preg_match("/^[a-z0-9][a-z]+$", $USERNAME))) {
+    if ((!preg_match("/^_[a-z0-9][a-z0-9]+$/", $USERNAME)) || (!preg_match("/^[a-z0-9][a-z]+$/", $USERNAME))) {
         header("location: index.php");
-        echo "<alert></alert>";
+        echo "<div class='alert'>Digite um nome de usuário válido!</div>";
         exit();
     }
 
     $PASSWORD = filter_var(trim($_POST['PASSWORD']), FILTER_SANITIZE_STRING);
-    $query = "SELECT * FROM user WHERE PASSWORD = :PASSWORD";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':PASSWORD', $PASSWORD);
+
+    if (strlen($PASSWORD) < 8) {
+        header("location: index.php");
+        echo "<div class='alert'>Por favor, insira uma senha com pelo menos 8 caracteres!</div>";
+        exit();
+    }
+
+    $EMAIL = filter_var(trim($_POST['EMAIL']), FILTER_SANITIZE_EMAIL);
+
+    if (!filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) {
+        header("location: index.php");
+        echo "<div class='alert'>Digite um endereço de e-mail válido!</div>";
+        exit();
+    }
+
+    $hashedPassword = hashPassword($PASSWORD);
+
+    $query = "SELECT * FROM user WHERE FULL_NAME = :FULL_NAME";
+    $stmt = $register->getDB()->prepare($query); // Correção aqui
+    $stmt->bindParam(':FULL_NAME', $FULL_NAME);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<alert></alert>";
+        echo "<div class='alert'>Já existe um usuário com esse Nome!</div>";
         exit();
     }
 
-    if (strlen($PASSWORD) > 8) {
+    $query = "SELECT * FROM user WHERE USERNAME = :USERNAME";
+    $stmt = $register->getDB()->prepare($query); // Correção aqui
+    $stmt->bindParam(':USERNAME', $USERNAME);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<alert></alert>";
+        echo "<div class='alert'>O nome de usuário inserido já foi cadastrado!</div>";
         exit();
     }
-    
-    $EMAIL = filter_var(trim($_POST['EMAIL']), FILTER_SANITIZE_EMAIL);
 
     $query = "SELECT * FROM user WHERE EMAIL = :EMAIL";
-    $stmt = $pdo->prepare($query);
+    $stmt = $register->getDB()->prepare($query); // Correção aqui
     $stmt->bindParam(':EMAIL', $EMAIL);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<alert></alert>";
+        echo "<div class='alert'>O email inserido já está cadastrado!</div>";
         exit();
     }
 
-    if (!preg_match("/^[a-z0-9]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i", $EMAIL)) {
-        header("location: index.php");
-        echo "<alert></alert>";
-        exit();
+    $insertQuery = "INSERT INTO user (FULL_NAME, USERNAME, PASSWORD, EMAIL) VALUES (:FULL_NAME, :USERNAME, :PASSWORD, :EMAIL)";
+    $stmt = $register->getDB()->prepare($insertQuery); // Correção aqui
+    $stmt->bindParam(':FULL_NAME', $FULL_NAME);
+    $stmt->bindParam(':USERNAME', $USERNAME);
+    $stmt->bindParam(':PASSWORD', $hashedPassword);
+    $stmt->bindParam(':EMAIL', $EMAIL);
+    if ($stmt->execute()) {
+        session_start();
+        $_SESSION['EMAIL'] = $EMAIL;
+        $_SESSION['USERNAME'] = $USERNAME;
+        $_SESSION['PASSWORD'] = $hashedPassword;
+        header('location: Home/home.php');
+        echo "<div class='alert'>Registro realizado com sucesso!</div>";
+    } else {
+        header('location: index.php');
+        echo "<div class='alert'>Ocorreu um erro ao registrar o usuário.</div>";
     }
-
-    // Faltam as verificações de login
 }
 
+if (isset($_POST['login']) && $_POST['login'] == 'login') {
+    include_once("Connection/Conect.php");
+    include_once("Classes/Operations.php");
+
+    $login = new OperationsUser();
+
+    $EMAIL = filter_input(INPUT_POST, 'EMAIL', FILTER_SANITIZE_EMAIL);
+    $USERNAME = filter_input(INPUT_POST, 'USERNAME', FILTER_SANITIZE_STRING);
+    $PASSWORD = filter_input(INPUT_POST, 'PASSWORD', FILTER_SANITIZE_STRING);
+
+    $CONF_PASSWORD = $_POST['CONF_PASSWORD'];
+    if ($PASSWORD !== $CONF_PASSWORD) {
+        header("location: index.php");
+        echo "<div class='alert'>As senhas não coincidem!</div>";
+        exit();
+    }
+
+    $loginQuery = "SELECT * FROM user WHERE EMAIL = :EMAIL AND USERNAME = :USERNAME";
+    $stmt = $login->getDB()->prepare($loginQuery); // Correção aqui
+    $stmt->bindParam(':EMAIL', $EMAIL);
+    $stmt->bindParam(':USERNAME', $USERNAME);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result && verifyPassword($PASSWORD, $result['PASSWORD'])) {
+        session_start();
+        $_SESSION['EMAIL'] = $EMAIL;
+        $_SESSION['USERNAME'] = $USERNAME;
+        $_SESSION['PASSWORD'] = $result['PASSWORD'];
+        header('location: Home/home.php');
+        echo "<div class='alert'>Login realizado com sucesso!</div>";
+    } else {
+        header('location: index.php');
+        echo "<div class='alert'>Credenciais inválidas.</div>";
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -130,7 +185,11 @@ if (isset($_POST['register'])) {
                                 <input type="password" minlength="4" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
-                            <input type="submit" name="submit" value="Entrar" class="sign-button">
+                            <div class="input-wrap">
+                                <input type="password" minlength="4" class="input-field" name="CONF_PASSWORD" autocomplete="off" required />
+                                <label for="CONF_PASSWORD">Confirmar senha</label>
+                            </div>
+                            <input type="submit" name="login" value="login" class="sign-button">
                             <p>
                                 Esqueceu sua senha? Redefina sua senha
                                 <a href="#">aqui</a>
@@ -167,11 +226,7 @@ if (isset($_POST['register'])) {
                                 <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
-                            <div class="input-wrap">
-                                <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
-                                <label for="PASSWORD">Confirmar senha</label>
-                            </div>
-                            <input type="register" name="register" value="Cadastrar" class="sign-button">
+                            <input type="submit" name="register" value="register" class="sign-button">
                             <p>
                                 Se cadastrando, eu concordo com os
                                 <a href="#">Termos de uso</a> e

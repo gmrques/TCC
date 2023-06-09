@@ -5,6 +5,7 @@
 
 > ## (HTML/CSS) ==>
 > ### Concluído.
+> Falta fazer os alerts.
 
 > ## (JS) ==>
 > ### Conluído.
@@ -17,12 +18,13 @@
 > + <s>settings.php;</s>
 > + <s>index.php;</s>
 > + <s>publish.php</s>
+> Falta fazer os alerts.
 
 > ## (PHP) ==>
 > ###
-> + Operations.php (Cadastro, login e atualizar concluídos)
+> + <s>Operations.php (Cadastro, login e atualizar concluídos)</s>
+> + <s>index.php (verificação do cadastro e login concluídos);</s>
 
-> + index.php (verificação do cadastro concluída, falta de login);
 > + destinations.php;
 > + gastronomy.php;
 > + home.php;
