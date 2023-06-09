@@ -10,7 +10,7 @@ function verifyPassword($password, $hash)
 }
 
 if (isset($_POST['register']) && $_POST['register'] == 'register') {
-    include_once("Connection/Conect.php");
+    include_once("Connection/conect.php");
     include_once("Classes/Operations.php");
 
     $register = new OperationsUser();
@@ -50,7 +50,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     $hashedPassword = hashPassword($PASSWORD);
 
     $query = "SELECT * FROM user WHERE FULL_NAME = :FULL_NAME";
-    $stmt = $register->getDB()->prepare($query); // Correção aqui
+    $stmt = $register->getDB()->prepare($query);  
     $stmt->bindParam(':FULL_NAME', $FULL_NAME);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
@@ -60,7 +60,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     }
 
     $query = "SELECT * FROM user WHERE USERNAME = :USERNAME";
-    $stmt = $register->getDB()->prepare($query); // Correção aqui
+    $stmt = $register->getDB()->prepare($query);  
     $stmt->bindParam(':USERNAME', $USERNAME);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
@@ -70,7 +70,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     }
 
     $query = "SELECT * FROM user WHERE EMAIL = :EMAIL";
-    $stmt = $register->getDB()->prepare($query); // Correção aqui
+    $stmt = $register->getDB()->prepare($query);  
     $stmt->bindParam(':EMAIL', $EMAIL);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
@@ -80,7 +80,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     }
 
     $insertQuery = "INSERT INTO user (FULL_NAME, USERNAME, PASSWORD, EMAIL) VALUES (:FULL_NAME, :USERNAME, :PASSWORD, :EMAIL)";
-    $stmt = $register->getDB()->prepare($insertQuery); // Correção aqui
+    $stmt = $register->getDB()->prepare($insertQuery);  
     $stmt->bindParam(':FULL_NAME', $FULL_NAME);
     $stmt->bindParam(':USERNAME', $USERNAME);
     $stmt->bindParam(':PASSWORD', $hashedPassword);
@@ -116,7 +116,7 @@ if (isset($_POST['login']) && $_POST['login'] == 'login') {
     }
 
     $loginQuery = "SELECT * FROM user WHERE EMAIL = :EMAIL AND USERNAME = :USERNAME";
-    $stmt = $login->getDB()->prepare($loginQuery); // Correção aqui
+    $stmt = $login->getDB()->prepare($loginQuery);  
     $stmt->bindParam(':EMAIL', $EMAIL);
     $stmt->bindParam(':USERNAME', $USERNAME);
     $stmt->execute();

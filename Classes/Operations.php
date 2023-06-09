@@ -9,11 +9,10 @@ class OperationsUser{
     private $table_name = "user";
 
     public function __construct($db){
-        $this->conn = $db;
+        $this->conn = $db->getConnection();
     }
 
     public function create($postValues){
-
         $EMAIL = $postValues['EMAIL'];
         $FULL_NAME = $postValues['FULL_NAME'];
         $USERNAME = $postValues['USERNAME'];
@@ -36,34 +35,31 @@ class OperationsUser{
     public function login() {
         if (isset($_POST["EMAIL"]) && isset($_POST["USERNAME"]) && isset($_POST["PASSWORD"])) {
             if(strlen($_POST["EMAIL"]) == 0) {
-                echo "<alert>Preencha com seu Email!!</alert>";
+                echo "<script>alert('Preencha com seu Email!!')</script>";
             } elseif (strlen($_POST["USERNAME"]) == 0) {
-                echo "<alert>Preencha com seu Usuário!!</alert>";        
+                echo "<script>alert('Preencha com seu Usuário!!')</script>";        
             } elseif (strlen($_POST["PASSWORD"]) == 0) {
-                echo "<alert>Preencha com sua Senha!!</alert>";  
+                echo "<script>alert('Preencha com sua Senha!!')</script>";  
             } else {
-                $mysqli = new mysqli("localhost", "root", "", "tcc");
-                if ($mysqli->connect_errno) {
-                    echo "Falha ao conectar ao banco de dados: " . $mysqli->connect_error;
-                    return;
-                }
-                $USERNAME = $mysqli->real_escape_string($_POST["USERNAME"]);
-                $PASSWORD = $mysqli->real_escape_string($_POST["PASSWORD"]);
-                $EMAIL = $mysqli->real_escape_string($_POST["EMAIL"]);
-                $sql_code = "SELECT * FROM usuario WHERE USERNAME = '$USERNAME' AND PASSWORD = '$PASSWORD' AND EMAIL = '$EMAIL'";
-                $query = $mysqli->query($sql_code) or die("Erro na execução do código SQL: " . $mysqli->error);
-                $quantidade = $query->num_rows;
-    
-                if ($quantidade == 1) {           
-                    $usuario = $query->fetch_assoc();
-                    if (session_status() == PHP_SESSION_NONE) {
-                        session_start();
-                    }
-                    $_SESSION['id'] = $usuario['id'];
+                $USERNAME = $_POST["USERNAME"];
+                $PASSWORD = $_POST["PASSWORD"];
+                $EMAIL = $_POST["EMAIL"];
+
+                $query = "SELECT * FROM ".$this->table_name." WHERE USERNAME = ? AND PASSWORD = ? AND EMAIL = ?";
+                $stmt = $this->conn->prepare($query);
+                $stmt->bindParam(1, $USERNAME);
+                $stmt->bindParam(2, $PASSWORD);
+                $stmt->bindParam(3, $EMAIL);
+                $stmt->execute();
+
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($result) {
+                    session_start();
+                    $_SESSION['id'] = $result['id'];
                 } else {
-                    echo "<alert>Falha ao entrar! Email ou senha incorretos</alert>"; 
+                    echo "<script>alert('Falha ao entrar! Email ou senha incorretos')</script>"; 
                 }
-                $mysqli->close();
             }
         }
     }    
@@ -84,8 +80,10 @@ class OperationsUser{
         $stmt->bindParam(2,$FULL_NAME);
         $stmt->bindParam(3,$USERNAME);
         $stmt->bindParam(4,$PASSWORD);
+        $stmt->bindParam(5,$_SESSION['id']);
+        
         if($stmt->execute()){
-            echo "<alert>('Cadastro realizado com sucesso!!! ')</alert>";
+            echo "<script>alert('Cadastro realizado com sucesso!!!')</script>";
             header("location: home.php");
             return true;
         }else{
@@ -93,3 +91,5 @@ class OperationsUser{
         }
     }
 }
+
+?>
