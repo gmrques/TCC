@@ -1,6 +1,6 @@
- <!-- <?php
+<?php
     require_once("Connection/conect.php");
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

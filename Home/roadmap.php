@@ -1,3 +1,7 @@
+<?php
+    include_once("Connection/conect.php"); 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
