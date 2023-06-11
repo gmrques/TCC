@@ -68,8 +68,8 @@
                     <div class="card-article1">
                         <img src="CSS/IMG/article-img/article 1.jpg" alt="">
                         <div class="info-article">
-                            <h2>Teste</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
+                            <h2><?php echo $Title_article; ?></h2>
+                            <p><?php echo $Content_article; ?></p>
                             <button class="read_more" value="1">Continue lendo</button>
                         </div>
                     </div>

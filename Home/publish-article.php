@@ -51,10 +51,10 @@
             <div class="main-publish-box">
                 <form class="article-form"action="#" method="post">
                     <label for="title">Título:</label>
-                    <input class="input-content" type="text" id="titulo" name="titulo" required>
+                    <input class="input-content" type="text" name="Title_article" required>
         
                     <label for="article-content">Conteúdo:</label>
-                    <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required></textarea>
+                    <textarea class="text-area-content" name="Content_article" rows="18" cols="36" required></textarea>
         
                     <input class="publish" type="submit" value="Publicar">
                 </form>
