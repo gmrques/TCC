@@ -1,5 +1,55 @@
 <?php
-    include_once("Connection/conect.php"); 
+    include_once("Connection/conect.php");
+    include_once("Classes/Operations.php");
+
+    if (isset($_POST['Salvar/Atualizar'])) {
+        $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':IDUSER', $_SESSION['ID']);
+        $stmt->execute();
+        
+        if ($stmt->rowCount() > 0) {
+            personalizeUpdate();
+        } else {
+            personalize();
+        }
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['EMAIL']) && isset($_POST['FULL_NAME']) && isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
+            $email = $_POST['EMAIL'];
+            $fullName = $_POST['FULL_NAME'];
+            $username = $_POST['USERNAME'];
+            $password = $_POST['PASSWORD'];
+            
+            $query = "SELECT EMAIL, FULL_NAME, USERNAME, PASSWORD FROM usuarios WHERE ID = :ID";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(':ID', $_SESSION['ID']);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            $differences = array();
+            if ($email !== $row['EMAIL']) {
+                $differences[] = 'Email';
+            }
+            if ($fullName !== $row['FULL_NAME']) {
+                $differences[] = 'Nome completo';
+            }
+            if ($username !== $row['USERNAME']) {
+                $differences[] = 'Nome de usuário';
+            }
+            if ($password !== $row['PASSWORD']) {
+                $differences[] = 'Senha';
+            }
+            
+            if (!empty($differences)) {
+                $message = 'Os seguintes campos estão diferentes dos valores cadastrados anteriormente: ' . implode(', ', $differences) . '.';
+                echo $message;
+            } else {
+                update($postValues);
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +142,7 @@
                                 <textarea class="update-textarea" name="BIO" rows="15" cols="60" required></textarea>
                                 <label for="BIO"> Biografia </label>
                             </div>
-                            <input type="submit" value="Salvar" class="palette">
+                            <input type="submit" value="Salvar" name="Salvar/Atualizar" class="palette">
                         </div>
                     </form>
             </div>

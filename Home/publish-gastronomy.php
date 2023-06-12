@@ -1,6 +1,12 @@
 <?php
     include_once("Connection/conect.php"); 
-    include_once("Classes/Operations.php")
+    include_once("Classes/Operations.php");
+
+    if ((!preg_match("/^[a-z][a-z]+$/", $TITLE_RECIPE))) {
+        header("location: index.php");
+        echo "<div class='alert'>Digite um título válido!</div>";
+        exit();
+    }
 ?> 
 
 <!DOCTYPE html>

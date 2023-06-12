@@ -99,6 +99,8 @@
                         $totalArticles = 15;
                         $cardTypes = array('card-article1', 'card-article2', 'card-article3', 'card-article4', 'card-article5');
                         
+                        $mainHomeBox = 1;
+                        
                         for ($page = 1; $page <= ceil($totalArticles / $limitPerPage); $page++) {
                             $offset = ($page - 1) * $limitPerPage;
                         
@@ -118,6 +120,7 @@
                                     $content = $row['CONTENT_ARTICLE'];
                                     $cardType = $cardTypes[$cardTypeIndex];
                         
+                                    echo '<div class="' . $mainHomeBox . '">';
                                     echo '<div class="' . $cardType . '">';
                                     echo '<img src="CSS/IMG/article-img/article ' . $articleNumber . '.jpg" alt="">';
                                     echo '<div class="info-article">';
@@ -136,126 +139,37 @@
                                     if ($articleNumber > $totalArticles) {
                                         break;
                                     }
+
+                                    if ($articleNumber % 3 == 0) {
+                                        $mainHomeBox++;
+                                        if ($mainHomeBox > 5) {
+                                            $mainHomeBox = 1;
+                                        }
+                                    }
                                 }
                             } else {
                                 echo "<p>Nenhuma publicação encontrada.</p>";
                             }
-                        } 
-                    ?>   
-                    <div class="popup-card-article1">
-                        <i value="1" class='remove bx bx-x'></i>
-                        <div class="info-article">
-                            <h2>Teste</h2>
-                            <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                        </div>
-                    </div>                    
-                    <div class="popup-card-article2">
-                        <i value="2" class='remove bx bx-x'></i>
-                        <div class="info-article">
-                            <h2>Teste</h2>
-                            <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                        </div>
-                    </div>
-                    <div class="popup-card-article3">
-                        <i value="3" class='remove bx bx-x'></i>
-                        <div class="info-article">
-                            <h2>Teste</h2>
-                            <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                        </div>
-                    </div>
-                </div>
-                    <div class="main-home-box2">
-                        <div class="popup-card-article4">
-                            <i value="4" class='remove bx bx-x'></i>
-                            <div class="info-article">
-                                <h2>Teste</h2>
-                                <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                            </div>
-                        </div>
-                        <div class="popup-card-article5">
-                            <i value="5" class='remove bx bx-x'></i>
-                            <div class="info-article">
-                                <h2>Teste</h2>
-                                <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                            </div>
-                        </div>
-                        <div class="popup-card-article6">
-                            <i value="6" class='remove bx bx-x'></i>
-                            <div class="info-article">
-                                <h2>Teste</h2>
-                                <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="main-home-box3">
-                            <div class="popup-card-article7">
-                                <i value="7" class='remove bx bx-x'></i>
-                                <div class="info-article">
-                                    <h2>Teste</h2>
-                                    <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                </div>
-                            </div>
-                            <div class="popup-card-article8">
-                                <i value="8" class='remove bx bx-x'></i>
-                                <div class="info-article">
-                                    <h2>Teste</h2>
-                                    <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                </div>
-                            </div>
-                            <div class="popup-card-article9">
-                                <i value="9" class='remove bx bx-x'></i>
-                                <div class="info-article">
-                                    <h2>Teste</h2>
-                                    <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                            <div class="main-home-box4">
-                                <div class="popup-card-article10">
-                                    <i value="10" class='remove bx bx-x'></i>
-                                    <div class="info-article">
-                                        <h2>Teste</h2>
-                                        <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                    </div>
-                                </div>
-                                <div class="popup-card-article11">
-                                    <i value="11" class='remove bx bx-x'></i>
-                                    <div class="info-article">
-                                        <h2>Teste</h2>
-                                        <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                    </div>
-                                </div>
-                                <div class="popup-card-article12">
-                                    <i value="12" class='remove bx bx-x'></i>
-                                    <div class="info-article">
-                                        <h2>Teste</h2>
-                                        <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                                <div class="main-home-box5">
-                                    <div class="popup-card-article13">
-                                        <i value="13" class='remove bx bx-x'></i>
-                                        <div class="info-article">
-                                            <h2>Teste</h2>
-                                            <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="popup-card-article14">
-                                        <i value="14" class='remove bx bx-x'></i>
-                                        <div class="info-article">
-                                            <h2>Teste</h2>
-                                            <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="popup-card-article15">
-                                        <i value="15" class='remove bx bx-x'></i>
-                                        <div class="info-article">
-                                            <h2>Teste</h2>
-                                            <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
+                        }
+                    ?>                        
+
+                    <?php
+                    $popupCardIndex = 1;
+                    for ($i = 1; $i <= 15; $i++) {
+                        $title = $titles[$i - 1];
+                        $content = $contents[$i - 1];
+
+                        echo '<div class="popup-card-article' . $i . '">';
+                        echo '<i value="' . $i . '" class="remove bx bx-x"></i>';
+                        echo '<div class="info-article">';
+                        echo '<h2>' . $title . '</h2>';
+                        echo '<p>' . $content . '</p>';
+                        echo '<textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="' . $BIO . '"></textarea>';
+                        echo '</div>';
+                        echo '</div>';
+                        $popupCardIndex++;
+                    }
+                    ?>
                 <div class="bottom-home-box">
                     <div class="bullets-home">
                         <span class="stats active" value="1"></span>

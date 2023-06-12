@@ -23,12 +23,11 @@
 > ## (PHP) ==>
 > ###
 > + <s>index.php (verificação do cadastro e login concluídos);</s>
-> + <s>profile.php (Exibição dos cards no perfil e verificação de imagem concluídos, fazer exibição do popup);</s>
-> + <s>publish-article.php (Método para publicar um artigo concluído)</s>
+> + <s>profile.php (Exibição dos cards no perfil, verificação de imagem e exibição do popup concluídos);</s>
 > + <s>settings.php (Método para atualizar informações e para personalizar concluídos)</s>
 > + <s>publish-article.php (Método para publicar artigo concluído)</s>
-> + <s>publish-gastronomy.php (Método para publicar receita)</s>
-> + <s>gastronomy.php; (Exibição da receita e popup)</s>
+> + <s>publish-gastronomy.php (Método para publicar receita concluído)</s>
+> + <s>gastronomy.php; (Exibição dos cards de receita e popup concluídos)</s>
 
 > + destinations.php;
 > + home.php;
