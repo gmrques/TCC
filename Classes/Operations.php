@@ -105,7 +105,7 @@ class OperationsUser{
                 exit;
             }
 
-            $query = "INSERT INTO publicacoes (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE)";
+            $query = "INSERT INTO article (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE)";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':IDUSER', $IDUSER);
             $stmt->bindParam(':TITLE_ARTICLE', $TITLE_ARTICLE);
@@ -115,51 +115,6 @@ class OperationsUser{
             header("Location: Home/profile.php");
             exit;
         }
-
-        $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':IDUSER', $IDUSER);
-        $stmt->execute();
-
-        $limitPerPage = 3;
-        $totalPages = 5;
-        $cardTypes = array('card-article1', 'card-article2', 'card-article3', 'card-article4', 'card-article5');
-        
-        for ($page = 1; $page <= $totalPages; $page++) {
-            $offset = ($page - 1) * $limitPerPage;
-        
-            $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(':IDUSER', $IDUSER);
-            $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
-            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-            $stmt->execute();
-        
-            if ($stmt->rowCount() > 0) {
-                $cardTypeIndex = 0;
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $title = $row['TITLE_ARTICLE'];
-                    $content = $row['CONTENT_ARTICLE'];
-                    $cardType = $cardTypes[$cardTypeIndex];
-        
-                    echo '<div class="' . $cardType . '">';
-                    echo '<img src="CSS/IMG/article-img/article ' . $page . '.jpg" alt="">';
-                    echo '<div class="info-article">';
-                    echo '<h2>' . $title . '</h2>';
-                    echo '<p>' . $content . '</p>';
-                    echo '<button class="read_more" value="' . $page . '">Continue lendo</button>';
-                    echo '</div>';
-                    echo '</div>';
-        
-                    $cardTypeIndex++;
-                    if ($cardTypeIndex >= count($cardTypes)) {
-                        $cardTypeIndex = 0;
-                    }
-                }
-            } else {
-                echo "<p>Nenhuma publicação encontrada.</p>";
-            }
-        }        
     }
     
     public function publish_gastronomy(){

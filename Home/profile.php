@@ -65,14 +65,59 @@
             <ul>
                 <li>Artigos</li>
                     <div class="main-home-box1">
-                    <div class="card-article1">
-                        <img src="CSS/IMG/article-img/article 1.jpg" alt="">
-                        <div class="info-article">
-                            <h2><?php echo $Title_article; ?></h2>
-                            <p><?php echo $Content_article; ?></p>
-                            <button class="read_more" value="1">Continue lendo</button>
-                        </div>
-                    </div>
+                    <?php
+                        $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->bindParam(':IDUSER', $IDUSER);
+                        $stmt->execute();
+                        
+                        $limitPerPage = 3;
+                        $totalArticles = 15;
+                        $cardTypes = array('card-article1', 'card-article2', 'card-article3', 'card-article4', 'card-article5');
+                        
+                        for ($page = 1; $page <= ceil($totalArticles / $limitPerPage); $page++) {
+                            $offset = ($page - 1) * $limitPerPage;
+                        
+                            $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
+                            $stmt = $pdo->prepare($query);
+                            $stmt->bindParam(':IDUSER', $IDUSER);
+                            $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
+                            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+                            $stmt->execute();
+                        
+                            if ($stmt->rowCount() > 0) {
+                                $cardTypeIndex = ($page - 1) % count($cardTypes);
+                                $articleNumber = $offset + 1;
+                        
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    $title = $row['TITLE_ARTICLE'];
+                                    $content = $row['CONTENT_ARTICLE'];
+                                    $cardType = $cardTypes[$cardTypeIndex];
+                        
+                                    echo '<div class="' . $cardType . '">';
+                                    echo '<img src="CSS/IMG/article-img/article ' . $articleNumber . '.jpg" alt="">';
+                                    echo '<div class="info-article">';
+                                    echo '<h2>' . $title . '</h2>';
+                                    echo '<p>' . $content . '</p>';
+                                    echo '<button class="read_more" value="' . $articleNumber . '">Continue lendo</button>';
+                                    echo '</div>';
+                                    echo '</div>';
+                        
+                                    $cardTypeIndex++;
+                                    if ($cardTypeIndex >= count($cardTypes)) {
+                                        $cardTypeIndex = 0;
+                                    }
+                        
+                                    $articleNumber++;
+                                    if ($articleNumber > $totalArticles) {
+                                        break;
+                                    }
+                                }
+                            } else {
+                                echo "<p>Nenhuma publicação encontrada.</p>";
+                            }
+                        } 
+                    ?>   
                     <div class="popup-card-article1">
                         <i value="1" class='remove bx bx-x'></i>
                         <div class="info-article">
@@ -80,14 +125,14 @@
                             <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                         </div>
                     </div>                    
-                    <div class="card-article1">
+                    <!-- <div class="card-article1">
                         <img src="CSS/IMG/article-img/article 2.jpg" alt="">
                         <div class="info-article">
                             <h2>Teste</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                             <button class="read_more" value="2">Continue lendo</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="popup-card-article2">
                         <i value="2" class='remove bx bx-x'></i>
                         <div class="info-article">
@@ -95,14 +140,14 @@
                             <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                         </div>
                     </div>
-                    <div class="card-article1">
+                    <!-- <div class="card-article1">
                         <img src="CSS/IMG/article-img/article 3.jpg" alt="">
                         <div class="info-article">
                             <h2>Teste</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                             <button class="read_more" value="3">Continue lendo</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="popup-card-article3">
                         <i value="3" class='remove bx bx-x'></i>
                         <div class="info-article">
@@ -112,14 +157,14 @@
                     </div>
                 </div>
                     <div class="main-home-box2">
-                        <div class="card-article2">
+                        <!-- <div class="card-article2">
                             <img src="CSS/IMG/article-img/article 4.jpg" alt="">
                             <div class="info-article">
                                 <h2>Teste</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                 <button class="read_more" value="4">Continue lendo</button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="popup-card-article4">
                             <i value="4" class='remove bx bx-x'></i>
                             <div class="info-article">
@@ -127,14 +172,14 @@
                                 <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                             </div>
                         </div>
-                        <div class="card-article2">
+                        <!-- <div class="card-article2">
                             <img src="CSS/IMG/article-img/article 5.jpg" alt="">
                             <div class="info-article">
                                 <h2>Teste</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                 <button class="read_more" value="5">Continue lendo</button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="popup-card-article5">
                             <i value="5" class='remove bx bx-x'></i>
                             <div class="info-article">
@@ -142,14 +187,14 @@
                                 <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                             </div>
                         </div>
-                        <div class="card-article2">
+                        <!-- <div class="card-article2">
                             <img src="CSS/IMG/article-img/article 6.jpg" alt="">
                             <div class="info-article">
                                 <h2>Teste</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                 <button class="read_more" value="6">Continue lendo</button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="popup-card-article6">
                             <i value="6" class='remove bx bx-x'></i>
                             <div class="info-article">
@@ -159,14 +204,14 @@
                         </div>
                     </div>
                         <div class="main-home-box3">
-                            <div class="card-article3">
+                            <!-- <div class="card-article3">
                                 <img src="CSS/IMG/article-img/article 3.jpg" alt="">
                                 <div class="info-article">
                                     <h2>Teste</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                     <button class="read_more" value="7">Continue lendo</button>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="popup-card-article7">
                                 <i value="7" class='remove bx bx-x'></i>
                                 <div class="info-article">
@@ -174,14 +219,14 @@
                                     <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                                 </div>
                             </div>
-                            <div class="card-article3">
+                            <!-- <div class="card-article3">
                                 <img src="CSS/IMG/article-img/article 2.jpg" alt="">
                                 <div class="info-article">
                                     <h2>Teste</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                     <button class="read_more" value="8">Continue lendo</button>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="popup-card-article8">
                                 <i value="8" class='remove bx bx-x'></i>
                                 <div class="info-article">
@@ -189,14 +234,14 @@
                                     <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                                 </div>
                             </div>
-                            <div class="card-article3">
+                            <!-- <div class="card-article3">
                                 <img src="CSS/IMG/article-img/article 5.jpg" alt="">
                                 <div class="info-article">
                                     <h2>Teste</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                     <button class="read_more" value="9">Continue lendo</button>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="popup-card-article9">
                                 <i value="9" class='remove bx bx-x'></i>
                                 <div class="info-article">
@@ -206,14 +251,14 @@
                             </div>
                         </div>
                             <div class="main-home-box4">
-                                <div class="card-article4">
+                                <!-- <div class="card-article4">
                                     <img src="CSS/IMG/article-img/article 1.jpg" alt="">
                                     <div class="info-article">
                                         <h2>Teste</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                         <button class="read_more" value="10">Continue lendo</button>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="popup-card-article10">
                                     <i value="10" class='remove bx bx-x'></i>
                                     <div class="info-article">
@@ -221,14 +266,14 @@
                                         <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                                     </div>
                                 </div>
-                                <div class="card-article4">
+                                <!-- <div class="card-article4">
                                     <img src="CSS/IMG/article-img/article 6.jpg" alt="">
                                     <div class="info-article">
                                         <h2>Teste</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                         <button class="read_more" value="11">Continue lendo</button>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="popup-card-article11">
                                     <i value="11" class='remove bx bx-x'></i>
                                     <div class="info-article">
@@ -236,14 +281,14 @@
                                         <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                                     </div>
                                 </div>
-                                <div class="card-article4">
+                                <!-- <div class="card-article4">
                                     <img src="CSS/IMG/article-img/article 4.jpg" alt="">
                                     <div class="info-article">
                                         <h2>Teste</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                         <button class="read_more" value="12">Continue lendo</button>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="popup-card-article12">
                                     <i value="12" class='remove bx bx-x'></i>
                                     <div class="info-article">
@@ -253,14 +298,14 @@
                                 </div>
                             </div>
                                 <div class="main-home-box5">
-                                    <div class="card-article5">
+                                    <!-- <div class="card-article5">
                                         <img src="CSS/IMG/article-img/article 2.jpg" alt="">
                                         <div class="info-article">
                                             <h2>Teste</h2>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                             <button class="read_more" value="13">Continue lendo</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="popup-card-article13">
                                         <i value="13" class='remove bx bx-x'></i>
                                         <div class="info-article">
@@ -268,14 +313,14 @@
                                             <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                                         </div>
                                     </div>
-                                    <div class="card-article5">
+                                    <!-- <div class="card-article5">
                                         <img src="CSS/IMG/article-img/article 3.jpg" alt="">
                                         <div class="info-article">
                                             <h2>Teste</h2>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                             <button class="read_more" value="14">Continue lendo</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="popup-card-article14">
                                         <i value="14" class='remove bx bx-x'></i>
                                         <div class="info-article">
@@ -283,14 +328,14 @@
                                             <textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="<?php echo'$BIO'?>"></textarea>
                                         </div>
                                     </div>
-                                    <div class="card-article5">
+                                    <!-- <div class="card-article5">
                                         <img src="CSS/IMG/article-img/article 5.jpg" alt="">
                                         <div class="info-article">
                                             <h2>Teste</h2>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
                                             <button class="read_more" value="15">Continue lendo</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="popup-card-article15">
                                         <i value="15" class='remove bx bx-x'></i>
                                         <div class="info-article">
