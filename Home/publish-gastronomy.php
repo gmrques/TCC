@@ -58,7 +58,7 @@
                     <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required></textarea>
                     
                     <label for="modo_preparo">Modo de Preparo:</label>
-                    <textarea class="text-area-content" name="modo_preparo" rows="12" cols="36" required></textarea>
+                    <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required></textarea>
                     
                     <input class="publish" type="submit" value="Publicar">
                 </form>

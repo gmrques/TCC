@@ -101,6 +101,82 @@
                     echo '</div>';
                 }
             ?>
+            <div class="popup-card-gastronomy1" value="1">
+                <i value="1" class='remove bx bx-x'></i>
+                <div class="info-article">
+                    <?php
+                    if (!empty($_SESSION['highlighted_posts'])) {
+                        $firstPost = $_SESSION['highlighted_posts'][0];
+                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
+                        $INGREDIENTS = $firstPost['INGREDIENTS'];
+                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
+                        ?>
+                        <h2><?php echo $TITLE_RECIPE; ?></h2>
+                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
+                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
+                        <?php
+                    }
+                    // Adicionar o JavaScript
+                    ?>
+                </div>
+            </div>
+            <div class="popup-card-gastronomy2" value="2">
+                <i value="1" class='remove bx bx-x'></i>
+                <div class="info-article">
+                    <?php
+                    if (!empty($_SESSION['highlighted_posts'])) {
+                        $firstPost = $_SESSION['highlighted_posts'][1];
+                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
+                        $INGREDIENTS = $firstPost['INGREDIENTS'];
+                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
+                        ?>
+                        <h2><?php echo $TITLE_RECIPE; ?></h2>
+                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
+                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
+                        <?php
+                    }
+                    // Adicionar o JavaScript
+                    ?>
+                </div>
+            </div>  
+            <div class="popup-card-gastronomy3" value="3">
+                <i value="1" class='remove bx bx-x'></i>
+                <div class="info-article">
+                    <?php
+                    if (!empty($_SESSION['highlighted_posts'])) {
+                        $firstPost = $_SESSION['highlighted_posts'][2];
+                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
+                        $INGREDIENTS = $firstPost['INGREDIENTS'];
+                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
+                        ?>
+                        <h2><?php echo $TITLE_RECIPE; ?></h2>
+                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
+                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
+                        <?php
+                    }
+                    // Adicionar o JavaScript
+                    ?>
+                </div>
+            </div>  
+            <div class="popup-card-gastronomy4" value="4">
+                <i value="1" class='remove bx bx-x'></i>
+                <div class="info-article">
+                <?php
+                    if (!empty($_SESSION['highlighted_posts'])) {
+                        $firstPost = $_SESSION['highlighted_posts'][3];
+                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
+                        $INGREDIENTS = $firstPost['INGREDIENTS'];
+                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
+                        ?>
+                        <h2><?php echo $TITLE_RECIPE; ?></h2>
+                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
+                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
+                        <?php
+                    }
+                    // Adicionar o JavaScript
+                    ?>
+                </div>
+            </div>  
             </div>
         </div>
     </main>
