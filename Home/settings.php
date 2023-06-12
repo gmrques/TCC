@@ -79,13 +79,11 @@
                         </div>
                     </form>
                     <form method="POST" action="?action=X" autocomplete="off" id="update-palette" class="state">
-
-                         <!-- ADICIONAR INFORMAÇÕES NA TABELA USUÁRIO 
-                         Foto de perfil, cargo, biografia, data de nascimento, status
-                         Criar um método dentro do arquivo operations, para dar um create nessas informações -->
-
                         <h1>Dê a sua cara ao perfil!</h1>
                         <div class="update-form">
+                            <div class="update-wrap">
+                                <input class="img-upload" type="image" name="PROFILE_PIC" required>
+                            </div>
                             <div class="update-wrap">
                                 <input type="text" class="update-field" name="ROLE" autocomplete="off"/>
                                 <label for="ROLE"> Cargo </label>

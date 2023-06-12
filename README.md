@@ -24,14 +24,15 @@
 > ###
 > + <s>Operations.php (Cadastro, login e atualizar concluídos)</s>
 > + <s>index.php (verificação do cadastro e login concluídos);</s>
+> + <s>profile.php (Exibição dos cards no perfil e verificação de imagem concluídos);</s>
+> + <s>publish-article.php (Método para publicar um artigo concluído)</s>
+> + <s>settings.php</s>
 
 > + destinations.php;
 > + gastronomy.php;
 > + home.php;
-> + profile.php;
 > + publish-article.php
 > + publish-gastronomy.php
 > + publish-roadmap.php
 > + roadmap.php
 > + search.php
-> + settings.php

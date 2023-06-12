@@ -75,13 +75,13 @@ class OperationsUser{
             return false;
         }
 
-        $query = "UPDATE ". $this->table_name . " SET EMAIL = ?, FULL_NAME = ?, USERNAME = ?, PASSWORD = ? WHERE id = ?";
+        $query = "UPDATE ". $this->table_name . " SET EMAIL = ?, FULL_NAME = ?, USERNAME = ?, PASSWORD = ? WHERE ID = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1,$EMAIL);
         $stmt->bindParam(2,$FULL_NAME);
         $stmt->bindParam(3,$USERNAME);
         $stmt->bindParam(4,$PASSWORD);
-        $stmt->bindParam(5,$_SESSION['id']);
+        $stmt->bindParam(5,$_SESSION['ID']);
         
         if($stmt->execute()){
             echo "<script>alert('Cadastro realizado com sucesso!!!')</script>";
@@ -91,6 +91,31 @@ class OperationsUser{
             return false;
         }
     }
+
+    public function personalize() {
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = 'CSS/IMG/profile-pic/';
+            $imageName = uniqid() . '_' . $_FILES['image']['name'];
+            $imagePath = $uploadDir . $imageName;
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
+                $query = "INSERT INTO article (ROLE, BIO) VALUES (:ROLE, :BIO)";
+                $stmt = $pdo->prepare($query);
+                $stmt->bindParam(':ROLE', $ROLE);
+                $stmt->bindParam(':BIO', $BIO);
+                $stmt->execute();
+
+                header("Location: Home/profile.php");
+                exit;
+            } else {
+                echo "Ocorreu um erro ao fazer o upload da imagem.";
+                exit;
+            }
+        } else {
+            echo "Nenhuma imagem foi enviada.";
+            exit;
+        }
+    }
+    
 
     public function publish_article(){
         $IDUSER = $_SESSION['ID'];
@@ -110,12 +135,10 @@ class OperationsUser{
                 $imageName = uniqid() . '_' . $_FILES['image']['name'];
                 $imagePath = $uploadDir . $imageName;
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
-                    $query = "INSERT INTO article (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE, IMAGE_PATH) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE, :IMAGE_PATH)";
+                    $query = "INSERT INTO article (TITLE_ARTICLE, CONTENT_ARTICLE) VALUES (:TITLE_ARTICLE, :CONTENT_ARTICLE)";
                     $stmt = $pdo->prepare($query);
-                    $stmt->bindParam(':IDUSER', $_SESSION['ID']);
                     $stmt->bindParam(':TITLE_ARTICLE', $TITLE_ARTICLE);
                     $stmt->bindParam(':CONTENT_ARTICLE', $CONTENT_ARTICLE);
-                    $stmt->bindParam(':IMAGE_PATH', $imagePath);
                     $stmt->execute();
 
                     header("Location: Home/profile.php");

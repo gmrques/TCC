@@ -74,7 +74,6 @@
             <div class="profile-pic">
                 <img src="CSS/IMG/user/icon.png" alt="Sinforoso"/>
             </div>
-            <!-- Até aqui tudo certo -->
             <div class="about">
                 <h2>Sinforinho Junior</h2>
                 <h4><i>Teste</i></h4>
