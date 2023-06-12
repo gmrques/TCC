@@ -1,6 +1,5 @@
 <?php
     include_once("Connection/conect.php"); 
-    // Colocar um input para imagem
 ?>
 
 <!DOCTYPE html>

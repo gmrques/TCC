@@ -23,10 +23,8 @@
                 } else {
                     echo "<alert>O formato de arquivo enviado não é suportado. Apenas arquivos JPG e PNG são permitidos.</alert>";
                 }
-            } else {
-                echo "<alert>Ocorreu um erro no upload do arquivo. Código do erro: " . $uploadError . "</alert>";
-        }
-    }   
+            }
+        }   
 ?>
 
 <!DOCTYPE html>
