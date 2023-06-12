@@ -105,26 +105,29 @@ class OperationsUser{
                 exit;
             }
     
-            if (isset($_FILES['article_image']) && $_FILES['article_image']['error'] === UPLOAD_ERR_OK) {
-                $image_name = $_FILES['article_image']['name'];
-                $image_tmp = $_FILES['article_image']['tmp_name'];
-                $image_path = 'caminho/para/a/pasta/local/' . $image_name;
-    
-                move_uploaded_file($image_tmp, $image_path);
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = 'CSS/IMG/article-img/';
+                $imageName = uniqid() . '_' . $_FILES['image']['name'];
+                $imagePath = $uploadDir . $imageName;
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
+                    $query = "INSERT INTO article (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE, IMAGE_PATH) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE, :IMAGE_PATH)";
+                    $stmt = $pdo->prepare($query);
+                    $stmt->bindParam(':IDUSER', $_SESSION['ID']);
+                    $stmt->bindParam(':TITLE_ARTICLE', $TITLE_ARTICLE);
+                    $stmt->bindParam(':CONTENT_ARTICLE', $CONTENT_ARTICLE);
+                    $stmt->bindParam(':IMAGE_PATH', $imagePath);
+                    $stmt->execute();
+
+                    header("Location: Home/profile.php");
+                    exit;
+                } else {
+                    echo "Ocorreu um erro ao fazer o upload da imagem.";
+                    exit;
+                }
             } else {
-                echo "<alert>Nenhuma imagem foi enviada.</alert>";
+                echo "Nenhuma imagem foi enviada.";
+                exit;
             }
-    
-            $query = "INSERT INTO article (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE, IMAGE_PATH) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE, :IMAGE_PATH)";
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(':IDUSER', $IDUSER);
-            $stmt->bindParam(':TITLE_ARTICLE', $TITLE_ARTICLE);
-            $stmt->bindParam(':CONTENT_ARTICLE', $CONTENT_ARTICLE);
-            $stmt->bindParam(':IMAGE_PATH', $image_path); // Passar o caminho da imagem como parâmetro
-            $stmt->execute();
-    
-            header("Location: Home/profile.php");
-            exit;
         }
     }
     

@@ -1,5 +1,32 @@
 <?php
     include_once("Connection/conect.php"); 
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_FILES['article_image']) && !empty($_FILES['article_image']['name'])) {
+                $allowedExtensions = array('jpg', 'jpeg', 'png');
+                $fileExtension = strtolower(pathinfo($_FILES['article_image']['name'], PATHINFO_EXTENSION));
+                $fileMime = exif_imagetype($_FILES['article_image']['tmp_name']);
+                if (in_array($fileExtension, $allowedExtensions) && ($fileMime === IMAGETYPE_JPEG || $fileMime === IMAGETYPE_PNG)) {
+                    $maxFileSize = 2 * 1024 * 1024; 
+                    $fileSize = $_FILES['article_image']['size'];
+                    if ($fileSize <= $maxFileSize) {
+                        $uniqueFileName = uniqid('image_') . '.' . $fileExtension;
+                        $destination = 'caminho/para/pasta/imagens/' . $uniqueFileName;
+                        if (move_uploaded_file($_FILES['article_image']['tmp_name'], $destination)) {
+                            echo"<alert>A imagem foi carregada com sucesso!</alert>";
+                        } else {
+                            echo "<alert>Ocorreu um erro ao mover o arquivo.</alert>";
+                        }
+                    } else {
+                        echo "<alert>O tamanho do arquivo excede o limite permitido.</alert>";
+                    }
+                } else {
+                    echo "<alert>O formato de arquivo enviado não é suportado. Apenas arquivos JPG e PNG são permitidos.</alert>";
+                }
+            } else {
+                echo "<alert>Ocorreu um erro no upload do arquivo. Código do erro: " . $uploadError . "</alert>";
+        }
+    }   
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +95,7 @@
                     <?php
                         $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
                         $stmt = $pdo->prepare($query);
-                        $stmt->bindParam(':IDUSER', $IDUSER);
+                        $stmt->bindParam(':IDUSER', $_SESSION['ID']);
                         $stmt->execute();
                         
                         $limitPerPage = 3;
@@ -80,7 +107,7 @@
                         
                             $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
                             $stmt = $pdo->prepare($query);
-                            $stmt->bindParam(':IDUSER', $IDUSER);
+                            $stmt->bindParam(':IDUSER', $_SESSION['ID']);
                             $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
                             $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
                             $stmt->execute();

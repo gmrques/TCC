@@ -1,5 +1,6 @@
 <?php
     include_once("Connection/conect.php"); 
+    // Colocar um input para imagem
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +54,11 @@
                     <label for="title">Título:</label>
                     <input class="input-content" type="text" name="Title_article" required>
         
-                    <label for="article-content">Conteúdo:</label>
+                    <label for="Content_article">Conteúdo:</label>
                     <textarea class="text-area-content" name="Content_article" rows="18" cols="36" required></textarea>
+
+                    <label for="img-upload">Capa:</label>
+                    <input class="img-upload" type="image" name="article_image" required>
         
                     <input class="publish" type="submit" value="Publicar">
                 </form>
