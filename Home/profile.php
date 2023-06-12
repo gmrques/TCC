@@ -72,17 +72,17 @@
     <div class="box">
         <div class="left-box-pf">
             <div class="profile-pic">
-                <img src="CSS/IMG/user/icon.png" alt="Sinforoso"/>
+                <img src="<?php echo $imagePath; ?>" alt="Sinforoso"/>
             </div>
             <div class="about">
-                <h2>Sinforinho Junior</h2>
-                <h4><i>Teste</i></h4>
+                <h2><?php echo $username; ?></h2>
+                <h4><i><?php echo $ROLE; ?></i></h4>
                 <ul class="content">
                     <li><i class='bx bxs-envelope'></i></li>
                     <li><i class='bx bxl-instagram-alt'></i></li>
                     <li><i class='bx bxl-twitter' ></i></li>
                 </ul>
-                <textarea class="bio-textarea" name="BIO" rows="15" cols="45" required></textarea>
+                <textarea class="bio-textarea" name="BIO" rows="15" cols="45" required><?php echo $BIO; ?></textarea>
             </div>
         </div>
         <div class="right-box-pf">
