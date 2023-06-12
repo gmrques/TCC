@@ -166,7 +166,7 @@ class OperationsUser{
             }
         }
 
-        $query = "INSERT INTO sua_tabela (TITLE_RECIPE, INGREDIENTS, STEP_BY_STEP) VALUES (?, ?, ?)";
+        $query = "INSERT INTO gastronomy (TITLE_RECIPE, INGREDIENTS, STEP_BY_STEP) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sss", $TITLE_RECIPE, $INGREDIENTS, $STEP_BY_STEP);
         if ($stmt->execute()) {

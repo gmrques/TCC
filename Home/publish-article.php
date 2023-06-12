@@ -1,5 +1,6 @@
 <?php
     include_once("Connection/conect.php"); 
+    include_once("Classes/Operations.php")
 ?>
 
 <!DOCTYPE html>
