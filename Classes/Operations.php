@@ -118,8 +118,6 @@ class OperationsUser{
     
 
     public function publish_article(){
-        $IDUSER = $_SESSION['ID'];
-    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $TITLE_ARTICLE = $_POST['Title_article'];
             $CONTENT_ARTICLE = $_POST['Content_article'];
