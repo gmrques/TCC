@@ -51,10 +51,10 @@
             <div class="main-publish-box">
                 <form action="#" method="post">
                     <label for="receita">Nome da Receita:</label>
-                    <input class="input-content" type="text" id="receita" name="receita" required>
+                    <input class="input-content" type="text" name="Title_recipe" required>
                     
                     <label for="ingredientes">Ingredientes:</label>
-                    <textarea class="text-area-content" name="ingredientes" rows="12" cols="36" required></textarea>
+                    <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required></textarea>
                     
                     <label for="modo_preparo">Modo de Preparo:</label>
                     <textarea class="text-area-content" name="modo_preparo" rows="12" cols="36" required></textarea>

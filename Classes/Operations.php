@@ -154,7 +154,26 @@ class OperationsUser{
     
     
     public function publish_gastronomy(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $TITLE_RECIPE = $_POST['Title_recipe'];
+            $INGREDIENTS = $_POST['Ingredients'];
+            $STEP_BY_STEP = $_POST['Step_by_step'];
+    
+            if ((empty($TITLE_RECIPE) || empty($INGREDIENTS)) || empty($STEP_BY_STEP) && 
+            (empty($TITLE_RECIPE) && empty($INGREDIENTS)) && empty($STEP_BY_STEP)) {
+                echo "<alert>Por favor, preencha todos os campos.</alert>";
+                exit;
+            }
+        }
 
+        $query = "INSERT INTO sua_tabela (TITLE_RECIPE, INGREDIENTS, STEP_BY_STEP) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("sss", $TITLE_RECIPE, $INGREDIENTS, $STEP_BY_STEP);
+        if ($stmt->execute()) {
+            echo "Dados inseridos com sucesso no banco de dados.";
+        } else {
+            echo "Ocorreu um erro ao inserir os dados no banco de dados: " . $stmt->error;
+        }
     }
 
     public function publish_roadmap(){
