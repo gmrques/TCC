@@ -94,28 +94,40 @@ class OperationsUser{
 
     public function publish_article(){
         $IDUSER = $_SESSION['ID'];
-
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $TITLE_ARTICLE = $_POST['Title_article'];
             $CONTENT_ARTICLE = $_POST['Content_article'];
-
+    
             if ((empty($TITLE_ARTICLE) || empty($CONTENT_ARTICLE)) && 
             (empty($TITLE_ARTICLE) && empty($CONTENT_ARTICLE))) {
                 echo "<alert>Por favor, preencha todos os campos.</alert>";
                 exit;
             }
-
-            $query = "INSERT INTO article (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE)";
+    
+            if (isset($_FILES['article_image']) && $_FILES['article_image']['error'] === UPLOAD_ERR_OK) {
+                $image_name = $_FILES['article_image']['name'];
+                $image_tmp = $_FILES['article_image']['tmp_name'];
+                $image_path = 'caminho/para/a/pasta/local/' . $image_name;
+    
+                move_uploaded_file($image_tmp, $image_path);
+            } else {
+                echo "<alert>Nenhuma imagem foi enviada.</alert>";
+            }
+    
+            $query = "INSERT INTO article (IDUSER, TITLE_ARTICLE, CONTENT_ARTICLE, IMAGE_PATH) VALUES (:IDUSER, :TITLE_ARTICLE, :CONTENT_ARTICLE, :IMAGE_PATH)";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':IDUSER', $IDUSER);
             $stmt->bindParam(':TITLE_ARTICLE', $TITLE_ARTICLE);
             $stmt->bindParam(':CONTENT_ARTICLE', $CONTENT_ARTICLE);
+            $stmt->bindParam(':IMAGE_PATH', $image_path); // Passar o caminho da imagem como parâmetro
             $stmt->execute();
-
+    
             header("Location: Home/profile.php");
             exit;
         }
     }
+    
     
     public function publish_gastronomy(){
 
