@@ -77,22 +77,30 @@
                 </div>
             </div>
             <div class="right-gastronomy-box">
-                <div class="gastronomy-card">
-                    <h2>Farofa</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi. Recusandae similique nemo debitis quis velit, mollitia ea atque eius fugit, ut eum doloremque ipsum. Mollitia ut hic illum! Beatae?</p>
-                </div>
-                <div class="gastronomy-card">
-                    <h2>Farofa</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi. Recusandae similique nemo debitis quis velit, mollitia ea atque eius fugit, ut eum doloremque ipsum. Mollitia ut hic illum! Beatae?</p>
-                </div>
-                <div class="gastronomy-card">
-                    <h2>Farofa</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi. Recusandae similique nemo debitis quis velit, mollitia ea atque eius fugit, ut eum doloremque ipsum. Mollitia ut hic illum! Beatae?</p>
-                </div>
-                <div class="gastronomy-card">
-                    <h2>Farofa</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi. Recusandae similique nemo debitis quis velit, mollitia ea atque eius fugit, ut eum doloremque ipsum. Mollitia ut hic illum! Beatae?</p>
-                </div>
+            <?php
+                if (!isset($_SESSION['last_update']) || date('Y-m-d') > $_SESSION['last_update']) {
+                    $query = "SELECT * FROM gastronomy ORDER BY RAND() LIMIT 4";
+                    $result = $conn->query($query);
+
+                    if ($result->num_rows > 0) {
+                        $_SESSION['highlighted_posts'] = array();
+                        while ($row = $result->fetch_assoc()) {
+                            $_SESSION['highlighted_posts'][] = $row;
+                        }
+                    }
+                    $_SESSION['last_update'] = date('Y-m-d');
+                }
+
+                foreach ($_SESSION['highlighted_posts'] as $post) {
+                    $TITLE_RECIPE = $post['TITLE_RECIPE'];
+                    $INGREDIENTS = $post['INGREDIENTS'];
+
+                    echo '<div class="gastronomy-card">';
+                    echo "<h2>$TITLE_RECIPE</h2>";
+                    echo "<p>$INGREDIENTS</p>";
+                    echo '</div>';
+                }
+            ?>
             </div>
         </div>
     </main>
