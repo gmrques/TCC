@@ -51,13 +51,13 @@
             <div class="main-publish-box">
                 <form action="#" method="post">
                     <label for="destino">Destino:</label>
-                    <input class="input-content" type="text" id="destino" name="destino" required>
+                    <input class="input-content" type="text" name="Destination" required>
                     
                     <label for="duracao">Duração:</label>
-                    <input class="input-content" type="text" id="duracao" name="duracao" required>
+                    <input class="input-content" type="text" name="Duration" required>
                     
                     <label for="roteiro">Roteiro:</label>
-                    <textarea class="text-area-content" name="roteiro" rows="18" cols="36" required></textarea>
+                    <textarea class="text-area-content" name="roteiro" rows="18" cols="36" name="Roadmap" required></textarea>
                     
                     <input class="publish" type="submit" value="Publicar">
                 </form>

@@ -202,8 +202,31 @@ class OperationsUser{
     }
 
     public function publish_roadmap(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $DESTINATION = $_POST['Destination'];
+            $DURATION = $_POST['Duration'];
+            $ROADMAP = $_POST['Roadmap'];
 
-    }
+            if (empty($DESTINATION) || empty($DURATION) || empty($ROADMAP)) {
+                echo "Por favor, preencha todos os campos.";
+                return;
+            }
+        }
+        
+        $query = "INSERT INTO roadmap (DESTINATION, DURATION, ROADMAP) VALUES (:DESTINATION, :DURATION, :ROADMAP)";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':DESTINATION', $DESTINATION);
+        $stmt->bindParam(':DURATION', $DURATION);
+        $stmt->bindParam(':ROADMAP', $ROADMAP);
+        $stmt->execute();
+        
+        if ($stmt->rowCount() > 0) {
+            echo "Roteiro de viagem criado com sucesso!";
+        } else {
+            echo "Ocorreu um erro ao criar o roteiro de viagem. Por favor, tente novamente.";
+        }
+    }   
 }
+
 
 ?>
