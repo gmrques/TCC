@@ -1,5 +1,11 @@
 <?php
-    include_once("Connection/conect.php"); 
+    include_once("Connection/conect.php");
+
+    if ((!preg_match("/^[a-z][a-z]+$/", $DESTINATION))) {
+        header("location: index.php");
+        echo "<div class='alert'>Digite um destino válido!</div>";
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>

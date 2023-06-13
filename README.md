@@ -28,9 +28,9 @@
 > + <s>publish-article.php (Método para publicar artigo concluído)</s>
 > + <s>publish-gastronomy.php (Método para publicar receita concluído)</s>
 > + <s>gastronomy.php; (Exibição dos cards de receita e popup concluídos)</s>
+> + <s>publish-roadmap.php (Método para publicar roteiro de viagem concluído)</s>
 
 > + destinations.php;
 > + home.php;
-> + publish-roadmap.php
 > + roadmap.php
 > + search.php
