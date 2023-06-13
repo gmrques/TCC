@@ -30,7 +30,7 @@
 > + <s>gastronomy.php; (Exibição dos cards de receita e popup concluídos)</s>
 > + <s>publish-roadmap.php (Método para publicar roteiro de viagem concluído)</s>
 
-> + destinations.php;
-> + home.php;
-> + roadmap.php
-> + search.php
+> + 1° roadmap.php
+> + 2° home.php;
+> + 3° search.php
+> + 4° destinations.php;
