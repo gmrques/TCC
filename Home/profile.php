@@ -88,7 +88,6 @@
         <div class="right-box-pf">
             <ul>
                 <li>Artigos</li>
-                    <div class="main-home-box1">
                     <?php
                         $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
                         $stmt = $pdo->prepare($query);
@@ -181,7 +180,6 @@
                 </div>
             </ul>
         </div>
-    </div>
     </main> 
     <footer>
         <div id="social-media">

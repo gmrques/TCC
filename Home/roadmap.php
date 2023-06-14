@@ -48,6 +48,85 @@
             <div class="top-roadmap-box">
                 <p>Mais recentes</p>
             </div>
+            <?php
+              $query = "SELECT * FROM roadmap WHERE IDUSER = :IDUSER";
+              $stmt = $pdo->prepare($query);
+              $stmt->bindParam(':IDUSER', $_SESSION['ID']);
+              $stmt->execute();
+
+              $limitPerPage = 3;
+              $totalRoadmaps = 9;
+              $mainRoadmapBox = 1;
+
+              for ($page = 1; $page <= ceil($totalRoadmaps / $limitPerPage); $page++) {
+                  $offset = ($page - 1) * $limitPerPage;
+
+                  $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':IDUSER', $_SESSION['ID']);
+                  $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
+                  $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+                  $stmt->execute();
+
+                  if ($stmt->rowCount() > 0) {
+                      $articleNumber = $offset + 1;
+
+                      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                          $DESTINATION = $row['DESTINATION'];
+                          $DURATION = $row['DURATION'];
+                          $ROADMAP = $row['ROADMAP'];
+
+                          echo '<div class="main-roadmap-box' . $mainRoadmapBox . '">';
+                          echo '<div class="card-roadmap">';
+                          echo '<div>';
+                          echo '<img src="CSS/IMG/article-img/article ' . $articleNumber . '.jpg" alt="">';
+                          echo '<h2>' . $DESTINATION . '</h2>';
+                          echo '<p>' . $DURATION . '</p>';
+                          echo "<i class='bx bx-bookmark-plus'></i>";
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+
+                          $articleNumber++;
+                          if ($articleNumber > $totalRoadmaps) {
+                              break;
+                          }
+
+                          if ($articleNumber % $limitPerPage == 0) {
+                              $mainRoadmapBox++;
+                              if ($mainRoadmapBox > $limitPerPage) {
+                                  $mainRoadmapBox = 1;
+                              }
+                          }
+                      }
+                  } else {
+                      echo "<p>Nenhuma publicação encontrada.</p>";
+                  }
+              }
+            ?>
+
+            <?php
+              for ($i = 1; $i <= 9; $i++) {
+                  $query = "SELECT * FROM roadmap WHERE ID = :ID";
+                  $stmt = $pdo->prepare($query);
+                  $stmt->bindParam(':ID', $i);
+                  $stmt->execute();
+
+                  if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      $DESTINATION = $row['DESTINATION'];
+                      $DURATION = $row['DURATION'];
+                      $ROADMAP = $row['ROADMAP'];
+
+                      echo '<div class="popup-card-roadmap">';
+                      echo '<div>';
+                      echo '<h2>' . $DESTINATION . '</h2>';
+                      echo '<p>' . $DURATION . '</p>';
+                      echo '<textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly>' . $ROADMAP . '</textarea>';
+                      echo '</div>';
+                      echo '</div>';
+                  }
+              }
+            ?>
             <div class="main-roadmap-box1">
                 <div class="card-roadmap">
                   <div>
