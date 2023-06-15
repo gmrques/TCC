@@ -12,16 +12,12 @@ class OperationsUser{
         $this->conn = $db->getConnection();
     }
 
-    public function getConnection(){
-        return $this->conn;
-    }
-
     public function create($postValues){
         $EMAIL = $postValues['EMAIL'];
         $FULL_NAME = $postValues['FULL_NAME'];
         $USERNAME = $postValues['USERNAME'];
         $PASSWORD = $postValues['PASSWORD'];
-
+    
         $query = "INSERT INTO ".$this->table_name. " (EMAIL, FULL_NAME, USERNAME, PASSWORD) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1,$EMAIL);

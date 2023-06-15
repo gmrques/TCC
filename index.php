@@ -1,4 +1,7 @@
 <?php
+    require_once("Connection/conect.php");
+    require_once("Classes/Operations.php");
+
 function hashPassword($password)
 {
     return password_hash($password, PASSWORD_DEFAULT);
@@ -9,25 +12,15 @@ function verifyPassword($password, $hash)
     return password_verify($password, $hash);
 }
 
+$db = new Connection();
+
 if (isset($_POST['register']) && $_POST['register'] == 'register') {
-    include_once("Connection/conect.php");
-    include_once("Classes/Operations.php");
 
     $register = new OperationsUser($db);
 
     $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
 
-    if (!preg_match("/^[a-z]{0,15}\s[a-z]{0,50}+$/i", $FULL_NAME)) {
-        header("location: index.php");
-        exit();
-    }
-
     $USERNAME = filter_var(trim($_POST['USERNAME']), FILTER_SANITIZE_STRING);
-
-    if ((!preg_match("/^_[a-z0-9][a-z0-9]+$/", $USERNAME)) || (!preg_match("/^[a-z0-9][a-z]+$/", $USERNAME))) {
-        header("location: index.php");
-        exit();
-    }
 
     $PASSWORD = filter_var(trim($_POST['PASSWORD']), FILTER_SANITIZE_STRING);
 
@@ -82,6 +75,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     if ($stmt->execute()) {
         session_start();
         $_SESSION['EMAIL'] = $EMAIL;
+        $_SESSION['FULL_NAME'] = $FULL_NAME;
         $_SESSION['USERNAME'] = $USERNAME;
         $_SESSION['PASSWORD'] = $hashedPassword;
         header('location: Home/home.php');
