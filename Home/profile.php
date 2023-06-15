@@ -42,21 +42,31 @@
     <title>Brasil em Viagem</title>
 </head>
 <body>
-    <header>
+<header>
     <nav>
-            <a href="Home/home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
+            <a href="home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
-                <a href="Home/destinations.php">Destinos</a>
-                <a href="Home/roadmap.php">Roteiros</a>
-                <a href="Home/gastronomy.php">Receitas</a>
+                <a href="home.php">Artigos</a>
+                <a href="roadmap.php">Roteiros</a>
+                <a href="gastronomy.php">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
-                <a href="profile.html"><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
+                <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
+                        <?php
+                            if (isset($_POST['searchTerm'])) {
+                                if (empty($_POST['searchTerm'])) {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = true;</script>';
+                                } else {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = false;</script>';
+                                    header('location: search.php');
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
+                        <input type="text" placeholder="Pesquisar" id="search" name="searchTerm">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
@@ -97,7 +107,7 @@
                         $limitPerPage = 3;
                         $totalArticles = 15;
                         $cardTypes = array('card-article1', 'card-article2', 'card-article3', 'card-article4', 'card-article5');
-                        
+                        $popupCardIndex = 1;
                         $mainHomeBox = 1;
                         
                         for ($page = 1; $page <= ceil($totalArticles / $limitPerPage); $page++) {
@@ -128,6 +138,16 @@
                                     echo '<button class="read_more" value="' . $articleNumber . '">Continue lendo</button>';
                                     echo '</div>';
                                     echo '</div>';
+
+                                    echo '<div class="popup-card-article' . $i . '">';
+                                    echo '<i value="' . $i . '" class="remove bx bx-x"></i>';
+                                    echo '<div class="info-article">';
+                                    echo '<h2>' . $title . '</h2>';
+                                    echo '<p>' . $content . '</p>';
+                                    echo '<textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="' . $BIO . '"></textarea>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    $popupCardIndex++;
                         
                                     $cardTypeIndex++;
                                     if ($cardTypeIndex >= count($cardTypes)) {
@@ -150,24 +170,6 @@
                                 echo "<p>Nenhuma publicação encontrada.</p>";
                             }
                         }
-                    ?>                        
-
-                    <?php
-                    $popupCardIndex = 1;
-                    for ($i = 1; $i <= 15; $i++) {
-                        $title = $titles[$i - 1];
-                        $content = $contents[$i - 1];
-
-                        echo '<div class="popup-card-article' . $i . '">';
-                        echo '<i value="' . $i . '" class="remove bx bx-x"></i>';
-                        echo '<div class="info-article">';
-                        echo '<h2>' . $title . '</h2>';
-                        echo '<p>' . $content . '</p>';
-                        echo '<textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly value="' . $BIO . '"></textarea>';
-                        echo '</div>';
-                        echo '</div>';
-                        $popupCardIndex++;
-                    }
                     ?>
                 <div class="bottom-home-box">
                     <div class="bullets-home">

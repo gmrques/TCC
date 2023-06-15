@@ -16,11 +16,11 @@
     <script defer src="JS/script-gastronomy.js"></script>
     <title>Brasil em Viagem</title>
 </head>
-    <header>
+<header>
     <nav>
             <a href="home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
-                <a href="destination.php">Destinos</a>
+                <a href="home.php">Artigos</a>
                 <a href="roadmap.php">Roteiros</a>
                 <a href="gastronomy.php">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
@@ -28,9 +28,19 @@
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
+                        <?php
+                            if (isset($_POST['searchTerm'])) {
+                                if (empty($_POST['searchTerm'])) {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = true;</script>';
+                                } else {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = false;</script>';
+                                    header('location: search.php');
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
+                        <input type="text" placeholder="Pesquisar" id="search" name="searchTerm">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
@@ -94,89 +104,23 @@
                 foreach ($_SESSION['highlighted_posts'] as $post) {
                     $TITLE_RECIPE = $post['TITLE_RECIPE'];
                     $INGREDIENTS = $post['INGREDIENTS'];
+                    $STEP_BY_STEP = $post['STEP_BY_STEP'];
 
-                    echo '<div class="gastronomy-card">';
+                    echo "<div class= 'gastronomy-card'>";
                     echo "<h2>$TITLE_RECIPE</h2>";
                     echo "<p>$INGREDIENTS</p>";
                     echo '</div>';
+
+                    echo '<div class="popup-card-gastronomy1" value="1">';
+                    echo '<i value="1" class="remove bx bx-x"></i>';
+                    echo '<div class="info-article">';
+                    echo "<h2>$TITLE_RECIPE</h2>";
+                    echo "<textarea class='text-area-content' name='Ingredients' rows='12' cols='36' required>$INGREDIENTS</textarea>";
+                    echo "<textarea class='text-area-content' name='Step_by_step' rows='12' cols='36' required>$STEP_BY_STEP</textarea>";
+                    echo '</div>';
+                    echo '</div>';
                 }
             ?>
-            <div class="popup-card-gastronomy1" value="1">
-                <i value="1" class='remove bx bx-x'></i>
-                <div class="info-article">
-                    <?php
-                    if (!empty($_SESSION['highlighted_posts'])) {
-                        $firstPost = $_SESSION['highlighted_posts'][0];
-                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
-                        $INGREDIENTS = $firstPost['INGREDIENTS'];
-                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
-                        ?>
-                        <h2><?php echo $TITLE_RECIPE; ?></h2>
-                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
-                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
-                        <?php
-                    }
-                    // Adicionar o JavaScript
-                    ?>
-                </div>
-            </div>
-            <div class="popup-card-gastronomy2" value="2">
-                <i value="1" class='remove bx bx-x'></i>
-                <div class="info-article">
-                    <?php
-                    if (!empty($_SESSION['highlighted_posts'])) {
-                        $firstPost = $_SESSION['highlighted_posts'][1];
-                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
-                        $INGREDIENTS = $firstPost['INGREDIENTS'];
-                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
-                        ?>
-                        <h2><?php echo $TITLE_RECIPE; ?></h2>
-                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
-                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
-                        <?php
-                    }
-                    // Adicionar o JavaScript
-                    ?>
-                </div>
-            </div>  
-            <div class="popup-card-gastronomy3" value="3">
-                <i value="1" class='remove bx bx-x'></i>
-                <div class="info-article">
-                    <?php
-                    if (!empty($_SESSION['highlighted_posts'])) {
-                        $firstPost = $_SESSION['highlighted_posts'][2];
-                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
-                        $INGREDIENTS = $firstPost['INGREDIENTS'];
-                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
-                        ?>
-                        <h2><?php echo $TITLE_RECIPE; ?></h2>
-                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
-                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
-                        <?php
-                    }
-                    // Adicionar o JavaScript
-                    ?>
-                </div>
-            </div>  
-            <div class="popup-card-gastronomy4" value="4">
-                <i value="1" class='remove bx bx-x'></i>
-                <div class="info-article">
-                <?php
-                    if (!empty($_SESSION['highlighted_posts'])) {
-                        $firstPost = $_SESSION['highlighted_posts'][3];
-                        $TITLE_RECIPE = $firstPost['TITLE_RECIPE'];
-                        $INGREDIENTS = $firstPost['INGREDIENTS'];
-                        $STEP_BY_STEP = $firstPost['STEP_BY_STEP'];
-                        ?>
-                        <h2><?php echo $TITLE_RECIPE; ?></h2>
-                        <textarea class="text-area-content" name="Ingredients" rows="12" cols="36" required><?php echo $INGREDIENTS; ?></textarea>
-                        <textarea class="text-area-content" name="Step_by_step" rows="12" cols="36" required><?php echo $STEP_BY_STEP; ?></textarea>
-                        <?php
-                    }
-                    // Adicionar o JavaScript
-                    ?>
-                </div>
-            </div>  
             </div>
         </div>
     </main>

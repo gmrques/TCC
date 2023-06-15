@@ -16,11 +16,11 @@
     <script defer src="JS/script-roadmap.js"></script>
     <title>Brasil em Viagem</title>
 </head>
-    <header>
+<header>
     <nav>
             <a href="home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
-                <a href="destinations.php">Destinos</a>
+                <a href="home.php">Artigos</a>
                 <a href="roadmap.php">Roteiros</a>
                 <a href="gastronomy.php">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
@@ -28,9 +28,19 @@
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
+                        <?php
+                            if (isset($_POST['searchTerm'])) {
+                                if (empty($_POST['searchTerm'])) {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = true;</script>';
+                                } else {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = false;</script>';
+                                    header('location: search.php');
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
+                        <input type="text" placeholder="Pesquisar" id="search" name="searchTerm">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
@@ -87,6 +97,13 @@
                           echo '</div>';
                           echo '</div>';
 
+                          echo '<div class="popup-card-roadmap">';
+                          echo '<div>';
+                          echo '<h2>' . $DESTINATION . '</h2>';
+                          echo '<p>' . $DURATION . '</p>';
+                          echo '<textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly>' . $ROADMAP . '</textarea>';
+                          echo '</div>';
+                          echo '</div>';
                           $articleNumber++;
                           if ($articleNumber > $totalRoadmaps) {
                               break;
@@ -101,29 +118,6 @@
                       }
                   } else {
                       echo "<p>Nenhuma publicação encontrada.</p>";
-                  }
-              }
-            ?>
-
-            <?php
-              for ($i = 1; $i <= 9; $i++) {
-                  $query = "SELECT * FROM roadmap WHERE ID = :ID";
-                  $stmt = $pdo->prepare($query);
-                  $stmt->bindParam(':ID', $i);
-                  $stmt->execute();
-
-                  if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                      $DESTINATION = $row['DESTINATION'];
-                      $DURATION = $row['DURATION'];
-                      $ROADMAP = $row['ROADMAP'];
-
-                      echo '<div class="popup-card-roadmap">';
-                      echo '<div>';
-                      echo '<h2>' . $DESTINATION . '</h2>';
-                      echo '<p>' . $DURATION . '</p>';
-                      echo '<textarea class="text-area-content" name="conteudo" rows="18" cols="36" required readonly>' . $ROADMAP . '</textarea>';
-                      echo '</div>';
-                      echo '</div>';
                   }
               }
             ?>

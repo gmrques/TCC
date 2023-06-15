@@ -22,11 +22,11 @@
     <script defer src="JS/script-publish.js"></script>
     <title>Brasil em Viagem</title>
 </head>
-    <header>
-        <nav>
+<header>
+    <nav>
             <a href="home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
-                <a href="destination.php">Destinos</a>
+                <a href="home.php">Artigos</a>
                 <a href="roadmap.php">Roteiros</a>
                 <a href="gastronomy.php">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
@@ -34,9 +34,19 @@
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>
+                        <?php
+                            if (isset($_POST['searchTerm'])) {
+                                if (empty($_POST['searchTerm'])) {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = true;</script>';
+                                } else {
+                                    echo '<script>document.getElementsByName("searchTerm").disabled = false;</script>';
+                                    header('location: search.php');
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Pesquisar" id="search">
+                        <input type="text" placeholder="Pesquisar" id="search" name="searchTerm">
                         <i class='close bx bx-x'></i>
                     </div>
                 </div>
