@@ -1,5 +1,6 @@
 <?php
-    include_once("Connection/conect.php");
+    include_once("../Connection/conect.php");
+    include_once("../Classes/Operations.php");
 
     if ((!preg_match("/^[a-z][a-z]+$/", $DESTINATION))) {
         header("location: index.php");
@@ -14,17 +15,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="CSS/style-publish.css" />
+    <link type="text/css" rel="stylesheet" href="../CSS/style-publish.css" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
-    <link rel="icon" type="png" syzes="32x32" href="CSS/IMG/brand-icon/parrot.png">
+    <link rel="icon" type="png" syzes="32x32" href="../CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script defer src="JS/script-publish.js"></script>
     <title>Brasil em Viagem</title>
 </head>
 <header>
     <nav>
-            <a href="home.php"><img id="logo" src="CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
+            <a href="home.php"><img id="logo" src="../CSS/IMG/brand-icon/parrot.png" alt="">Brasil em Viagem</a>
             <ul class="navlist">
                 <a href="home.php">Artigos</a>
                 <a href="roadmap.php">Roteiros</a>

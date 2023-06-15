@@ -12,6 +12,10 @@ class OperationsUser{
         $this->conn = $db->getConnection();
     }
 
+    public function getConnection() {
+        return $this->conn;
+    }
+
     public function create($postValues){
         $EMAIL = $postValues['EMAIL'];
         $FULL_NAME = $postValues['FULL_NAME'];

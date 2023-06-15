@@ -17,20 +17,15 @@ $db = new Connection();
 if (isset($_POST['register']) && $_POST['register'] == 'register') {
 
     $register = new OperationsUser($db);
-
     $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
-
     $USERNAME = filter_var(trim($_POST['USERNAME']), FILTER_SANITIZE_STRING);
-
     $PASSWORD = filter_var(trim($_POST['PASSWORD']), FILTER_SANITIZE_STRING);
-
     if (strlen($PASSWORD) < 8) {
         header("location: index.php");
         exit();
     }
 
     $EMAIL = filter_var(trim($_POST['EMAIL']), FILTER_SANITIZE_EMAIL);
-
     if (!filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) {
         header("location: index.php");
         exit();
