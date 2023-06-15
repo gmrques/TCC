@@ -170,11 +170,7 @@ if (isset($_POST['login']) && $_POST['login'] == 'login') {
                                 <input type="password" minlength="4" class="input-field" name="CONF_PASSWORD" autocomplete="off" required />
                                 <label for="CONF_PASSWORD">Confirmar senha</label>
                             </div>
-                            <input type="submit" name="login" value="login" class="sign-button">
-                            <p>
-                                Esqueceu sua senha? Redefina sua senha
-                                <a href="#">aqui</a>
-                            </p>
+                            <input type="submit" name="login" value="Entrar" class="sign-button">
                         </div>
                     </form>
 
@@ -207,38 +203,23 @@ if (isset($_POST['login']) && $_POST['login'] == 'login') {
                                 <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
-                            <input type="submit" name="register" value="register" class="sign-button">
-                            <p>
-                                Se cadastrando, eu concordo com os
-                                <a href="#">Termos de uso</a> e
-                                <a href="#">Política de privacidade</a>
-                            </p>
+                            <input type="submit" name="register" value="Cadastrar" class="sign-button">
                         </div>
                     </form>
                 </div>
                 <div id="carousel">
                     <div class="images-wrapper">
-                        <img src="CSS/IMG/Carrousel-register/1.jpg" class="image img-1 show" alt="">
-                        <img src="CSS/IMG/Carrousel-register/2.jpg" class="image img-2" alt="">
-                        <img src="CSS/IMG/Carrousel-register/3.jpg" class="image img-3" alt="">
-                        <img src="CSS/IMG/Carrousel-register/8.jpg" class="image img-4" alt="">
-                        <img src="CSS/IMG/Carrousel-register/10.jpg" class="image img-5" alt="">
-                        <img src="CSS/IMG/Carrousel-register/11.jpg" class="image img-6" alt="">
-                        <img src="CSS/IMG/Carrousel-register/13.jpg" class="image img-7" alt="">
-                        <img src="CSS/IMG/Carrousel-register/15.jpeg" class="image img-8" alt="">
+                        <img src="CSS/IMG/Carrousel-register/8.jpg" class="image img-1 show" alt="">
+                        <img src="CSS/IMG/Carrousel-register/11.jpg" class="image img-2" alt="">
+                        <img src="CSS/IMG/Carrousel-register/15.jpeg" class="image img-3" alt="">
                     </div>
 
                     <div class="text-slider">
                         <div class="text-wrap">
                             <div class="text-group">
-                                <h2>Teste 1</h2>
-                                <h2>Teste 2</h2>
-                                <h2>Teste 3</h2>
-                                <h2>Teste 4</h2>
-                                <h2>Teste 5</h2>
-                                <h2>Teste 6</h2>
-                                <h2>Teste 7</h2>
-                                <h2>Teste 8</h2>
+                                <h2>Descubra novos lugares!</h2>
+                                <h2>Compartilhe suas experiências</h2>
+                                <h2>Aprenda novas receitas</h2>
                             </div>
                         </div>
 
@@ -246,11 +227,6 @@ if (isset($_POST['login']) && $_POST['login'] == 'login') {
                             <span class="active" data-value="1"></span>
                             <span data-value="2"></span>
                             <span data-value="3"></span>
-                            <span data-value="4"></span>
-                            <span data-value="5"></span>
-                            <span data-value="6"></span>
-                            <span data-value="7"></span>
-                            <span data-value="8"></span>
                         </div>
                     </div>
                 </div>

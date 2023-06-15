@@ -34,6 +34,3 @@
 > + <s>search.php (Search concluído)</s>
 
 > ## (Correções de bugs) ==>
-
-> + Alterar as verificações pois alguma deve estar dando problema (index/PHP);
-> + Alterar design dos textos dos termos de uso e também alterar o quanto a label sobe na animação (index/CSS/JS).

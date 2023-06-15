@@ -108,7 +108,7 @@
             <div class="left-box-prs">
                 <button id="update-user-btn"><i class='bx bxs-user' aria-hidden="true"></i></button>
                 <button id="udpate-palette-btn"><i class='bx bxs-palette' aria-hidden="true"></i></button>
-                <button id="logout-btn"><i class='bx bx-log-out' aria-hidden="true"></i></button>
+                <button id="logout-btn" action="?logout"><i class='bx bx-log-out' aria-hidden="true" action="?logout"></i></button>
             </div>
             <div class="right-box-prs">
                 <div class="profiletabShow">

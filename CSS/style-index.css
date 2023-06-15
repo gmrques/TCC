@@ -279,6 +279,7 @@ form.sing-up-form {
 .parrot {
     display: flex;
     align-items: center;
+    margin-bottom: 2em;
 }
 
 .parrot img {
@@ -326,7 +327,7 @@ form.sing-up-form {
 .input-wrap {
     position: relative;
     height: 35px;
-    margin-bottom: 25px;
+    margin-bottom:1em;
     font-size: 18px;
 }
 
@@ -357,7 +358,7 @@ label {
 .input-field.active + label {
     font-size: 1em;
     font-weight: bolder;
-    top: -0.3em;
+    top: -0.2em;
     transition: 0.5s;
     opacity: 0.75;
     color: #21b469;
@@ -427,7 +428,7 @@ main.sing-up-mode #carousel {
     width: 55%;
     top: 0;
     left: 45%;
-    background-color: #FF9333;
+    background-color: #ffe14e;
     border-radius: 2em;
     display: grid;
     grid-template-rows: auto 1fr;
