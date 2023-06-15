@@ -10,16 +10,15 @@ function verifyPassword($password, $hash)
 }
 
 if (isset($_POST['register']) && $_POST['register'] == 'register') {
-    include_once("Connection/conect.php");
-    include_once("Classes/Operations.php");
+    require_once("Connection/conect.php");
+    require_once("Classes/Operations.php");
 
-    $register = new OperationsUser();
+    $register = new OperationsUser($db);
 
     $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
 
     if (!preg_match("/^[a-z]{0,15}\s[a-z]{0,50}+$/i", $FULL_NAME)) {
         header("location: index.php");
-        echo "<div class='alert'>Digite um nome válido!</div>";
         exit();
     }
 
@@ -27,7 +26,6 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
 
     if ((!preg_match("/^_[a-z0-9][a-z0-9]+$/", $USERNAME)) || (!preg_match("/^[a-z0-9][a-z]+$/", $USERNAME))) {
         header("location: index.php");
-        echo "<div class='alert'>Digite um nome de usuário válido!</div>";
         exit();
     }
 
@@ -35,7 +33,6 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
 
     if (strlen($PASSWORD) < 8) {
         header("location: index.php");
-        echo "<div class='alert'>Por favor, insira uma senha com pelo menos 8 caracteres!</div>";
         exit();
     }
 
@@ -43,7 +40,6 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
 
     if (!filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) {
         header("location: index.php");
-        echo "<div class='alert'>Digite um endereço de e-mail válido!</div>";
         exit();
     }
 
@@ -55,7 +51,6 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<div class='alert'>Já existe um usuário com esse Nome!</div>";
         exit();
     }
 
@@ -65,7 +60,6 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<div class='alert'>O nome de usuário inserido já foi cadastrado!</div>";
         exit();
     }
 
@@ -75,7 +69,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<div class='alert'>O email inserido já está cadastrado!</div>";
+        echo "<alert>O email inserido já está cadastrado!</alert>";
         exit();
     }
 
@@ -91,10 +85,10 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
         $_SESSION['USERNAME'] = $USERNAME;
         $_SESSION['PASSWORD'] = $hashedPassword;
         header('location: Home/home.php');
-        echo "<div class='alert'>Registro realizado com sucesso!</div>";
+        echo "<alert>Registro realizado com sucesso!</alert>";
     } else {
         header('location: index.php');
-        echo "<div class='alert'>Ocorreu um erro ao registrar o usuário.</div>";
+        echo "<alert>Ocorreu um erro ao registrar o usuário.</alert>";
     }
 }
 

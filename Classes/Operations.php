@@ -1,8 +1,8 @@
 <?php
 
-include('Connection/conect.php');
+require_once('Connection/conect.php');
 
-$db = new Database();
+$db = new Connection();
 
 class OperationsUser{
     private $conn;
