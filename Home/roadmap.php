@@ -14,7 +14,7 @@
     <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
     <link rel="icon" type="png" syzes="32x32" href="../CSS/IMG/brand-icon/parrot.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="JS/script-roadmap.js"></script>
+    <script defer src="../JS/script-roadmap.js"></script>
     <title>Brasil em Viagem</title>
 </head>
 <header>
@@ -25,7 +25,7 @@
                 <a href="roadmap.php">Roteiros</a>
                 <a href="gastronomy.php">Receitas</a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
-                <a href=""><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
+                <a href="profile.php"><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
                     <div class="icon">
                         <i class='search bx bx-search-alt'></i>

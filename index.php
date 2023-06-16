@@ -14,7 +14,7 @@ function verifyPassword($password, $hash)
 
 $db = new Connection();
 
-if (isset($_POST['register']) && $_POST['register'] == 'register') {
+if (isset($_POST['Cadastrar']) && $_POST['Cadastrar'] == 'Cadastrar') {
 
     $register = new OperationsUser($db);
     $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
@@ -81,7 +81,7 @@ if (isset($_POST['register']) && $_POST['register'] == 'register') {
     }
 }
 
-if (isset($_POST['login']) && $_POST['login'] == 'login') {
+if (isset($_POST['Entrar']) && $_POST['Entrar'] == 'Entrar') {
     include_once("Connection/conect.php");
     include_once("Classes/Operations.php");
 
@@ -170,7 +170,7 @@ if (isset($_POST['login']) && $_POST['login'] == 'login') {
                                 <input type="password" minlength="4" class="input-field" name="CONF_PASSWORD" autocomplete="off" required />
                                 <label for="CONF_PASSWORD">Confirmar senha</label>
                             </div>
-                            <input type="submit" name="login" value="Entrar" class="sign-button">
+                            <input type="submit" name="Entrar" value="Entrar" class="sign-button">
                         </div>
                     </form>
 
@@ -203,7 +203,7 @@ if (isset($_POST['login']) && $_POST['login'] == 'login') {
                                 <input type="password" class="input-field" name="PASSWORD" autocomplete="off" required />
                                 <label for="PASSWORD">Senha</label>
                             </div>
-                            <input type="submit" name="register" value="Cadastrar" class="sign-button">
+                            <input type="submit" name="Cadastrar" value="Cadastrar" class="sign-button">
                         </div>
                     </form>
                 </div>
