@@ -1,7 +1,4 @@
-<?php
-    include_once("../Connection/conect.php");
-    include_once("../Classes/Operations.php");
-?>
+  
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,6 +57,9 @@
                 <p>Mais recentes</p>
             </div>
             <?php
+              include_once("../Connection/conect.php");
+              include_once("../Classes/Operations.php");
+
               $query = "SELECT * FROM roadmap WHERE IDUSER = :IDUSER";
               $stmt = $pdo->prepare($query);
               $stmt->bindParam(':IDUSER', $_SESSION['ID']);

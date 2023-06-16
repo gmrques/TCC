@@ -25,6 +25,7 @@
                 <a href="home.php">Destinos</a>
                 <a href="roadmap.php">Roteiros</a>
                 <a href="gastronomy.php">Receitas</a>
+                <a href="settings.php"><i style="font-size: 1.7em;" class='bx bx-cog'></i></a>
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
                 <a href="profile.php"><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">

@@ -101,6 +101,7 @@
                     echo "Erro de conexão: " . $e->getMessage();
                     exit();
                 }
+                
                 $query = "SELECT USERNAME, ROLE, BIO FROM user WHERE ID = :ID";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(':ID', $_SESSION['ID']);

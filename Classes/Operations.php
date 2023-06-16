@@ -1,6 +1,6 @@
 <?php
 
-require_once('Connection/conect.php');
+require_once('../Connection/conect.php');
 
 $db = new Connection();
 
