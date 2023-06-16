@@ -146,7 +146,7 @@
                     }
                 } 
     if (!$publicacoesEncontradas) {
-    echo "<p>Nenhuma publicação encontrada.</p>"; 
+    echo '<p style="display: flex; align-items: center; justify-content: center; font-size: 2em; color: #21b469;">Nenhuma publicação encontrada.</p>'; 
     } else {
         echo '<div class="bottom-home-box">';
         echo '<div class="bullets-home">';
