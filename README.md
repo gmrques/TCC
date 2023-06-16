@@ -35,4 +35,4 @@
 
 > ## (Correções de bugs) ==>
 
-> + Buscar forma mais viável de transportar a conexão pelo código pois ele está criando uma nova para toda operação.
+> + Corrigir o erro de conexão pois isso está comprometendo o desenvolvimento do sistema, faça uma conexão provisória para ir implementando outras funcionalidades exceto as funções de criação.
