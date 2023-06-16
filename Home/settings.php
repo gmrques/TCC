@@ -2,9 +2,12 @@
     include_once("../Connection/conect.php");
     include_once("../Classes/Operations.php");
 
+    $db = new Connection();
+    $connection = $db->getConnection();
+
     if (isset($_POST['Salvar/Atualizar'])) {
         $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
-        $stmt = $pdo->prepare($query);
+        $stmt = $connection->prepare($query);
         $stmt->bindParam(':IDUSER', $_SESSION['ID']);
         $stmt->execute();
         
@@ -23,7 +26,7 @@
             $password = $_POST['PASSWORD'];
             
             $query = "SELECT EMAIL, FULL_NAME, USERNAME, PASSWORD FROM usuarios WHERE ID = :ID";
-            $stmt = $pdo->prepare($query);
+            $stmt = $connection->prepare($query);
             $stmt->bindParam(':ID', $_SESSION['ID']);
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);

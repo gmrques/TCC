@@ -88,22 +88,11 @@
             </div>
             <div class="about">
             <?php
-                $host = "localhost";
-                $dbname = "tcc";
-                $username = "root";
-                $password = "";
-
-                try {
-                    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-                } catch (PDOException $e) {
-                    echo "Erro de conexão: " . $e->getMessage();
-                    exit();
-                }
+                $db = new Connection();
+                $connection = $db->getConnection();
                 
                 $query = "SELECT USERNAME, ROLE, BIO FROM user WHERE ID = :ID";
-                $stmt = $pdo->prepare($query);
+                $stmt = $connection->prepare($query);
                 $stmt->bindParam(':ID', $_SESSION['ID']);
                 $stmt->execute();
                 if ($stmt->rowCount() > 0) {
@@ -133,23 +122,11 @@
             <ul>
                 <li>Artigos</li>
                     <?php
-                        $host = "localhost";
-                        $dbname = "tcc";
-                        $username = "root";
-                        $password = "";
-        
-                        try {
-                            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-                        } catch (PDOException $e) {
-                            echo "Erro de conexão: " . $e->getMessage();
-                            exit();
-                        }
-
+                        $db = new Connection();
+                        $connection = $db->getConnection();
 
                         $query = "SELECT article.* FROM article JOIN user ON article.ID_ARTICLE = user.ID WHERE user.USERNAME = :USERNAME";
-                        $stmt = $pdo->prepare($query);
+                        $stmt = $connection->prepare($query);
                         $stmt->bindParam(':USERNAME', $USERNAME);
                         $stmt->execute();
                         
@@ -161,7 +138,7 @@
                         $publicacoesEncontradas = false;
 
                         $query = "SELECT article.* FROM article JOIN user ON article.ID_ARTICLE = user.ID WHERE user.USERNAME = :USERNAME LIMIT :limit OFFSET :offset";
-                        $stmt = $pdo->prepare($query);
+                        $stmt = $connection->prepare($query);
                         $stmt->bindParam(':USERNAME', $USERNAME);
                         $stmt->bindValue(':limit', $limitPerPage, PDO::PARAM_INT);
 
@@ -177,7 +154,6 @@
                                 $articleNumber = $offset + 1;
 
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    // Obtenha os dados do artigo aqui
                                     $title = $row['TITLE'];
                                     $content = $row['CONTENT'];
                                     $cardType = $cardTypes[$cardTypeIndex];

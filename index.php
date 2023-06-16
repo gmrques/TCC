@@ -69,6 +69,7 @@ if (isset($_POST['Cadastrar']) && $_POST['Cadastrar'] == 'Cadastrar') {
     $stmt->bindParam(':EMAIL', $EMAIL);
     if ($stmt->execute()) {
         session_start();
+        $_SESSION['ID'] = $db->lastInsertId();
         $_SESSION['EMAIL'] = $EMAIL;
         $_SESSION['FULL_NAME'] = $FULL_NAME;
         $_SESSION['USERNAME'] = $USERNAME;

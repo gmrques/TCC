@@ -1,4 +1,4 @@
-  
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,8 +60,11 @@
               include_once("../Connection/conect.php");
               include_once("../Classes/Operations.php");
 
+              $db = new Connection();
+              $connection = $db->getConnection();
+
               $query = "SELECT * FROM roadmap WHERE IDUSER = :IDUSER";
-              $stmt = $pdo->prepare($query);
+              $stmt = $connection->prepare($query);
               $stmt->bindParam(':IDUSER', $_SESSION['ID']);
               $stmt->execute();
 
@@ -73,7 +76,7 @@
                   $offset = ($page - 1) * $limitPerPage;
 
                   $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
-                  $stmt = $pdo->prepare($query);
+                  $stmt = $connection->prepare($query);
                   $stmt->bindParam(':IDUSER', $_SESSION['ID']);
                   $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
                   $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);

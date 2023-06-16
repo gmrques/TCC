@@ -60,22 +60,11 @@
                 <p>Mais recentes</p>
             </div>
             <?php
-                $host = "localhost";
-                $dbname = "tcc";
-                $username = "root";
-                $password = "";
-
-                try {
-                    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-                } catch (PDOException $e) {
-                    echo "Erro de conexão: " . $e->getMessage();
-                    exit();
-                }
+                $db = new Connection();
+                $connection = $db->getConnection();
 
                 $query = "SELECT * FROM article ORDER BY date_article DESC";
-                $stmt = $pdo->prepare($query);
+                $stmt = $connection->prepare($query);
                 $stmt->execute();
 
                 $limitPerPage = 3;
@@ -89,7 +78,7 @@
                     $offset = ($page - 1) * $limitPerPage;
 
                     $query = "SELECT * FROM article ORDER BY date_article DESC LIMIT :limit OFFSET :offset";
-                    $stmt = $pdo->prepare($query);
+                    $stmt = $connection->prepare($query);
                     $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
                     $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
                     $stmt->execute();

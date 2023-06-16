@@ -89,9 +89,12 @@
             </div>
             <div class="right-gastronomy-box">
             <?php
+                $db = new Connection();
+                $connection = $db->getConnection();
+
                 if (!isset($_SESSION['last_update']) || date('Y-m-d') > $_SESSION['last_update']) {
                     $query = "SELECT * FROM gastronomy ORDER BY RAND() LIMIT 4";
-                    $result = $conn->query($query);
+                    $result = $connection->query($query);
 
                     if ($result->num_rows > 0) {
                         $_SESSION['highlighted_posts'] = array();

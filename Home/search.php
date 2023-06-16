@@ -80,8 +80,11 @@
                 $opcao = $_POST['opcao'];
                 if ($opcao === '1') {
                     echo "<h2 class='search-title'>Resultados de Artigos</h2>";
+
+                        $db = new Connection();
+                        $connection = $db->getConnection();
                         $query = "SELECT * FROM article ORDER BY publication_date DESC";
-                        $stmt = $pdo->prepare($query);
+                        $stmt = $connection->prepare($query);
                         $stmt->execute();
 
                         $limitPerPage = 3;
@@ -94,7 +97,7 @@
                             $offset = ($page - 1) * $limitPerPage;
 
                             $query = "SELECT * FROM article ORDER BY publication_date DESC LIMIT :limit OFFSET :offset";
-                            $stmt = $pdo->prepare($query);
+                            $stmt = $connection->prepare($query);
                             $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
                             $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
                             $stmt->execute();
