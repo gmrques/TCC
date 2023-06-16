@@ -34,3 +34,5 @@
 > + <s>search.php (Search concluído)</s>
 
 > ## (Correções de bugs) ==>
+
+> + Buscar forma mais viável de transportar a conexão pelo código pois ele está criando uma nova para toda operação.

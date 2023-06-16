@@ -49,6 +49,8 @@
                 <a href="home.php">Artigos</a>
                 <a href="roadmap.php">Roteiros</a>
                 <a href="gastronomy.php">Receitas</a>
+                <a href="settings.php"><i style="font-size: 1.7em;" class='bx bx-cog'></i></a>
+
                 <button id="btn"><i style="font-size: 1.5em;" class='plus bx bx-plus'></i></button>
                 <a href="profile.php"><i style="font-size: 1.5em;" class='user bx bxs-user' ></i></a>
                 <div class="container1">
@@ -85,23 +87,69 @@
                 <img src="<?php echo $imagePath; ?>" alt="Sinforoso"/>
             </div>
             <div class="about">
-                <h2><?php echo $username; ?></h2>
-                <h4><i><?php echo $ROLE; ?></i></h4>
-                <ul class="content">
-                    <li><i class='bx bxs-envelope'></i></li>
-                    <li><i class='bx bxl-instagram-alt'></i></li>
-                    <li><i class='bx bxl-twitter' ></i></li>
-                </ul>
-                <textarea class="bio-textarea" name="BIO" rows="15" cols="45" required><?php echo $BIO; ?></textarea>
+            <?php
+                $host = "localhost";
+                $dbname = "tcc";
+                $username = "root";
+                $password = "";
+
+                try {
+                    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                } catch (PDOException $e) {
+                    echo "Erro de conexão: " . $e->getMessage();
+                    exit();
+                }
+                $query = "SELECT USERNAME, ROLE, BIO FROM user WHERE ID = :ID";
+                $stmt = $pdo->prepare($query);
+                $stmt->bindParam(':ID', $_SESSION['ID']);
+                $stmt->execute();
+                if ($stmt->rowCount() > 0) {
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $USERNAME = $row['USERNAME'];
+                    $ROLE = $row['ROLE'];
+                    $BIO = $row['BIO'];
+
+                    ?>
+
+                    <h2><?php echo $USERNAME; ?></h2>
+
+                    <?php if (!empty($ROLE) && !empty($BIO)) { ?>
+                        <h4><i><?php echo $ROLE; ?></i></h4>
+                        <ul class="content">
+                            <li><i class='bx bxs-envelope'></i></li>
+                            <li><i class='bx bxl-instagram-alt'></i></li>
+                            <li><i class='bx bxl-twitter'></i></li>
+                        </ul>
+                        <textarea class="bio-textarea" name="BIO" rows="15" cols="45" required><?php echo $BIO; ?></textarea>
+                    <?php }
+
+            } ?>
             </div>
         </div>
         <div class="right-box-pf">
             <ul>
                 <li>Artigos</li>
                     <?php
-                        $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
+                        $host = "localhost";
+                        $dbname = "tcc";
+                        $username = "root";
+                        $password = "";
+        
+                        try {
+                            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                        } catch (PDOException $e) {
+                            echo "Erro de conexão: " . $e->getMessage();
+                            exit();
+                        }
+
+
+                        $query = "SELECT article.* FROM article JOIN user ON article.ID_ARTICLE = user.ID WHERE user.USERNAME = :USERNAME";
                         $stmt = $pdo->prepare($query);
-                        $stmt->bindParam(':IDUSER', $_SESSION['ID']);
+                        $stmt->bindParam(':USERNAME', $USERNAME);
                         $stmt->execute();
                         
                         $limitPerPage = 3;
@@ -109,24 +157,28 @@
                         $cardTypes = array('card-article1', 'card-article2', 'card-article3', 'card-article4', 'card-article5');
                         $popupCardIndex = 1;
                         $mainHomeBox = 1;
-                        
+                        $publicacoesEncontradas = false;
+
+                        $query = "SELECT article.* FROM article JOIN user ON article.ID_ARTICLE = user.ID WHERE user.USERNAME = :USERNAME LIMIT :limit OFFSET :offset";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->bindParam(':USERNAME', $USERNAME);
+                        $stmt->bindValue(':limit', $limitPerPage, PDO::PARAM_INT);
+
                         for ($page = 1; $page <= ceil($totalArticles / $limitPerPage); $page++) {
                             $offset = ($page - 1) * $limitPerPage;
-                        
-                            $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
-                            $stmt = $pdo->prepare($query);
-                            $stmt->bindParam(':IDUSER', $_SESSION['ID']);
-                            $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
-                            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+                            $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
                             $stmt->execute();
-                        
+
                             if ($stmt->rowCount() > 0) {
+                                $publicacoesEncontradas = true;
+
                                 $cardTypeIndex = ($page - 1) % count($cardTypes);
                                 $articleNumber = $offset + 1;
-                        
+
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    $title = $row['TITLE_ARTICLE'];
-                                    $content = $row['CONTENT_ARTICLE'];
+                                    // Obtenha os dados do artigo aqui
+                                    $title = $row['TITLE'];
+                                    $content = $row['CONTENT'];
                                     $cardType = $cardTypes[$cardTypeIndex];
                         
                                     echo '<div class="' . $mainHomeBox . '">';
@@ -166,20 +218,22 @@
                                         }
                                     }
                                 }
-                            } else {
-                                echo "<p>Nenhuma publicação encontrada.</p>";
                             }
                         }
+                        if (!$publicacoesEncontradas) {
+                            echo '<p style="display: flex; align-items: center; justify-content: center; font-size: 2em; color: #21b469;">Nenhuma publicação encontrada.</p>'; 
+                            } else {
+                                echo '<div class="bottom-home-box">';
+                                echo '<div class="bullets-home">';
+                                echo '<span class="stats active" value="1"></span>';
+                                echo '<span class="stats" value="1"></span>';
+                                echo '<span class="stats" value="3"></span>';
+                                echo '<span class="stats" value="4"></span>';
+                                echo '<span class="stats" value="5"></span>';
+                                echo '</div>';
+                                echo '</div>';
+                            } 
                     ?>
-                <div class="bottom-home-box">
-                    <div class="bullets-home">
-                        <span class="stats active" value="1"></span>
-                        <span class="stats" value="2"></span>
-                        <span class="stats" value="3"></span>
-                        <span class="stats" value="4"></span>
-                        <span class="stats" value="5"></span>
-                    </div>
-                </div>
             </ul>
         </div>
     </main> 
