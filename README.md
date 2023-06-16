@@ -34,3 +34,5 @@
 > + <s>search.php (Search concluído)</s>
 
 > ## (Correções de bugs) ==>
+
+> Falta hover do button de publicar, falta estilizar o texto que aparece na home caso não tenha artigos
