@@ -234,19 +234,19 @@ main {
 /* ////////////////////////////////////// */
 /* FORMULÁRIO DE ATUALIZAÇÃO DE PERFIL */
 
-form#update-user {
+form #update-user {
     opacity: 0;
-    display: flex;
+    display: block;
     transition: 0.8s;
+    position: relative;
+    top: 50%;
+    right: 20%;
 }
 
-form#update-user.active {
+form #update-user.active {
     opacity: 1;
-    display: flex;
+    display: block;
     transition: 0.8s;
-}
-
-form#update-user {
     position: relative;
     top: 50%;
     right: 20%;
@@ -286,7 +286,6 @@ form#update-user {
 
 .update:hover {
     background-color: #21b469;
-    opacity: 1;
     transition: 0.5s;
 } 
  
@@ -306,29 +305,6 @@ form#update-user {
     outline: none;
     border-bottom: 0.5px solid black;
     transition: 0.5s;
-}
-
-.update-textarea {
-    position: absolute;
-    background: none;
-    border-radius: 2em;
-    padding: 1em;
-    font-size: 1em;
-    resize: none;
-    margin-top: 1em;
-    transition: 0.5s;
-    outline: none;
-}
-
-.update-textarea.active {
-    border-bottom-color: #1F1F1F;
-}
-
-.update-textarea.active + label {
-    font-weight: bolder;
-    transition: 0.5s;
-    opacity: 1;
-    color: #21b469;
 }
 
 label {

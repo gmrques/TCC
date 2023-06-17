@@ -68,33 +68,6 @@ class OperationsUser{
             }
         }
     }
-
-    public function update($postValues){
-        $EMAIL = $postValues['EMAIL'];
-        $FULL_NAME = $postValues['FULL_NAME'];
-        $USERNAME = $postValues['USERNAME'];
-        $PASSWORD = $postValues['PASSWORD'];
-
-        if( empty($EMAIL) || empty($FULL_NAME) || empty($USERNAME) || empty($PASSWORD) ){
-            return false;
-        }
-
-        $query = "UPDATE ". $this->table_name . " SET EMAIL = ?, FULL_NAME = ?, USERNAME = ?, PASSWORD = ? WHERE ID = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1,$EMAIL);
-        $stmt->bindParam(2,$FULL_NAME);
-        $stmt->bindParam(3,$USERNAME);
-        $stmt->bindParam(4,$PASSWORD);
-        $stmt->bindParam(5,$_SESSION['ID']);
-        
-        if($stmt->execute()){
-            echo "<script>alert('Cadastro realizado com sucesso!!!')</script>";
-            header("location: home.php");
-            return true;
-        }else{
-            return false;
-        }
-    }
     
 
     public function publish_article(){

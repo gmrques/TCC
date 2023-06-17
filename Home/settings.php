@@ -5,18 +5,16 @@
     $connection = $db->getConnection();
     session_start();
     $EMAIL = isset($_SESSION['EMAIL']) ? $_SESSION['EMAIL'] : '';
-    $FULL_NAME = isset($_SESSION['FULL_NAME']) ? $_SESSION['FULL_NAME'] : '';
     $USERNAME = isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : '';
     $PASSWORD = isset($_SESSION['PASSWORD']) ? $_SESSION['PASSWORD'] : '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['EMAIL']) && isset($_POST['FULL_NAME']) && isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
+        if (isset($_POST['EMAIL']) && isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
             $EMAIL = $_POST['EMAIL'];
-            $FULL_NAME = $_POST['FULL_NAME'];
             $USERNAME = $_POST['USERNAME'];
             $PASSWORD = $_POST['PASSWORD'];
             
-            $query = "SELECT EMAIL, FULL_NAME, USERNAME, PASSWORD FROM usuarios WHERE ID = :ID";
+            $query = "SELECT EMAIL, USERNAME, PASSWORD FROM user WHERE ID = :ID";
             $stmt = $connection->prepare($query);
             $stmt->bindParam(':ID', $_SESSION['ID']);
             $stmt->execute();
@@ -25,9 +23,6 @@
             $differences = array();
             if ($EMAIL !== $row['EMAIL']) {
                 $differences[] = 'Email';
-            }
-            if ($FULL_NAME !== $row['FULL_NAME']) {
-                $differences[] = 'Nome completo';
             }
             if ($USERNAME !== $row['USERNAME']) {
                 $differences[] = 'Nome de usuário';
@@ -42,7 +37,6 @@
             } else {
                 $postValues = array(
                     'EMAIL' => $EMAIL,
-                    'FULL_NAME' => $FULL_NAME,
                     'USERNAME' => $USERNAME,
                     'PASSWORD' => $PASSWORD
                 );
@@ -55,12 +49,40 @@
         session_start();
         session_unset();
         session_destroy();
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        header("Pragma: no-cache");
+        header("Expires: 0");
         header("location: ../index.php");
         exit();
     }
 
     if (isset($_POST['logout'])) {
         logout();
+    }
+
+    function update($postValues){
+        $EMAIL = $postValues['EMAIL'];
+        $USERNAME = $postValues['USERNAME'];
+        $PASSWORD = $postValues['PASSWORD'];
+
+        if( empty($EMAIL) || empty($USERNAME) || empty($PASSWORD) ){
+            return false;
+        }
+
+        $query = "UPDATE ". $this->table_name . " SET EMAIL = ?, USERNAME = ?, PASSWORD = ? WHERE ID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1,$EMAIL);
+        $stmt->bindParam(2,$USERNAME);
+        $stmt->bindParam(3,$PASSWORD);
+        $stmt->bindParam(4,$_SESSION['ID']);
+        
+        if($stmt->execute()){
+            echo "<script>alert('Informações atualizadas com sucesso!!!')</script>";
+            header("location: home.php");
+            return true;
+        }else{
+            return false;
+        }
     }
 ?>
 
@@ -132,17 +154,12 @@
                         <div class="update-form">
                             <?php
                                 $EMAIL = isset($_SESSION['EMAIL']) ? $_SESSION['EMAIL'] : '';
-                                $FULL_NAME = isset($_SESSION['FULL_NAME']) ? $_SESSION['FULL_NAME'] : '';
                                 $USERNAME = isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : '';
                                 $PASSWORD = isset($_SESSION['PASSWORD']) ? $_SESSION['PASSWORD'] : '';
                              ?>
                             <div class="update-wrap">
                                 <input type="email" class="update-field" name="EMAIL" autocomplete="off" value="<?php echo isset($EMAIL) ? $EMAIL : ''; ?>"/>
                                 <label for="EMAIL">Email</label>
-                            </div>
-                            <div class="update-wrap">
-                                <input type="text" class="update-field" name="FULL_NAME" autocomplete="off" value="<?php echo isset($FULL_NAME) ? $FULL_NAME : ''; ?>"/>
-                                <label for="FULL_NAME">Nome completo</label>
                             </div>
                             <div class="update-wrap">
                                 <input type="text" class="update-field" name="USERNAME" autocomplete="off" value="<?php echo isset($USERNAME) ? $USERNAME : ''; ?>"/>

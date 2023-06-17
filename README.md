@@ -35,5 +35,8 @@
 
 > ## (Correções de bugs) ==>
 
-> + Falta fazer os métodos de publicar (Artigos, roteiros de viagem e receitas) darem certo;
-> + Falta fazer o search e arrumar a página de search.
+> + Faltou corrigir o update do usuário;
+> + Falta corrigir os métodos de publicar (Artigos, roteiros de viagem e receitas) darem certo;
+> + Falta corrigir o search e arrumar a página de search.
+
+O protótipo segue incompleto, e terá mais implementações no futuro pós conclusão do curso
