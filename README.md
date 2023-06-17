@@ -35,6 +35,5 @@
 
 > ## (Correções de bugs) ==>
 
-> + Falta método de logout;
 > + Falta fazer os métodos de publicar (Artigos, roteiros de viagem e receitas) darem certo;
 > + Falta fazer o search e arrumar a página de search.
