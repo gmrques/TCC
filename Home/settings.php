@@ -1,6 +1,5 @@
 <?php
     include_once("../Connection/conect.php");
-    include_once("../Classes/Operations.php");
 
     $db = new Connection();
     $connection = $db->getConnection();
@@ -52,16 +51,17 @@
         }
     }
 
-    // function logout() {
-    //     session_start();
-    //     session_destroy();
-    // }
+    function logout(){
+        session_start();
+        session_unset();
+        session_destroy();
+        header("location: ../index.php");
+        exit();
+    }
 
-    // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
-    //     logout();
-    //     header('Location: ../index.php');
-    //     exit();
-    // }
+    if (isset($_POST['logout'])) {
+        logout();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +120,10 @@
         <div class="box">
             <div class="left-box-prs">
                 <button id="update-user-btn"><i class='bx bxs-user' aria-hidden="true"></i></button>
-                <button id="logout-btn" type="submit" name="logout"><i class='bx bx-log-out' aria-hidden="true"></i></button>
+                <form method="POST" action="?logout">
+                    <button type="submit" id="btn"><i style="font-size: 1.5em; font-weight: 600; margin-left: 0.5em;"class='bx bx-exit'></i></i></button>
+                    <input type="hidden" name="logout" value="1">
+                </form>
             </div>
             <div class="right-box-prs">
                 <div class="profiletabShow">
