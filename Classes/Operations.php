@@ -1,7 +1,6 @@
 <?php
 
-require_once('../Connection/conect.php');
-require_once('../Classes/Operations.php');
+include_once('Connection/conect.php');
 
 $db = new Connection();
 

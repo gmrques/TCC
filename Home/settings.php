@@ -1,6 +1,6 @@
 <?php
-    require_once("../Connection/conect.php");
-    require_once("../Classes/Operations.php");
+    include_once("../Connection/conect.php");
+    include_once("../Classes/Operations.php");
 
     $db = new Connection();
     $connection = $db->getConnection();
