@@ -51,6 +51,17 @@
             }
         }
     }
+
+    // function logout() {
+    //     session_start();
+    //     session_destroy();
+    // }
+
+    // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+    //     logout();
+    //     header('Location: ../index.php');
+    //     exit();
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +120,7 @@
         <div class="box">
             <div class="left-box-prs">
                 <button id="update-user-btn"><i class='bx bxs-user' aria-hidden="true"></i></button>
-                <button id="logout-btn" action="?logout"><i class='bx bx-log-out' aria-hidden="true" action="?logout"></i></button>
+                <button id="logout-btn" type="submit" name="logout"><i class='bx bx-log-out' aria-hidden="true"></i></button>
             </div>
             <div class="right-box-prs">
                 <div class="profiletabShow">

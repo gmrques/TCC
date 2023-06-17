@@ -69,13 +69,6 @@ class OperationsUser{
             }
         }
     }
-    
-    public function logout(){
-        session_start();
-        session_destroy();
-        header('location: ../index.php');
-        exit();
-    }
 
     public function update($postValues){
         $EMAIL = $postValues['EMAIL'];

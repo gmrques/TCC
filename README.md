@@ -35,4 +35,6 @@
 
 > ## (Correções de bugs) ==>
 
-> + Corrigir o erro de conexão pois isso está comprometendo o desenvolvimento do sistema, faça uma conexão provisória para ir implementando outras funcionalidades exceto as funções de criação.
+> + Falta método de logout;
+> + Falta fazer os métodos de publicar (Artigos, roteiros de viagem e receitas) darem certo;
+> + Falta fazer o search e arrumar a página de search.
