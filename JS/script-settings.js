@@ -32,13 +32,6 @@ userBtn.addEventListener("click", () => {
     userForm.classList.toggle('active');
 })
  
-const paletteBtn = document.getElementById('udpate-palette-btn');
-const paletteForm = document.getElementById('update-palette');
-
-paletteBtn.addEventListener("click", () => {
-    paletteForm.classList.toggle('active');
-})
- 
 // JS no form com label
 
 const label_settings = document.querySelectorAll(".update-field");

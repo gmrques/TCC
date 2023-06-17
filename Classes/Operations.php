@@ -1,6 +1,7 @@
 <?php
 
 require_once('../Connection/conect.php');
+require_once('../Classes/Operations.php');
 
 $db = new Connection();
 
@@ -102,55 +103,6 @@ class OperationsUser{
             return false;
         }
     }
-
-    public function personalize() {
-        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            $uploadDir = 'CSS/IMG/profile-pic/';
-            $imageName = uniqid() . '_' . $_FILES['image']['name'];
-            $imagePath = $uploadDir . $imageName;
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
-                $query = "INSERT INTO article (ROLE, BIO) VALUES (:ROLE, :BIO)";
-                $stmt = $pdo->prepare($query);
-                $stmt->bindParam(':ROLE', $ROLE);
-                $stmt->bindParam(':BIO', $BIO);
-                $stmt->execute();
-
-                header("Location: Home/profile.php");
-                exit;
-            } else {
-                echo "Ocorreu um erro ao fazer o upload da imagem.";
-                exit;
-            }
-        } else {
-            echo "Nenhuma imagem foi enviada.";
-            exit;
-        }
-    }
-
-    public function personalizeUpdate() {
-        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            $uploadDir = 'CSS/IMG/profile-pic/';
-            $imageName = uniqid() . '_' . $_FILES['image']['name'];
-            $imagePath = $uploadDir . $imageName;
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
-                $query = "UPDATE article SET ROLE = :ROLE, BIO = :BIO";
-                $stmt = $pdo->prepare($query);
-                $stmt->bindParam(':ROLE', $ROLE);
-                $stmt->bindParam(':BIO', $BIO);
-                $stmt->execute();
-    
-                header("Location: Home/profile.php");
-                exit;
-            } else {
-                echo "Ocorreu um erro ao fazer o upload da imagem.";
-                exit;
-            }
-        } else {
-            echo "Nenhuma imagem foi enviada.";
-            exit;
-        }
-    }
-    
     
 
     public function publish_article(){

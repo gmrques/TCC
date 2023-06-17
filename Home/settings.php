@@ -1,29 +1,21 @@
 <?php
-    include_once("../Connection/conect.php");
-    include_once("../Classes/Operations.php");
+    require_once("../Connection/conect.php");
+    require_once("../Classes/Operations.php");
 
     $db = new Connection();
     $connection = $db->getConnection();
-
-    if (isset($_POST['Salvar/Atualizar'])) {
-        $query = "SELECT * FROM article WHERE IDUSER = :IDUSER";
-        $stmt = $connection->prepare($query);
-        $stmt->bindParam(':IDUSER', $_SESSION['ID']);
-        $stmt->execute();
-        
-        if ($stmt->rowCount() > 0) {
-            personalizeUpdate();
-        } else {
-            personalize();
-        }
-    }
+    session_start();
+    $EMAIL = isset($_SESSION['EMAIL']) ? $_SESSION['EMAIL'] : '';
+    $FULL_NAME = isset($_SESSION['FULL_NAME']) ? $_SESSION['FULL_NAME'] : '';
+    $USERNAME = isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : '';
+    $PASSWORD = isset($_SESSION['PASSWORD']) ? $_SESSION['PASSWORD'] : '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['EMAIL']) && isset($_POST['FULL_NAME']) && isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
-            $email = $_POST['EMAIL'];
-            $fullName = $_POST['FULL_NAME'];
-            $username = $_POST['USERNAME'];
-            $password = $_POST['PASSWORD'];
+            $EMAIL = $_POST['EMAIL'];
+            $FULL_NAME = $_POST['FULL_NAME'];
+            $USERNAME = $_POST['USERNAME'];
+            $PASSWORD = $_POST['PASSWORD'];
             
             $query = "SELECT EMAIL, FULL_NAME, USERNAME, PASSWORD FROM usuarios WHERE ID = :ID";
             $stmt = $connection->prepare($query);
@@ -32,16 +24,16 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             
             $differences = array();
-            if ($email !== $row['EMAIL']) {
+            if ($EMAIL !== $row['EMAIL']) {
                 $differences[] = 'Email';
             }
-            if ($fullName !== $row['FULL_NAME']) {
+            if ($FULL_NAME !== $row['FULL_NAME']) {
                 $differences[] = 'Nome completo';
             }
-            if ($username !== $row['USERNAME']) {
+            if ($USERNAME !== $row['USERNAME']) {
                 $differences[] = 'Nome de usuário';
             }
-            if ($password !== $row['PASSWORD']) {
+            if ($PASSWORD !== $row['PASSWORD']) {
                 $differences[] = 'Senha';
             }
             
@@ -49,6 +41,12 @@
                 $message = 'Os seguintes campos estão diferentes dos valores cadastrados anteriormente: ' . implode(', ', $differences) . '.';
                 echo $message;
             } else {
+                $postValues = array(
+                    'EMAIL' => $EMAIL,
+                    'FULL_NAME' => $FULL_NAME,
+                    'USERNAME' => $USERNAME,
+                    'PASSWORD' => $PASSWORD
+                );
                 update($postValues);
             }
         }
@@ -111,7 +109,6 @@
         <div class="box">
             <div class="left-box-prs">
                 <button id="update-user-btn"><i class='bx bxs-user' aria-hidden="true"></i></button>
-                <button id="udpate-palette-btn"><i class='bx bxs-palette' aria-hidden="true"></i></button>
                 <button id="logout-btn" action="?logout"><i class='bx bx-log-out' aria-hidden="true" action="?logout"></i></button>
             </div>
             <div class="right-box-prs">
@@ -119,44 +116,33 @@
                     <form method="POST" action="?action=update" autocomplete="off" id="update-user" class="state">
                         <h1>Atualize suas informações :)</h1>
                         <div class="update-form">
+                            <?php
+                                $EMAIL = isset($_SESSION['EMAIL']) ? $_SESSION['EMAIL'] : '';
+                                $FULL_NAME = isset($_SESSION['FULL_NAME']) ? $_SESSION['FULL_NAME'] : '';
+                                $USERNAME = isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : '';
+                                $PASSWORD = isset($_SESSION['PASSWORD']) ? $_SESSION['PASSWORD'] : '';
+                             ?>
                             <div class="update-wrap">
-                                <input type="email" class="update-field" name="EMAIL" autocomplete="off" value="<?php echo $EMAIL ?>"/>
+                                <input type="email" class="update-field" name="EMAIL" autocomplete="off" value="<?php echo isset($EMAIL) ? $EMAIL : ''; ?>"/>
                                 <label for="EMAIL">Email</label>
                             </div>
                             <div class="update-wrap">
-                                <input type="text" class="update-field" name="FULL_NAME" autocomplete="off" value="<?php echo $FULL_NAME ?>"/>
+                                <input type="text" class="update-field" name="FULL_NAME" autocomplete="off" value="<?php echo isset($FULL_NAME) ? $FULL_NAME : ''; ?>"/>
                                 <label for="FULL_NAME">Nome completo</label>
                             </div>
                             <div class="update-wrap">
-                                <input type="text" class="update-field" name="USERNAME" autocomplete="off" value="<?php echo $USERNAME ?>"/>
+                                <input type="text" class="update-field" name="USERNAME" autocomplete="off" value="<?php echo isset($USERNAME) ? $USERNAME : ''; ?>"/>
                                 <label for="USERNAME">Nome de usuário</label>
                             </div>
                             <div class="update-wrap">
-                                <input type="password" class="update-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
+                                <input type="password" class="update-field" name="PASSWORD" autocomplete="off" value="<?php echo isset($PASSWORD) ? $PASSWORD : ''; ?>"/>
                                 <label for="PASSWORD">Senha</label>
                             </div>
                             <div class="update-wrap">
-                                <input type="password" class="update-field" name="PASSWORD" autocomplete="off" value="<?php echo $PASSWORD ?>"/>
+                                <input type="password" class="update-field" name="PASSWORD" autocomplete="off" value="<?php echo isset($PASSWORD) ? $PASSWORD : ''; ?>"/>
                                 <label for="PASSWORD">Confirmar senha</label>
                             </div>
                             <input type="submit" value="Atualizar" class="update">
-                        </div>
-                    </form>
-                    <form method="POST" action="?action=X" autocomplete="off" id="update-palette" class="state">
-                        <h1>Dê a sua cara ao perfil!</h1>
-                        <div class="update-form">
-                            <div class="update-wrap">
-                                <input class="img-upload" type="image" name="PROFILE_PIC" required>
-                            </div>
-                            <div class="update-wrap">
-                                <input type="text" class="update-field" name="ROLE" autocomplete="off"/>
-                                <label for="ROLE"> Cargo </label>
-                            </div>
-                            <div class="update-wrap">
-                                <textarea class="update-textarea" name="BIO" rows="15" cols="60" required></textarea>
-                                <label for="BIO"> Biografia </label>
-                            </div>
-                            <input type="submit" value="Salvar" name="Salvar/Atualizar" class="palette">
                         </div>
                     </form>
             </div>
