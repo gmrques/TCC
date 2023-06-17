@@ -83,44 +83,26 @@
     </ul>
     <div class="box">
         <div class="left-box-pf">
-            <div class="profile-pic">
-                <img src="<?php echo $imagePath; ?>" alt="Sinforoso"/>
-            </div>
             <div class="about">
             <?php
-                $db = new Connection();
-                $connection = $db->getConnection();
-                
-                $query = "SELECT USERNAME, ROLE, BIO FROM user WHERE ID = :ID";
-                $stmt = $connection->prepare($query);
-                $stmt->bindParam(':ID', $_SESSION['ID']);
-                $stmt->execute();
-                if ($stmt->rowCount() > 0) {
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $USERNAME = $row['USERNAME'];
-                    $ROLE = $row['ROLE'];
-                    $BIO = $row['BIO'];
+                session_start();
 
-                    ?>
+                if (isset($_SESSION['USERNAME'])) {
+                    $USERNAME = $_SESSION['USERNAME'];
+                    echo '<h2>' . $USERNAME . '</h2>';
+                }
+            ?>
 
-                    <h2><?php echo $USERNAME; ?></h2>
-
-                    <?php if (!empty($ROLE) && !empty($BIO)) { ?>
-                        <h4><i><?php echo $ROLE; ?></i></h4>
-                        <ul class="content">
-                            <li><i class='bx bxs-envelope'></i></li>
-                            <li><i class='bx bxl-instagram-alt'></i></li>
-                            <li><i class='bx bxl-twitter'></i></li>
-                        </ul>
-                        <textarea class="bio-textarea" name="BIO" rows="15" cols="45" required><?php echo $BIO; ?></textarea>
-                    <?php }
-
-            } ?>
+                <ul class="content">
+                    <li><i class='bx bxs-envelope'></i></li>
+                    <li><i class='bx bxl-instagram-alt'></i></li>
+                    <li><i class='bx bxl-twitter'></i></li>
+                </ul>
             </div>
         </div>
         <div class="right-box-pf">
             <ul>
-                <li>Artigos</li>
+                <li>Seus Artigos</li>
                     <?php
                         $db = new Connection();
                         $connection = $db->getConnection();

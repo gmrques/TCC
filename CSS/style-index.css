@@ -428,7 +428,7 @@ main.sing-up-mode #carousel {
     width: 55%;
     top: 0;
     left: 45%;
-    background-color: #ffe14e;
+    background-color: #ffdc2c;
     border-radius: 2em;
     display: grid;
     grid-template-rows: auto 1fr;

@@ -1,4 +1,9 @@
+<?php 
 
+require_once("../Connection/conect.php");
+require_once("../Classes/Operations.php");
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -56,33 +61,33 @@
             <div class="top-roadmap-box">
                 <p>Mais recentes</p>
             </div>
-            <?php
-              include_once("../Connection/conect.php");
-              include_once("../Classes/Operations.php");
 
+            <?php
               $db = new Connection();
               $connection = $db->getConnection();
 
-              $query = "SELECT * FROM roadmap WHERE IDUSER = :IDUSER";
+              $query = "SELECT roadmap.* FROM roadmap JOIN user ON roadmap.ID_ROADMAP = user.ID WHERE user.USERNAME = :USERNAME";
               $stmt = $connection->prepare($query);
-              $stmt->bindParam(':IDUSER', $_SESSION['ID']);
+              $stmt->bindParam(':USERNAME', $_SESSION['USERNAME']);
               $stmt->execute();
 
               $limitPerPage = 3;
               $totalRoadmaps = 9;
               $mainRoadmapBox = 1;
+              $publicacoesEncontradas = false;
+
+              $query = "SELECT roadmap.* FROM roadmap JOIN user ON roadmap.ID_ROADMAP = user.ID WHERE user.USERNAME = :USERNAME LIMIT :limit OFFSET :offset";
+              $stmt = $connection->prepare($query);
+              $stmt->bindParam(':USERNAME', $_SESSION['USERNAME']);
+              $stmt->bindValue(':limit', $limitPerPage, PDO::PARAM_INT);
 
               for ($page = 1; $page <= ceil($totalRoadmaps / $limitPerPage); $page++) {
                   $offset = ($page - 1) * $limitPerPage;
-
-                  $query = "SELECT * FROM publicacoes WHERE IDUSER = :IDUSER LIMIT :limit OFFSET :offset";
-                  $stmt = $connection->prepare($query);
-                  $stmt->bindParam(':IDUSER', $_SESSION['ID']);
-                  $stmt->bindParam(':limit', $limitPerPage, PDO::PARAM_INT);
-                  $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+                  $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
                   $stmt->execute();
 
                   if ($stmt->rowCount() > 0) {
+                      $publicacoesEncontradas = true;
                       $articleNumber = $offset + 1;
 
                       while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -93,7 +98,7 @@
                           echo '<div class="main-roadmap-box' . $mainRoadmapBox . '">';
                           echo '<div class="card-roadmap">';
                           echo '<div>';
-                          echo '<img src="CSS/IMG/article-img/article ' . $articleNumber . '.jpg" alt="">';
+                          echo '<img src="../CSS/IMG/article-img/article ' . $articleNumber . '.jpg" alt="">';
                           echo '<h2>' . $DESTINATION . '</h2>';
                           echo '<p>' . $DURATION . '</p>';
                           echo "<i class='bx bx-bookmark-plus'></i>";
@@ -120,96 +125,23 @@
                               }
                           }
                       }
-                  } else {
-                      echo "<p>Nenhuma publicação encontrada.</p>";
                   }
               }
-            ?>
-            <div class="main-roadmap-box1">
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 6.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 4.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 5.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-            </div>
-              <div class="main-roadmap-box2">
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 1.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 3.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 2.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-            </div>
-              <div class="main-roadmap-box3">
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 4.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 2.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-                <div class="card-roadmap">
-                  <div>
-                    <img src="CSS/IMG/article-img/article 6.jpg" alt="">
-                    <h2>teste</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt perspiciatis officiis aliquid beatae deleniti obcaecati et, porro est, corporis facere autem vero quidem, ullam asperiores odio totam id consequatur quas!</p>
-                    <i class='bx bx-bookmark-plus'></i>
-                  </div>
-                </div>
-            </div>
-              <div class="bottom-roadmap-box">
-                <div class="bullets-roadmap">
-                  <span class="stats active" value="1"></span>
-                  <span class="stats" value="2"></span>
-                  <span class="stats" value="3"></span>
-                </div>
-              </div>              
+
+              if (!$publicacoesEncontradas) {
+                  echo '<p style="display: flex; align-items: center; justify-content: center; font-size: 2em; color: #21b469;">Nenhuma publicação encontrada.</p>';
+              } else {
+                  echo '<div class="bottom-home-box">';
+                  echo '<div class="bullets-home">';
+                  echo '<span class="stats active" value="1"></span>';
+                  echo '<span class="stats" value="1"></span>';
+                  echo '<span class="stats" value="3"></span>';
+                  echo '<span class="stats" value="4"></span>';
+                  echo '<span class="stats" value="5"></span>';
+                  echo '</div>';
+                  echo '</div>';
+              }
+            ?>              
         </div>
     </main>
     </body>

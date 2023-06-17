@@ -63,19 +63,19 @@
                 <div class="slider-gastronomy">
                     <div class="list-img">
                         <div class="item">
-                            <img src="CSS/IMG/Carrousel-register/11.jpg" alt="">
+                            <img src="../CSS/IMG/gastronomy/1.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img src="CSS/IMG/Carrousel-register/16.jpg" alt="">
+                            <img src="../CSS/IMG/gastronomy/2.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img src="CSS/IMG/Carrousel-register/12.jpg" alt="">
+                            <img src="../CSS/IMG/gastronomy/6.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img src="CSS/IMG/Carrousel-register/9.jpg" alt="">
+                            <img src="../CSS/IMG/gastronomy/4.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img src="CSS/IMG/Carrousel-register/8.jpg" alt="">
+                            <img src="../CSS/IMG/gastronomy/5.jpg" alt="">
                         </div>
                         <div class="ul-dots">
                             <li class="active"></li>
@@ -91,38 +91,41 @@
             <?php
                 $db = new Connection();
                 $connection = $db->getConnection();
+                $publicacoesEncontradas = false;
 
                 if (!isset($_SESSION['last_update']) || date('Y-m-d') > $_SESSION['last_update']) {
                     $query = "SELECT * FROM gastronomy ORDER BY RAND() LIMIT 4";
-                    $result = $connection->query($query);
+                    $stmt = $connection->query($query);
 
-                    if ($result->num_rows > 0) {
-                        $_SESSION['highlighted_posts'] = array();
-                        while ($row = $result->fetch_assoc()) {
-                            $_SESSION['highlighted_posts'][] = $row;
-                        }
+                    if ($stmt->rowCount() > 0) {
+                        $_SESSION['highlighted_posts'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
                     $_SESSION['last_update'] = date('Y-m-d');
                 }
 
-                foreach ($_SESSION['highlighted_posts'] as $post) {
-                    $TITLE_RECIPE = $post['TITLE_RECIPE'];
-                    $INGREDIENTS = $post['INGREDIENTS'];
-                    $STEP_BY_STEP = $post['STEP_BY_STEP'];
+                if (isset($_SESSION['highlighted_posts']) && is_array($_SESSION['highlighted_posts'])) {
+                    $publicacoesEncontradas = true;
+                    foreach ($_SESSION['highlighted_posts'] as $post) {
+                        $TITLE_RECIPE = $post['TITLE_RECIPE'];
+                        $INGREDIENTS = $post['INGREDIENTS'];
+                        $STEP_BY_STEP = $post['STEP_BY_STEP'];
+                        
+                        echo "<div class= 'gastronomy-card'>";
+                        echo "<h2>$TITLE_RECIPE</h2>";
+                        echo "<p>$INGREDIENTS</p>";
+                        echo '</div>';
 
-                    echo "<div class= 'gastronomy-card'>";
-                    echo "<h2>$TITLE_RECIPE</h2>";
-                    echo "<p>$INGREDIENTS</p>";
-                    echo '</div>';
-
-                    echo '<div class="popup-card-gastronomy1" value="1">';
-                    echo '<i value="1" class="remove bx bx-x"></i>';
-                    echo '<div class="info-article">';
-                    echo "<h2>$TITLE_RECIPE</h2>";
-                    echo "<textarea class='text-area-content' name='Ingredients' rows='12' cols='36' required>$INGREDIENTS</textarea>";
-                    echo "<textarea class='text-area-content' name='Step_by_step' rows='12' cols='36' required>$STEP_BY_STEP</textarea>";
-                    echo '</div>';
-                    echo '</div>';
+                        echo '<div class="popup-card-gastronomy1" value="1">';
+                        echo '<i value="1" class="remove bx bx-x"></i>';
+                        echo '<div class="info-article">';
+                        echo "<h2>$TITLE_RECIPE</h2>";
+                        echo "<textarea class='text-area-content' name='Ingredients' rows='12' cols='36' required>$INGREDIENTS</textarea>";
+                        echo "<textarea class='text-area-content' name='Step_by_step' rows='12' cols='36' required>$STEP_BY_STEP</textarea>";
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                }   if (!$publicacoesEncontradas) {
+                    echo '<p style="display: flex; align-items: center; justify-content: center; font-size: 2em; color: #21b469;">Nenhuma publicação encontrada.</p>';
                 }
             ?>
             </div>

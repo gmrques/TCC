@@ -69,7 +69,7 @@ if (isset($_POST['Cadastrar']) && $_POST['Cadastrar'] == 'Cadastrar') {
     $stmt->bindParam(':EMAIL', $EMAIL);
     if ($stmt->execute()) {
         session_start();
-        $_SESSION['ID'] = $db->lastInsertId();
+        $_SESSION['ID'] =  $db->getConnection()->lastInsertId();
         $_SESSION['EMAIL'] = $EMAIL;
         $_SESSION['FULL_NAME'] = $FULL_NAME;
         $_SESSION['USERNAME'] = $USERNAME;
@@ -83,8 +83,6 @@ if (isset($_POST['Cadastrar']) && $_POST['Cadastrar'] == 'Cadastrar') {
 }
 
 if (isset($_POST['Entrar']) && $_POST['Entrar'] == 'Entrar') {
-    include_once("Connection/conect.php");
-    include_once("Classes/Operations.php");
 
     $login = new OperationsUser($db);
 
@@ -212,7 +210,7 @@ if (isset($_POST['Entrar']) && $_POST['Entrar'] == 'Entrar') {
                     <div class="images-wrapper">
                         <img src="CSS/IMG/Carrousel-register/8.jpg" class="image img-1 show" alt="">
                         <img src="CSS/IMG/Carrousel-register/11.jpg" class="image img-2" alt="">
-                        <img src="CSS/IMG/Carrousel-register/15.jpeg" class="image img-3" alt="">
+                        <img src="CSS/IMG/gastronomy/5.jpg" class="image img-3" alt="">
                     </div>
 
                     <div class="text-slider">
