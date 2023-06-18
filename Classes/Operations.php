@@ -63,7 +63,7 @@ class OperationsUser{
                     $ID = $result['ID'];
                     $_SESSION['ID'] = $ID;
                 } else {
-                    echo "<script>alert('Falha ao entrar! Email ou senha incorretos')</script>"; 
+                    echo "<alert>('Falha ao entrar! Email ou senha incorretos')</alert>"; 
                 }
             }
         }

@@ -84,12 +84,12 @@
         <div class="left-box-pf">
             <div class="about">
             <?php
-                session_start();
+                // session_start();
 
-                if (isset($_SESSION['USERNAME'])) {
-                    $USERNAME = $_SESSION['USERNAME'];
-                    echo '<h2>' . $USERNAME . '</h2>';
-                }
+                // if (isset($_SESSION['USERNAME'])) {
+                //     $USERNAME = $_SESSION['USERNAME'];
+                //     echo '<h2>' . $USERNAME . '</h2>';
+                // }
             ?>
 
                 <ul class="content">
