@@ -57,7 +57,6 @@ if (isset($_POST['Cadastrar']) && $_POST['Cadastrar'] == 'Cadastrar') {
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         header("location: index.php");
-        echo "<alert>O email inserido já está cadastrado!</alert>";
         exit();
     }
 
