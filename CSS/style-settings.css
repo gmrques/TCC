@@ -234,22 +234,24 @@ main {
 /* ////////////////////////////////////// */
 /* FORMULÁRIO DE ATUALIZAÇÃO DE PERFIL */
 
-form #update-user {
+form#update-user {
     opacity: 0;
     display: block;
     transition: 0.8s;
     position: relative;
     top: 50%;
-    right: 20%;
+    left: 15%;
+    max-width: 80%;
 }
 
-form #update-user.active {
+form#update-user.active {
     opacity: 1;
     display: block;
     transition: 0.8s;
     position: relative;
     top: 50%;
-    right: 20%;
+    left: 15%;
+    max-width: 80%;
 }
  
 .profiletabShow h1 {
@@ -262,7 +264,7 @@ form #update-user.active {
 }
  
 .right-box-prs {
-    max-width: calc(100% - 25%);
+    max-width: calc(100% - 50%);
     height: calc(100% - 10%);
     position: relative;
     left: 15%; 
@@ -361,7 +363,6 @@ label {
 
 .left-box-prs button:hover {
     color: #21b469;
-    letter-spacing: 0.1em;
     transition: 0.5s;
     cursor: pointer;
 }
